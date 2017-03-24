@@ -1,0 +1,29 @@
+{
+  "name": "ng2-homeworks",
+  "version": "1.0.7",
+  "description": "Front End framework that supported view binding.",
+  "main": "core",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IGAWorksDev/ng2-homeworks.git"
+  },
+  "keywords": [
+    "Frontend Framework",
+    "Material",
+    "IGAWorks",
+    "homeworks",
+    "framework",
+    "PIGNOSE"
+  ],
+  "author": "PIGNOSE <https://github.com/KennethanCeyer>",
+  "license": "apache 2.0",
+  "bugs": {
+    "url": "https://github.com/IGAWorksDev/ng2-homeworks/issues"
+  },
+  "homepage": "https://github.com/IGAWorksDev/ng2-homeworks#readme",
+  "readme": "README.md",
+  "dependencies": {
+    "homeworks": "^1.0.6"
+  }
+}
