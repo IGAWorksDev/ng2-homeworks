@@ -93,7 +93,13 @@ export class AppModule {
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js',
 
       // you must to add this line for using homeworks
+      //=====================================================================
+      // PUT THIS BLOCK IN YOUR SYSTEM CONFIG FILE.
+      //=====================================================================
       'ng2-homeworks': 'npm:ng2-homeworks'
+      //=====================================================================
+      // PUT THIS BLOCK IN YOUR SYSTEM CONFIG FILE.
+      //=====================================================================
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
@@ -105,11 +111,18 @@ export class AppModule {
         defaultExtension: 'js'
       },
 
+ 
       // and also you must to add this line for using homeworks
+      //=====================================================================
+      // PUT THIS BLOCK IN YOUR SYSTEM CONFIG FILE.
+      //=====================================================================
       'ng2-homeworks': {
           main: 'core.js',
           defaultExtension: 'js'
       }
+      //=====================================================================
+      // PUT THIS BLOCK IN YOUR SYSTEM CONFIG FILE.
+      //=====================================================================
     }
   });
 })(this);
