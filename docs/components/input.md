@@ -1,4 +1,6 @@
-﻿# Input Component
+# Input Component
+
+[Back to main page](../../README.md)
 
 ## Usage
 
