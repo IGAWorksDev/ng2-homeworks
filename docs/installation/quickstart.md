@@ -39,7 +39,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { Homeworks } from 'homeworks';
+import { Homeworks } from 'ng2-homeworks';
 
 @NgModule({
     imports: [
@@ -77,7 +77,7 @@ export class AppModule {
     // map tells the System loader where to look for things
     map: {
       // our app is within the app folder
-      app: 'Content',
+      app: '{your app folder}',
       // angular bundles
       '@angular/core': 'npm:@angular/core/bundles/core.umd.js',
       '@angular/common': 'npm:@angular/common/bundles/common.umd.js',
@@ -93,20 +93,20 @@ export class AppModule {
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js',
 
       // you must to add this line for using homeworks
-      'homeworks': 'npm:ng2-homeworks'
+      'ng2-homeworks': 'npm:ng2-homeworks'
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
-      app: {
+      'app': {
         main: 'main.js',
         defaultExtension: 'js'
       },
-      rxjs: {
+      'rxjs': {
         defaultExtension: 'js'
       },
 
       // and also you must to add this line for using homeworks
-      homeworks: {
+      'ng2-homeworks': {
           main: 'core.js',
           defaultExtension: 'js'
       }
