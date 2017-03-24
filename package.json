@@ -24,6 +24,6 @@
   "homepage": "https://github.com/IGAWorksDev/ng2-homeworks#readme",
   "readme": "README.md",
   "dependencies": {
-    "homeworks": "^1.0.9"
+    "homeworks": "^1.0.10"
   }
 }
