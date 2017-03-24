@@ -1,4 +1,6 @@
-﻿# Checkbox Component
+# Checkbox Component
+
+[Back to main page](https://github.com/IGAWorksDev/ng2-homeworks)
 
 ## Usage
 
