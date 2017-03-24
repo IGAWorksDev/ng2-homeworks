@@ -15,14 +15,14 @@ You can take part in editing this document using GitHub fork feature.
 
 ## Components
 
-- [checkbox](docs/components/checkbox.md)
-- [dropdown](docs/components/dropdown.md)
-- [input](docs/components/input.md)
-- [ripple](docs/components/ripple.md)
-- [spinner](docs/components/spinner.md)
-- [step](docs/components/step.md)
-- [tab](docs/components/tab.md)
-- [toggle](docs/components/toggle.md)
+- [Checkbox](docs/components/checkbox.md)
+- [Dropdown](docs/components/dropdown.md)
+- [Input](docs/components/input.md)
+- [Ripple](docs/components/ripple.md)
+- [Spinner](docs/components/spinner.md)
+- [Step](docs/components/step.md)
+- [Tab](docs/components/tab.md)
+- [Toggle](docs/components/toggle.md)
 
 ## Contribution
 
