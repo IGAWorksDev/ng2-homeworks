@@ -1,4 +1,6 @@
-﻿# Toggle Component
+# Toggle Component
+
+[Back to main page](../../README.md)
 
 ## Usage
 
