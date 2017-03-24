@@ -2,10 +2,17 @@
 
 ## Quick Start
 
-- Homeworks current version needs `jquery`.
+- Download HomeWorks from NPM.
+
+ ```bash
+$ npm install homeworks --save
+```
+
+- Homeworks has a denpendency with `jquery`, It will be installed automatically when you use NPM.
+- So, Put the following code on in your `<head>` tag.
 
 ```html
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
 ```
 
 - Also jquery typings is needed.
@@ -16,24 +23,6 @@ $ npm install typings -g
 
 # Install jquery typings that is dependented with homeworks.
 $ typings install dt~jquery --save --global
-```
-
-- Download HomeWorks from Git or Whatever.
-
- ```bash
-$ git clone git@github.com:IGAWorksDev/homeworks.git
-
-# or
-
-$ npm install homeworks --save
-
-# or
-
-$ yarn install homeworks --save
-
-# or
-
-$ bower install homeworks --save
 ```
 
 - And you need to put the code that the follows for using homeworks core javascript functions.
