@@ -9,6 +9,12 @@ This markdown document has not been completed yet.
 You can take part in editing this document using GitHub fork feature.
 ```
 
+## Overview
+
+This project is part of [Homeworks](https://github.com/IGAWorksDev/homeworks) project,
+
+So you would be better to install the core of Homeworks before you're following this instrduction.
+
 ## Installation
 
 - [Quick Start](docs/installation/quickstart.md)
