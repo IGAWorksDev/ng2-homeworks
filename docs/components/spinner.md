@@ -1,4 +1,6 @@
-﻿# Spinner Component
+# Spinner Component
+
+[Back to main page](../../README.md)
 
 ## Usage
 
