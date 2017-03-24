@@ -36,5 +36,5 @@ So you would be better to install the core of Homeworks before you're following 
 
 ## Contribution
 
-- core
-- model
+- Core
+- Model
