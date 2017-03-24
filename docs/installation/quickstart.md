@@ -93,7 +93,7 @@ export class AppModule {
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js',
 
       // you must to add this line for using homeworks
-      'homeworks': 'npm:homeworks/lib/ng2'
+      'homeworks': 'npm:ng2-homeworks'
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
