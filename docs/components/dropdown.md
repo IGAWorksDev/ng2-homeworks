@@ -1,4 +1,6 @@
-﻿# Dropdown Component
+# Dropdown Component
+ 
+[Back to main page](../../README.md)
 
 ## Usage
 
