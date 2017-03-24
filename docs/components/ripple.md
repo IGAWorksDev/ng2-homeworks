@@ -1,4 +1,6 @@
-﻿# Ripple Component
+# Ripple Component
+
+[Back to main page](../../README.md)
 
 ## Usage
 
