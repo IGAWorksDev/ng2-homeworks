@@ -1,6 +1,6 @@
 # Checkbox Component
 
-[Back to main page](https://github.com/IGAWorksDev/ng2-homeworks)
+[Back to main page](../../README.md)
 
 ## Usage
 
