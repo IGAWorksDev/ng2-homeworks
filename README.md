@@ -1,7 +1,7 @@
 # HOMEWORKS for Angular 2
 
-[![npm version](https://badge.fury.io/js/homeworks.svg)](https://badge.fury.io/js/ng2-homeworks)
-[![Bower version](https://badge.fury.io/bo/homeworks.svg)](https://badge.fury.io/bo/ng2-homeworks)
+[![npm version](https://badge.fury.io/js/ng2-homeworks.svg)](https://badge.fury.io/js/ng2-homeworks)
+[![Bower version](https://badge.fury.io/bo/ng2-homeworks.svg)](https://badge.fury.io/bo/ng2-homeworks)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 The HomeWorks framework fully supports angular components.
