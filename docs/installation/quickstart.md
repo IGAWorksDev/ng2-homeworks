@@ -110,7 +110,6 @@ export class AppModule {
       'rxjs': {
         defaultExtension: 'js'
       },
-
  
       // and also you must to add this line for using homeworks
       //=====================================================================
