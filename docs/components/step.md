@@ -1,4 +1,6 @@
-﻿# Step Component
+# Step Component
+
+[Back to main page](../../README.md)
 
 ## Usage
 
