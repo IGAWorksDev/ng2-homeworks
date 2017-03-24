@@ -19,6 +19,8 @@ This project is part of [Homeworks](https://github.com/IGAWorksDev/homeworks) pr
 
 So you would be better to install the core of Homeworks before you're following this instrduction.
 
+[See Homeworks project on GitHub](https://github.com/IGAWorksDev/homeworks)
+
 ## Installation
 
 - [Quick Start](docs/installation/quickstart.md)
