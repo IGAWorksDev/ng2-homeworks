@@ -2,6 +2,8 @@
 
 The HomeWorks framework fully supports angular components.
 
+![HomeWorks Framework](https://s3.ap-northeast-2.amazonaws.com/homeworks.igaworks.com/main/src/images/homeworks_cover_angular2_v1.png?v=1)
+
 ```plaintext
 This markdown document has not been completed yet.
 You can take part in editing this document using GitHub fork feature.
