@@ -1,4 +1,6 @@
-﻿# Tab Component
+# Tab Component
+
+[Back to main page](../../README.md)
 
 ## Usage
 
