@@ -1,0 +1,1 @@
+﻿export { WorksInput } from './directive.input';

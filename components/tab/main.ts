@@ -1,0 +1,1 @@
+﻿export { WorksTab, WorksTabItem } from './directive.tab';

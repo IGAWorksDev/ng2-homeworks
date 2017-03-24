@@ -1,0 +1,1 @@
+﻿declare function notification(title: string, content: string, url: string, status?: string): void;

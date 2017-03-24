@@ -1,0 +1,1 @@
+﻿export { WorksSpinner } from './directive.spinner';
