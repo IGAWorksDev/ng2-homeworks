@@ -5,7 +5,7 @@
 - Download HomeWorks from NPM.
 
  ```bash
-$ npm install homeworks --save
+$ npm install ng2-homeworks --save
 ```
 
 - Homeworks has a denpendency with `jquery`, It will be installed automatically when you use NPM.
