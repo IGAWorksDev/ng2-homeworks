@@ -17,16 +17,6 @@ $ npm install ng2-homeworks --save
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
 ```
 
-- Also jquery typings is needed.
-
-```bash
-# Install typings cli tool for install type definition (d.ts) files.
-$ npm install typings -g
-
-# Install jquery typings that is dependented with homeworks.
-$ typings install dt~jquery --save --global
-```
-
 - And you need to put the code that the follows for using homeworks core javascript functions.
 
 ```html
