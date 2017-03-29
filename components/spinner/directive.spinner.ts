@@ -138,8 +138,8 @@ export class WorksSpinner extends Homeworks implements ControlValueAccessor {
         let context = this;
 
         if (block === true) {
-            if (typeof context.$select !== 'undefined') {
-                context.$select.addClass('spinner-block');
+            if (typeof context.$element !== 'undefined') {
+                context.$element.find('.spinner').addClass('spinner-block');
                 context.renderer.setElementClass(context.elementRef.nativeElement, 'block', true);
             }
         }
@@ -161,6 +161,7 @@ export class WorksSpinner extends Homeworks implements ControlValueAccessor {
                 };
                 context.model = context.$select.val();
                 context.onUpdate.emit(value);
+
             });
 
         context.setBlock(context.block);

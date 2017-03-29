@@ -94,8 +94,8 @@ var WorksSpinner = WorksSpinner_1 = (function (_super) {
     WorksSpinner.prototype.setBlock = function (block) {
         var context = this;
         if (block === true) {
-            if (typeof context.$select !== 'undefined') {
-                context.$select.addClass('spinner-block');
+            if (typeof context.$element !== 'undefined') {
+                context.$element.find('.spinner').addClass('spinner-block');
                 context.renderer.setElementClass(context.elementRef.nativeElement, 'block', true);
             }
         }
