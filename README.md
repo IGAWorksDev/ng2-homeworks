@@ -22,7 +22,9 @@ This project is part of [Homeworks](https://github.com/IGAWorksDev/homeworks) pr
 
 So you would be better to install the core of Homeworks before you're following this instrduction.
 
-[See Homeworks project on GitHub](https://github.com/IGAWorksDev/homeworks)
+- [**See live demo site** (http://homeworks.igaworks.com)](http://homeworks.igaworks.com).
+- [See Github of this project](https://www.github.com/IGAWorksDev/ng2-homeworks).
+- [See Homeworks project on GitHub](https://github.com/IGAWorksDev/homeworks)
 
 ## Installation
 
