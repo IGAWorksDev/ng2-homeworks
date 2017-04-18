@@ -47,7 +47,7 @@ export class WorksDropdown extends Homeworks {
 
     ngAfterViewInit() {
         var context = this;
-        
+
         context.$dropdown.dropdown({
             target: context.pen ? $(context.pen) : null,
             direction: context.direction

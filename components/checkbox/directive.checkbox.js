@@ -61,12 +61,57 @@ var WorksCheckbox = WorksCheckbox_1 = (function (_super) {
         enumerable: true,
         configurable: true
     });
+    Object.defineProperty(WorksCheckbox.prototype, "disabled", {
+        get: function () {
+            return this.m_disabled;
+        },
+        set: function (value) {
+            this.m_disabled = value;
+            this.render();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(WorksCheckbox.prototype, "checked", {
+        get: function () {
+            return this.m_checked;
+        },
+        set: function (value) {
+            this.m_checked = value;
+            this.render();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(WorksCheckbox.prototype, "readonly", {
+        get: function () {
+            return this.m_readonly;
+        },
+        set: function (value) {
+            this.m_readonly = value;
+            this.render();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(WorksCheckbox.prototype, "required", {
+        get: function () {
+            return this.m_required;
+        },
+        set: function (value) {
+            this.m_required = value;
+            this.render();
+        },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(WorksCheckbox.prototype, "value", {
         get: function () {
             return this.m_value;
         },
         set: function (value) {
             this.m_value = value;
+            this.render();
         },
         enumerable: true,
         configurable: true
@@ -123,6 +168,10 @@ var WorksCheckbox = WorksCheckbox_1 = (function (_super) {
             context.onUpdate.emit(value);
         });
     };
+    WorksCheckbox.prototype.ngAfterViewInit = function () {
+        var context = this;
+        context.render();
+    };
     return WorksCheckbox;
 }(homeworks_1.Homeworks));
 __decorate([
@@ -157,20 +206,24 @@ __decorate([
 ], WorksCheckbox.prototype, "title", void 0);
 __decorate([
     core_1.Input(),
-    __metadata("design:type", Object)
-], WorksCheckbox.prototype, "disabled", void 0);
+    __metadata("design:type", Object),
+    __metadata("design:paramtypes", [Object])
+], WorksCheckbox.prototype, "disabled", null);
 __decorate([
     core_1.Input(),
-    __metadata("design:type", Object)
-], WorksCheckbox.prototype, "checked", void 0);
+    __metadata("design:type", Object),
+    __metadata("design:paramtypes", [Object])
+], WorksCheckbox.prototype, "checked", null);
 __decorate([
     core_1.Input(),
-    __metadata("design:type", Object)
-], WorksCheckbox.prototype, "readonly", void 0);
+    __metadata("design:type", Object),
+    __metadata("design:paramtypes", [Object])
+], WorksCheckbox.prototype, "readonly", null);
 __decorate([
     core_1.Input(),
-    __metadata("design:type", Object)
-], WorksCheckbox.prototype, "required", void 0);
+    __metadata("design:type", Object),
+    __metadata("design:paramtypes", [Object])
+], WorksCheckbox.prototype, "required", null);
 __decorate([
     core_1.Input(),
     __metadata("design:type", Object),
@@ -190,7 +243,7 @@ WorksCheckbox = WorksCheckbox_1 = __decorate([
                 multi: true
             }
         ],
-        template: "\n        <input #worksCheckbox\n            class=\"input\"\n            [attr.type]=\"type\"\n            [attr.id]=\"id\"\n            [attr.name]=\"name\"\n            [attr.title]=\"title\"\n            [attr.disabled]=\"disabled\"\n            [attr.checked]=\"checked\"\n            [attr.readonly]=\"readonly\"\n            [attr.required]=\"required\"\n            [attr.value]=\"value\" />\n    ",
+        template: "\n        <input #worksCheckbox\n            class=\"input\"\n            [attr.type]=\"type\"\n            [attr.id]=\"id\"\n            [attr.name]=\"name\"\n            [attr.title]=\"title\"\n            [disabled]=\"disabled\"\n            [checked]=\"checked\"\n            [readonly]=\"readonly\"\n            [required]=\"required\"\n            [attr.value]=\"value\" />\n    ",
         changeDetection: core_1.ChangeDetectionStrategy.Default
     }),
     __metadata("design:paramtypes", [core_1.Renderer,

@@ -19,9 +19,9 @@ const COMPONENT: string = 'spinner';
             [attr.id]="id"
             [attr.name]="name"
             [attr.title]="title"
-            [attr.disabled]="disabled"
+            [disabled]="disabled"
             [attr.readonly]="readonly"
-            [attr.required]="required"
+            [required]="required"
             [attr.placeholder]="placeholder" >
             <ng-content></ng-content>
         </select>
@@ -46,6 +46,9 @@ export class WorksSpinner extends Homeworks implements ControlValueAccessor {
     private propagateTouch: any = Function.prototype;
 
     private m_model: any;
+    private m_disabled: any;
+    private m_readonly: any;
+    private m_required: any;
     private m_placeholder: string;
     private m_block: boolean;
 
@@ -83,11 +86,35 @@ export class WorksSpinner extends Homeworks implements ControlValueAccessor {
 
     @Input() title: string;
 
-    @Input() disabled: any;
+    @Input()
+    get disabled(): any {
+        return this.m_disabled;
+    }
 
-    @Input() readonly: any;
+    set disabled(value: any) {
+        this.m_disabled = value;
+        this.render();
+    }
 
-    @Input() required: any;
+    @Input()
+    get readonly(): any {
+        return this.m_readonly;
+    }
+
+    set readonly(value: any) {
+        this.m_readonly = value;
+        this.render();
+    }
+
+    @Input()
+    get required(): any {
+        return this.m_required;
+    }
+
+    set required(value: any) {
+        this.m_required = value;
+        this.render();
+    }
 
     @Output('update')
     onUpdate: EventEmitter<HomeWorksEventObject> = new EventEmitter<HomeWorksEventObject>();
@@ -165,5 +192,11 @@ export class WorksSpinner extends Homeworks implements ControlValueAccessor {
             });
 
         context.setBlock(context.block);
+    }
+
+    ngAfterViewInit() {
+        var context = this;
+
+        context.render();
     }
 }

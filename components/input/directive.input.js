@@ -43,7 +43,6 @@ var WorksInput = WorksInput_1 = (function (_super) {
         },
         set: function (value) {
             this.m_placeholder = value;
-            this.changeDectecterRef.detectChanges();
             this.render();
         },
         enumerable: true,
@@ -86,6 +85,39 @@ var WorksInput = WorksInput_1 = (function (_super) {
         enumerable: true,
         configurable: true
     });
+    Object.defineProperty(WorksInput.prototype, "disabled", {
+        get: function () {
+            return this.m_disabled;
+        },
+        set: function (value) {
+            this.m_disabled = value;
+            this.render();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(WorksInput.prototype, "readonly", {
+        get: function () {
+            return this.m_readonly;
+        },
+        set: function (value) {
+            this.m_readonly = value;
+            this.render();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(WorksInput.prototype, "required", {
+        get: function () {
+            return this.m_required;
+        },
+        set: function (value) {
+            this.m_required = value;
+            this.render();
+        },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(WorksInput.prototype, "model", {
         get: function () {
             return this.m_model;
@@ -93,6 +125,7 @@ var WorksInput = WorksInput_1 = (function (_super) {
         set: function (value) {
             this.m_model = value;
             this.propagateChange(value);
+            this.changeDectecterRef.detectChanges();
             this.render();
         },
         enumerable: true,
@@ -113,7 +146,7 @@ var WorksInput = WorksInput_1 = (function (_super) {
     WorksInput.prototype.render = function () {
         var context = this;
         if (typeof context.$input !== 'undefined') {
-            context.$input.triggerHandler('update');
+            context.$input.triggerHandler('update', context.m_model);
         }
     };
     WorksInput.prototype.onInput = function ($event) {
@@ -147,6 +180,10 @@ var WorksInput = WorksInput_1 = (function (_super) {
             };
             context.onUpdate.emit(value);
         });
+    };
+    WorksInput.prototype.ngAfterViewInit = function () {
+        var context = this;
+        context.render();
     };
     return WorksInput;
 }(homeworks_1.Homeworks));
@@ -197,24 +234,23 @@ __decorate([
 ], WorksInput.prototype, "title", void 0);
 __decorate([
     core_1.Input(),
-    __metadata("design:type", Object)
-], WorksInput.prototype, "disabled", void 0);
+    __metadata("design:type", Object),
+    __metadata("design:paramtypes", [Object])
+], WorksInput.prototype, "disabled", null);
 __decorate([
     core_1.Input(),
-    __metadata("design:type", Object)
-], WorksInput.prototype, "readonly", void 0);
+    __metadata("design:type", Object),
+    __metadata("design:paramtypes", [Object])
+], WorksInput.prototype, "readonly", null);
 __decorate([
     core_1.Input(),
-    __metadata("design:type", Object)
-], WorksInput.prototype, "required", void 0);
+    __metadata("design:type", Object),
+    __metadata("design:paramtypes", [Object])
+], WorksInput.prototype, "required", null);
 __decorate([
     core_1.Input(),
     __metadata("design:type", Boolean)
 ], WorksInput.prototype, "validation", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], WorksInput.prototype, "value", void 0);
 __decorate([
     core_1.Output('update'),
     __metadata("design:type", core_1.EventEmitter)
@@ -229,7 +265,7 @@ WorksInput = WorksInput_1 = __decorate([
                 multi: true
             }
         ],
-        template: "\n        <input #worksInput\n            class=\"input\"\n            [(ngModel)]=\"model\"\n            [attr.type]=\"type\"\n            [attr.id]=\"id\"\n            [attr.name]=\"name\"\n            [attr.title]=\"title\"\n            [attr.disabled]=\"disabled\"\n            [attr.readonly]=\"readonly\"\n            [attr.required]=\"required\"\n            [attr.placeholder]=\"placeholder\"\n            [attr.value]=\"value\" />\n    ",
+        template: "\n        <input #worksInput\n            class=\"input\"\n            [(ngModel)]=\"model\"\n            [attr.type]=\"type\"\n            [attr.id]=\"id\"\n            [attr.name]=\"name\"\n            [attr.title]=\"title\"\n            [disabled]=\"disabled\"\n            [readonly]=\"readonly\"\n            [required]=\"required\"\n            [attr.placeholder]=\"placeholder\" />\n    ",
         styles: ["\n        :host {\n            display: inline-block;\n            vertical-align: middle;\n        }\n\n        :host.block {\n            display: block;\n            vertical-align: initial;\n        }\n    "],
         host: {
             input: 'onInput($event)'

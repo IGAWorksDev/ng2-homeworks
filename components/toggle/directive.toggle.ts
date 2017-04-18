@@ -22,10 +22,10 @@ const ALIAS: string = 'input';
             [attr.id]="id"
             [attr.name]="name"
             [attr.title]="title"
-            [attr.disabled]="disabled"
-            [attr.checked]="checked"
-            [attr.readonly]="readonly"
-            [attr.required]="required"
+            [disabled]="disabled"
+            [checked]="checked"
+            [readonly]="readonly"
+            [required]="required"
             [attr.value]="value" />
     `,
     changeDetection: ChangeDetectionStrategy.Default
@@ -37,6 +37,10 @@ export class WorksToggle extends Homeworks implements ControlValueAccessor {
     private propagateTouch: any = Function.prototype;
 
     private m_model: any;
+    private m_disabled: any;
+    private m_checked: any;
+    private m_readonly: any;
+    private m_required: any;
     private m_placeholder: any;
     private m_color: string;
 
@@ -105,13 +109,45 @@ export class WorksToggle extends Homeworks implements ControlValueAccessor {
 
     @Input() title: string;
 
-    @Input() disabled: any;
+    @Input()
+    get checked(): any {
+        return this.m_checked;
+    }
 
-    @Input() checked: any;
+    set checked(value: any) {
+        this.m_checked = value;
+        this.render();
+    }
 
-    @Input() readonly: any;
+    @Input()
+    get disabled(): any {
+        return this.m_disabled;
+    }
 
-    @Input() required: any;
+    set disabled(value: any) {
+        this.m_disabled = value;
+        this.render();
+    }
+
+    @Input()
+    get readonly(): any {
+        return this.m_readonly;
+    }
+
+    set readonly(value: any) {
+        this.m_readonly = value;
+        this.render();
+    }
+
+    @Input()
+    get required(): any {
+        return this.m_required;
+    }
+
+    set required(value: any) {
+        this.m_required = value;
+        this.render();
+    }
 
     @Input() value: any;
 
@@ -170,5 +206,11 @@ export class WorksToggle extends Homeworks implements ControlValueAccessor {
                 };
                 context.onUpdate.emit(value);
             });
+    }
+
+    ngAfterViewInit() {
+        var context = this;
+
+        context.render();
     }
 }

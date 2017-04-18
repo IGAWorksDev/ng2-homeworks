@@ -92,6 +92,50 @@ var WorksToggle = WorksToggle_1 = (function (_super) {
         enumerable: true,
         configurable: true
     });
+    Object.defineProperty(WorksToggle.prototype, "checked", {
+        get: function () {
+            return this.m_checked;
+        },
+        set: function (value) {
+            this.m_checked = value;
+            this.render();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(WorksToggle.prototype, "disabled", {
+        get: function () {
+            return this.m_disabled;
+        },
+        set: function (value) {
+            this.m_disabled = value;
+            this.render();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(WorksToggle.prototype, "readonly", {
+        get: function () {
+            return this.m_readonly;
+        },
+        set: function (value) {
+            this.m_readonly = value;
+            this.render();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(WorksToggle.prototype, "required", {
+        get: function () {
+            return this.m_required;
+        },
+        set: function (value) {
+            this.m_required = value;
+            this.render();
+        },
+        enumerable: true,
+        configurable: true
+    });
     WorksToggle.prototype.writeValue = function (value) {
         var context = this;
         context.model = value;
@@ -126,6 +170,10 @@ var WorksToggle = WorksToggle_1 = (function (_super) {
             };
             context.onUpdate.emit(value);
         });
+    };
+    WorksToggle.prototype.ngAfterViewInit = function () {
+        var context = this;
+        context.render();
     };
     return WorksToggle;
 }(homeworks_1.Homeworks));
@@ -171,20 +219,24 @@ __decorate([
 ], WorksToggle.prototype, "title", void 0);
 __decorate([
     core_1.Input(),
-    __metadata("design:type", Object)
-], WorksToggle.prototype, "disabled", void 0);
+    __metadata("design:type", Object),
+    __metadata("design:paramtypes", [Object])
+], WorksToggle.prototype, "checked", null);
 __decorate([
     core_1.Input(),
-    __metadata("design:type", Object)
-], WorksToggle.prototype, "checked", void 0);
+    __metadata("design:type", Object),
+    __metadata("design:paramtypes", [Object])
+], WorksToggle.prototype, "disabled", null);
 __decorate([
     core_1.Input(),
-    __metadata("design:type", Object)
-], WorksToggle.prototype, "readonly", void 0);
+    __metadata("design:type", Object),
+    __metadata("design:paramtypes", [Object])
+], WorksToggle.prototype, "readonly", null);
 __decorate([
     core_1.Input(),
-    __metadata("design:type", Object)
-], WorksToggle.prototype, "required", void 0);
+    __metadata("design:type", Object),
+    __metadata("design:paramtypes", [Object])
+], WorksToggle.prototype, "required", null);
 __decorate([
     core_1.Input(),
     __metadata("design:type", Object)
@@ -203,7 +255,7 @@ WorksToggle = WorksToggle_1 = __decorate([
                 multi: true
             }
         ],
-        template: "\n        <input #worksToggle\n            class=\"input\"\n            [attr.type]=\"type\"\n            [attr.type]=\"type\"\n            [attr.id]=\"id\"\n            [attr.name]=\"name\"\n            [attr.title]=\"title\"\n            [attr.disabled]=\"disabled\"\n            [attr.checked]=\"checked\"\n            [attr.readonly]=\"readonly\"\n            [attr.required]=\"required\"\n            [attr.value]=\"value\" />\n    ",
+        template: "\n        <input #worksToggle\n            class=\"input\"\n            [attr.type]=\"type\"\n            [attr.type]=\"type\"\n            [attr.id]=\"id\"\n            [attr.name]=\"name\"\n            [attr.title]=\"title\"\n            [disabled]=\"disabled\"\n            [checked]=\"checked\"\n            [readonly]=\"readonly\"\n            [required]=\"required\"\n            [attr.value]=\"value\" />\n    ",
         changeDetection: core_1.ChangeDetectionStrategy.Default
     }),
     __metadata("design:paramtypes", [core_1.Renderer,

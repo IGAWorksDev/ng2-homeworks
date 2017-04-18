@@ -21,11 +21,10 @@ const COMPONENT: string = 'input';
             [attr.id]="id"
             [attr.name]="name"
             [attr.title]="title"
-            [attr.disabled]="disabled"
-            [attr.readonly]="readonly"
-            [attr.required]="required"
-            [attr.placeholder]="placeholder"
-            [attr.value]="value" />
+            [disabled]="disabled"
+            [readonly]="readonly"
+            [required]="required"
+            [attr.placeholder]="placeholder" />
     `,
     styles: [`
         :host {
@@ -53,6 +52,9 @@ export class WorksInput extends Homeworks implements ControlValueAccessor {
     private m_model: any;
     private m_color: string;
     private m_size: string;
+    private m_disabled: any;
+    private m_readonly: any;
+    private m_required: any;
     private m_placeholder: string;
     private m_block: boolean;
 
@@ -69,7 +71,6 @@ export class WorksInput extends Homeworks implements ControlValueAccessor {
     }
     set placeholder(value: string) {
         this.m_placeholder = value;
-        this.changeDectecterRef.detectChanges();
         this.render();
     }
 
@@ -111,15 +112,37 @@ export class WorksInput extends Homeworks implements ControlValueAccessor {
 
     @Input() title: string;
 
-    @Input() disabled: any;
+    @Input()
+    get disabled(): any {
+        return this.m_disabled;
+    }
 
-    @Input() readonly: any;
+    set disabled(value: any) {
+        this.m_disabled = value;
+        this.render();
+    }
 
-    @Input() required: any;
+    @Input()
+    get readonly(): any {
+        return this.m_readonly;
+    }
+
+    set readonly(value: any) {
+        this.m_readonly = value;
+        this.render();
+    }
+
+    @Input()
+    get required(): any {
+        return this.m_required;
+    }
+
+    set required(value: any) {
+        this.m_required = value;
+        this.render();
+    }
 
     @Input() validation: boolean;
-
-    @Input() value: any;
 
     get model(): any {
         return this.m_model;
@@ -127,6 +150,7 @@ export class WorksInput extends Homeworks implements ControlValueAccessor {
     set model(value: any) {
         this.m_model = value;
         this.propagateChange(value);
+        this.changeDectecterRef.detectChanges();
         this.render();
     }
 
@@ -163,7 +187,7 @@ export class WorksInput extends Homeworks implements ControlValueAccessor {
         var context = this;
 
         if (typeof context.$input !== 'undefined') {
-            context.$input.triggerHandler('update');
+            context.$input.triggerHandler('update', context.m_model);
         }
     }
 
@@ -205,5 +229,11 @@ export class WorksInput extends Homeworks implements ControlValueAccessor {
                 }
                 context.onUpdate.emit(value);
             });
+    }
+
+    ngAfterViewInit() {
+        var context = this;
+
+        context.render();
     }
 }
