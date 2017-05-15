@@ -13,16 +13,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require("@angular/core");
-var homeworks_1 = require("../../core/homeworks");
+var core_1 = require('@angular/core');
+var homeworks_1 = require('../../core/homeworks');
 var COMPONENT = 'ripple';
 var WorksRipple = (function (_super) {
     __extends(WorksRipple, _super);
     function WorksRipple(renderer, elementRef) {
-        var _this = _super.call(this, renderer, COMPONENT) || this;
-        _this.renderer = renderer;
-        _this.elementRef = elementRef;
-        return _this;
+        _super.call(this, renderer, COMPONENT);
+        this.renderer = renderer;
+        this.elementRef = elementRef;
     }
     WorksRipple.prototype.ngOnInit = function () {
         var context = this;
@@ -31,18 +30,17 @@ var WorksRipple = (function (_super) {
             theme: context.ripple
         });
     };
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', String)
+    ], WorksRipple.prototype, "ripple", void 0);
+    WorksRipple = __decorate([
+        core_1.Directive({
+            selector: 'works-ripple, [ripple]'
+        }), 
+        __metadata('design:paramtypes', [core_1.Renderer, core_1.ElementRef])
+    ], WorksRipple);
     return WorksRipple;
 }(homeworks_1.Homeworks));
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], WorksRipple.prototype, "ripple", void 0);
-WorksRipple = __decorate([
-    core_1.Directive({
-        selector: 'works-ripple, [ripple]'
-    }),
-    __metadata("design:paramtypes", [core_1.Renderer,
-        core_1.ElementRef])
-], WorksRipple);
 exports.WorksRipple = WorksRipple;
 //# sourceMappingURL=directive.ripple.js.map
