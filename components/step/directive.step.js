@@ -1,9 +1,13 @@
-"use strict";
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -13,16 +17,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var homeworks_1 = require('../../core/homeworks');
+import { Component, Directive, ElementRef, Renderer, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+import { Homeworks } from '../../core/homeworks';
 var COMPONENT = 'step';
 var WorksStep = (function (_super) {
     __extends(WorksStep, _super);
     function WorksStep(renderer, elementRef) {
-        _super.call(this, renderer, COMPONENT);
-        this.renderer = renderer;
-        this.elementRef = elementRef;
-        this.onMove = new core_1.EventEmitter();
+        var _this = _super.call(this, renderer, COMPONENT) || this;
+        _this.renderer = renderer;
+        _this.elementRef = elementRef;
+        _this.onMove = new EventEmitter();
+        return _this;
     }
     WorksStep.prototype.ngOnInit = function () {
         var context = this;
@@ -38,33 +43,35 @@ var WorksStep = (function (_super) {
             context.onMove.emit(stepInfo);
         });
     };
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Number)
-    ], WorksStep.prototype, "active", void 0);
-    __decorate([
-        core_1.Output('move'), 
-        __metadata('design:type', core_1.EventEmitter)
-    ], WorksStep.prototype, "onMove", void 0);
-    WorksStep = __decorate([
-        core_1.Component({
-            selector: 'works-step',
-            template: "<ng-content></ng-content>",
-            changeDetection: core_1.ChangeDetectionStrategy.Default
-        }), 
-        __metadata('design:paramtypes', [core_1.Renderer, core_1.ElementRef])
-    ], WorksStep);
     return WorksStep;
-}(homeworks_1.Homeworks));
-exports.WorksStep = WorksStep;
+}(Homeworks));
+__decorate([
+    Input(),
+    __metadata("design:type", Number)
+], WorksStep.prototype, "active", void 0);
+__decorate([
+    Output('move'),
+    __metadata("design:type", EventEmitter)
+], WorksStep.prototype, "onMove", void 0);
+WorksStep = __decorate([
+    Component({
+        selector: 'works-step',
+        template: "<ng-content></ng-content>",
+        changeDetection: ChangeDetectionStrategy.Default
+    }),
+    __metadata("design:paramtypes", [Renderer,
+        ElementRef])
+], WorksStep);
+export { WorksStep };
 var WorksStepItem = (function (_super) {
     __extends(WorksStepItem, _super);
     function WorksStepItem(renderer, elementRef) {
-        _super.call(this, renderer, COMPONENT);
-        this.renderer = renderer;
-        this.elementRef = elementRef;
-        this.titleElement = null;
-        this.contentElement = null;
+        var _this = _super.call(this, renderer, COMPONENT) || this;
+        _this.renderer = renderer;
+        _this.elementRef = elementRef;
+        _this.titleElement = null;
+        _this.contentElement = null;
+        return _this;
     }
     Object.defineProperty(WorksStepItem.prototype, "title", {
         get: function () {
@@ -96,17 +103,19 @@ var WorksStepItem = (function (_super) {
         context.contentElement.appendChild(context.elementRef.nativeElement);
         container.parentElement.appendChild(container);
     };
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', String)
-    ], WorksStepItem.prototype, "title", null);
-    WorksStepItem = __decorate([
-        core_1.Directive({
-            selector: 'works-step-item'
-        }), 
-        __metadata('design:paramtypes', [core_1.Renderer, core_1.ElementRef])
-    ], WorksStepItem);
     return WorksStepItem;
-}(homeworks_1.Homeworks));
-exports.WorksStepItem = WorksStepItem;
+}(Homeworks));
+__decorate([
+    Input(),
+    __metadata("design:type", String),
+    __metadata("design:paramtypes", [String])
+], WorksStepItem.prototype, "title", null);
+WorksStepItem = __decorate([
+    Directive({
+        selector: 'works-step-item'
+    }),
+    __metadata("design:paramtypes", [Renderer,
+        ElementRef])
+], WorksStepItem);
+export { WorksStepItem };
 //# sourceMappingURL=directive.step.js.map

@@ -1,4 +1,11 @@
-﻿/**
+﻿// Type definitions for homeworks 1.0
+// Project: https://github.com/IGAWorksDev/homeworks/
+// Definitions by: Kenneth Ceyer <https://github.com/KennethanCeyer>
+// Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
+
+/// <reference types="jquery" />
+
+/**
  * * [MAIN]
  * @ EVENT
  *
@@ -98,7 +105,7 @@ interface RippleStartOptions {
 }
 
 declare interface JQuery {
-    ripple(options?: Object): JQuery;
+    ripple(options?: any): JQuery;
     start(options?: RippleStartOptions): JQuery;
 }
 
@@ -133,7 +140,7 @@ declare interface JQuery {
 }
 
 declare interface HomeWorksStepEventObject {
-    header: Array<JQuery>;
+    header: JQuery[];
     index: number;
     length: number;
 }
@@ -154,7 +161,7 @@ declare interface JQuery {
 }
 
 declare interface HomeWorksTabEventObject {
-    header: Array<JQuery>;
+    header: JQuery[];
     index: number;
     length: number;
 }
@@ -165,17 +172,17 @@ declare interface HomeWorksTabEventObject {
  *
  */
 
-declare function toast(message: string): void;
-
-interface ToggleOptions {
-    placeholder?: string;
-}
+declare function toast(message: any): void;
 
 /**
  * * [COMPONENT]
  * @ TOGGLE
  *
  */
+
+interface ToggleOptions {
+    placeholder?: string;
+}
 
 declare interface JQuery {
     toggle(options: ToggleOptions): JQuery;
@@ -190,13 +197,13 @@ declare interface JQuery {
 interface UploadOptions {
     url: string;
     type?: string;
-    data?: Object;
+    data?: any;
     dest?: string;
     isBtn?: boolean;
     beforeStart?: () => void;
     complete?: (data?: any) => void;
-    success?: (data?: any, state?: Object, xhr?: Object) => void;
-    error?: (xhr?: Object, state?: Object, error?: any) => void;
+    success?: (data?: any, state?: any, xhr?: any) => void;
+    error?: (xhr?: any, state?: any, error?: any) => void;
     extensions?: any;
 }
 

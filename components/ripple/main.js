@@ -1,4 +1,2 @@
-"use strict";
-var directive_ripple_1 = require('./directive.ripple');
-exports.WorksRipple = directive_ripple_1.WorksRipple;
+export { WorksRipple } from './directive.ripple';
 //# sourceMappingURL=main.js.map

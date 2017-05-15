@@ -1,4 +1,2 @@
-"use strict";
-var directive_input_1 = require('./directive.input');
-exports.WorksInput = directive_input_1.WorksInput;
+export { WorksInput } from './directive.input';
 //# sourceMappingURL=main.js.map

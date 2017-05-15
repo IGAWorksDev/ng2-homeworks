@@ -1,4 +1,2 @@
-"use strict";
-var directive_toggle_1 = require('./directive.toggle');
-exports.WorksToggle = directive_toggle_1.WorksToggle;
+export { WorksToggle } from './directive.toggle';
 //# sourceMappingURL=main.js.map

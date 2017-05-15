@@ -1,5 +1,4 @@
-"use strict";
-var model_1 = require('./model');
+import { Colors, Sizes } from './model';
 var Homeworks = (function () {
     function Homeworks(renderer, component, alias) {
         if (alias === void 0) { alias = null; }
@@ -57,9 +56,9 @@ var Homeworks = (function () {
     };
     Homeworks.prototype.setColor = function (el, color) {
         var context = this;
-        var index = model_1.Colors.indexOf(color);
+        var index = Colors.indexOf(color);
         if (index !== -1) {
-            model_1.Colors.filter(function (e, i) {
+            Colors.filter(function (e, i) {
                 return i !== index;
             }).map(function (e, i) {
                 context.setElementClass(el, e, false);
@@ -70,7 +69,7 @@ var Homeworks = (function () {
     Homeworks.prototype.setSize = function (el, size) {
         var context = this;
         var sizeClassName = context.getSizeClassName(size);
-        model_1.Sizes.filter(function (e, i) {
+        Sizes.filter(function (e, i) {
             return e !== size;
         }).map(function (e, i) {
             var removeSizeName = context.getSizeClassName(e);
@@ -96,5 +95,5 @@ var Homeworks = (function () {
     };
     return Homeworks;
 }());
-exports.Homeworks = Homeworks;
+export { Homeworks };
 //# sourceMappingURL=homeworks.js.map

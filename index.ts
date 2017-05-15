@@ -1,4 +1,5 @@
 ﻿/// <reference path="typings/index.d.ts" />
+
 import { NgModule } from '@angular/core';
 
 import { WorksSpinner } from './components/spinner/main';
