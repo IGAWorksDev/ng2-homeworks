@@ -1,6 +1,6 @@
 {
   "name": "ng2-homeworks",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "description": "Front End framework that supported view binding.",
   "main": "main.js",
   "module": "main.js",
