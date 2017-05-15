@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+/// <reference path="node_modules/homeworks/typings/index.d.ts" />
 var core_1 = require("@angular/core");
 var main_1 = require("./components/spinner/main");
 var main_2 = require("./components/dropdown/main");
@@ -61,4 +62,4 @@ Homeworks = __decorate([
     __metadata("design:paramtypes", [])
 ], Homeworks);
 exports.Homeworks = Homeworks;
-//# sourceMappingURL=main.js.map
+//# sourceMappingURL=index.js.map

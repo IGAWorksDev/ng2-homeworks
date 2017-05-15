@@ -1,4 +1,5 @@
-﻿import { NgModule } from '@angular/core';
+﻿/// <reference path="node_modules/homeworks/typings/index.d.ts" />
+import { NgModule } from '@angular/core';
 
 import { WorksSpinner } from './components/spinner/main';
 import { WorksDropdown } from './components/dropdown/main';
