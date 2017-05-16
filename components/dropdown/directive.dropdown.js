@@ -1,13 +1,9 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
+"use strict";
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -17,8 +13,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Component, ElementRef, Renderer, Input, ViewChild, ChangeDetectionStrategy } from '@angular/core';
-import { Homeworks } from '../../core/homeworks';
+var core_1 = require("@angular/core");
+var homeworks_1 = require("../../core/homeworks");
 var COMPONENT = 'dropdown';
 var WorksDropdown = (function (_super) {
     __extends(WorksDropdown, _super);
@@ -48,32 +44,32 @@ var WorksDropdown = (function (_super) {
         });
     };
     return WorksDropdown;
-}(Homeworks));
+}(homeworks_1.Homeworks));
 __decorate([
-    Input(),
+    core_1.Input(),
     __metadata("design:type", String)
 ], WorksDropdown.prototype, "direction", void 0);
 __decorate([
-    Input(),
+    core_1.Input(),
     __metadata("design:type", String)
 ], WorksDropdown.prototype, "pen", void 0);
 __decorate([
-    Input(),
+    core_1.Input(),
     __metadata("design:type", String),
     __metadata("design:paramtypes", [String])
 ], WorksDropdown.prototype, "class", null);
 __decorate([
-    ViewChild('worksDropdown'),
-    __metadata("design:type", ElementRef)
+    core_1.ViewChild('worksDropdown'),
+    __metadata("design:type", core_1.ElementRef)
 ], WorksDropdown.prototype, "dropdownChild", void 0);
 WorksDropdown = __decorate([
-    Component({
+    core_1.Component({
         selector: 'works-dropdown',
         template: "\n        <div #worksDropdown\n            class=\"dropdown\">\n            <ng-content></ng-content>\n        </div>\n    ",
-        changeDetection: ChangeDetectionStrategy.OnPush
+        changeDetection: core_1.ChangeDetectionStrategy.OnPush
     }),
-    __metadata("design:paramtypes", [Renderer,
-        ElementRef])
+    __metadata("design:paramtypes", [core_1.Renderer,
+        core_1.ElementRef])
 ], WorksDropdown);
-export { WorksDropdown };
+exports.WorksDropdown = WorksDropdown;
 //# sourceMappingURL=directive.dropdown.js.map

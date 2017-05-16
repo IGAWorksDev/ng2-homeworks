@@ -1,4 +1,5 @@
-export var Colors = [
+"use strict";
+exports.Colors = [
     'normal',
     'default',
     'force',
@@ -9,7 +10,7 @@ export var Colors = [
     'alert',
     'success'
 ];
-export var Sizes = [
+exports.Sizes = [
     'extra large',
     'large',
     'normal',

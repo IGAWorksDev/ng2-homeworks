@@ -1,13 +1,9 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
+"use strict";
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -17,9 +13,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Component, ElementRef, Renderer, Input, Output, EventEmitter, forwardRef, ViewChild, ChangeDetectionStrategy } from '@angular/core';
-import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { Homeworks } from '../../core/homeworks';
+var core_1 = require("@angular/core");
+var forms_1 = require("@angular/forms");
+var homeworks_1 = require("../../core/homeworks");
 var COMPONENT = 'spinner';
 var WorksSpinner = WorksSpinner_1 = (function (_super) {
     __extends(WorksSpinner, _super);
@@ -29,7 +25,7 @@ var WorksSpinner = WorksSpinner_1 = (function (_super) {
         _this.elementRef = elementRef;
         _this.propagateChange = Function.prototype;
         _this.propagateTouch = Function.prototype;
-        _this.onUpdate = new EventEmitter();
+        _this.onUpdate = new core_1.EventEmitter();
         return _this;
     }
     Object.defineProperty(WorksSpinner.prototype, "class", {
@@ -158,74 +154,74 @@ var WorksSpinner = WorksSpinner_1 = (function (_super) {
         context.render();
     };
     return WorksSpinner;
-}(Homeworks));
+}(homeworks_1.Homeworks));
 __decorate([
-    ViewChild('worksSelect'),
-    __metadata("design:type", ElementRef)
+    core_1.ViewChild('worksSelect'),
+    __metadata("design:type", core_1.ElementRef)
 ], WorksSpinner.prototype, "selectChild", void 0);
 __decorate([
-    Input(),
+    core_1.Input(),
     __metadata("design:type", String),
     __metadata("design:paramtypes", [String])
 ], WorksSpinner.prototype, "class", null);
 __decorate([
-    Input(),
+    core_1.Input(),
     __metadata("design:type", String),
     __metadata("design:paramtypes", [String])
 ], WorksSpinner.prototype, "placeholder", null);
 __decorate([
-    Input(),
+    core_1.Input(),
     __metadata("design:type", Object),
     __metadata("design:paramtypes", [Object])
 ], WorksSpinner.prototype, "block", null);
 __decorate([
-    Input(),
+    core_1.Input(),
     __metadata("design:type", String)
 ], WorksSpinner.prototype, "id", void 0);
 __decorate([
-    Input(),
+    core_1.Input(),
     __metadata("design:type", String)
 ], WorksSpinner.prototype, "name", void 0);
 __decorate([
-    Input(),
+    core_1.Input(),
     __metadata("design:type", String)
 ], WorksSpinner.prototype, "title", void 0);
 __decorate([
-    Input(),
+    core_1.Input(),
     __metadata("design:type", Object),
     __metadata("design:paramtypes", [Object])
 ], WorksSpinner.prototype, "disabled", null);
 __decorate([
-    Input(),
+    core_1.Input(),
     __metadata("design:type", Object),
     __metadata("design:paramtypes", [Object])
 ], WorksSpinner.prototype, "readonly", null);
 __decorate([
-    Input(),
+    core_1.Input(),
     __metadata("design:type", Object),
     __metadata("design:paramtypes", [Object])
 ], WorksSpinner.prototype, "required", null);
 __decorate([
-    Output('update'),
-    __metadata("design:type", EventEmitter)
+    core_1.Output('update'),
+    __metadata("design:type", core_1.EventEmitter)
 ], WorksSpinner.prototype, "onUpdate", void 0);
 WorksSpinner = WorksSpinner_1 = __decorate([
-    Component({
+    core_1.Component({
         selector: 'works-spinner',
         providers: [
             {
-                provide: NG_VALUE_ACCESSOR,
-                useExisting: forwardRef(function () { return WorksSpinner_1; }),
+                provide: forms_1.NG_VALUE_ACCESSOR,
+                useExisting: core_1.forwardRef(function () { return WorksSpinner_1; }),
                 multi: true
             }
         ],
         template: "\n        <select #worksSelect \n            [(ngModel)]=\"model\"\n            [attr.id]=\"id\"\n            [attr.name]=\"name\"\n            [attr.title]=\"title\"\n            [disabled]=\"disabled\"\n            [attr.readonly]=\"readonly\"\n            [required]=\"required\"\n            [attr.placeholder]=\"placeholder\" >\n            <ng-content></ng-content>\n        </select>\n    ",
         styles: ["\n        :host {\n            display: inline-block;\n            vertical-align: middle;\n        }\n   \n        :host.block {\n            display: block;\n            vertical-align: initial;\n        }\n    "],
-        changeDetection: ChangeDetectionStrategy.Default
+        changeDetection: core_1.ChangeDetectionStrategy.Default
     }),
-    __metadata("design:paramtypes", [Renderer,
-        ElementRef])
+    __metadata("design:paramtypes", [core_1.Renderer,
+        core_1.ElementRef])
 ], WorksSpinner);
-export { WorksSpinner };
+exports.WorksSpinner = WorksSpinner;
 var WorksSpinner_1;
 //# sourceMappingURL=directive.spinner.js.map
