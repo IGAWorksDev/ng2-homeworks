@@ -108,7 +108,7 @@ export class AppModule {
       // PUT THIS BLOCK IN YOUR SYSTEM CONFIG FILE.
       //=====================================================================
       'ng2-homeworks': {
-          main: 'core.js',
+          main: 'index.js',
           defaultExtension: 'js'
       }
       //=====================================================================
