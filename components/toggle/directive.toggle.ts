@@ -73,7 +73,8 @@ export class WorksToggle extends Homeworks implements ControlValueAccessor {
                 } else {
                     value = null;
                 }
-            } catch (e) {
+            }
+            catch (e) {
                 value = null;
             }
 
@@ -166,31 +167,29 @@ export class WorksToggle extends Homeworks implements ControlValueAccessor {
     }
 
     writeValue(value: any) {
-        var context = this;
+        const context = this;
         context.model = value;
     }
 
     registerOnChange(fn: any) {
-        var context = this;
+        const context = this;
         context.propagateChange = fn;
     }
 
     registerOnTouched(fn: any) {
-        var context = this;
+        const context = this;
         context.propagateTouch = fn;
     }
 
     render() {
-        var context = this;
-
+        const context = this;
         if (typeof context.$toggle !== 'undefined') {
             context.$toggle.triggerHandler('update');
         }
     }
 
     ngOnInit() {
-        var context = this;
-
+        const context = this;
         context.$element = jQuery(context.elementRef.nativeElement);
         context.$toggle = jQuery(context.toggleChild.nativeElement);
 
@@ -199,7 +198,7 @@ export class WorksToggle extends Homeworks implements ControlValueAccessor {
                 placeholder: context.placeholder
             })
             .bind('change', (event: JQueryEventObject) => {
-                var value: HomeWorksEventObject = {
+                const value: HomeWorksEventObject = {
                     checked: context.$toggle.prop('checked'),
                     value: context.$toggle.val(),
                     element: context.$toggle
@@ -209,8 +208,7 @@ export class WorksToggle extends Homeworks implements ControlValueAccessor {
     }
 
     ngAfterViewInit() {
-        var context = this;
-
+        const context = this;
         context.render();
     }
 }

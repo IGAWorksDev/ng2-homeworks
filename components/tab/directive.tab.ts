@@ -27,13 +27,12 @@ export class WorksTab extends Homeworks {
     }
 
     ngOnInit() {
-        var context = this;
+        const context = this;
         context.$element = jQuery(context.elementRef.nativeElement);
     };
 
     ngAfterViewInit() {
-        var context = this;
-
+        const context = this;
         context.$element.tab({
             active: context.active
         });
@@ -77,10 +76,8 @@ export class WorksTabItem extends Homeworks {
     }
 
     ngOnInit() {
-        var context = this;
-
+        const context = this;
         var container: Array<Element> | Element = context.elementRef.nativeElement.parentNode.parentNode.querySelector('.tab-container');
-
         if (container === null) {
             let containerElement: Element = context.renderer.createElement(context.elementRef.nativeElement.parentNode.parentNode, 'div');
             context.renderer.setElementClass(containerElement, 'tab-container', true);

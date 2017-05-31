@@ -39,15 +39,13 @@ export class WorksDropdown extends Homeworks {
     }
 
     ngOnInit() {
-        var context = this;
-
+        const context = this;
         context.$element = jQuery(context.elementRef.nativeElement);
         context.$dropdown = jQuery(context.dropdownChild.nativeElement);
     }
 
     ngAfterViewInit() {
-        var context = this;
-
+        const context = this;
         context.$dropdown.dropdown({
             target: context.pen ? $(context.pen) : null,
             direction: context.direction

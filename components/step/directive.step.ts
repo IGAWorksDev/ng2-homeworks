@@ -27,13 +27,12 @@ export class WorksStep extends Homeworks {
     }
 
     ngOnInit() {
-        var context = this;
+        const context = this;
         context.$element = jQuery(context.elementRef.nativeElement);
     };
 
     ngAfterViewInit() {
-        var context = this;
-
+        const context = this;
         context.$element.step({
             active: context.active
         });
@@ -77,10 +76,8 @@ export class WorksStepItem extends Homeworks {
     }
 
     ngOnInit() {
-        var context = this;
-
+        const context = this;
         var container: Array<Element> | Element = context.elementRef.nativeElement.parentNode.parentNode.querySelector('.step-container');
-
         if (container === null) {
             let containerElement: Element = context.renderer.createElement(context.elementRef.nativeElement.parentNode.parentNode, 'div');
             context.renderer.setElementClass(containerElement, 'step-container', true);

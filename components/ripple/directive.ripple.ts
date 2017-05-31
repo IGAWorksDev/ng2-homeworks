@@ -22,8 +22,7 @@ export class WorksRipple extends Homeworks {
     }
 
     ngOnInit() {
-        var context = this;
-
+        const context = this;
         context.$element = jQuery(context.elementRef.nativeElement);
         context.$element.ripple({
             theme: context.ripple

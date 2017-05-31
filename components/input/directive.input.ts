@@ -169,32 +169,30 @@ export class WorksInput extends Homeworks implements ControlValueAccessor {
     }
 
     writeValue(value: any) {
-        var context = this;
+        const context = this;
         context.model = value;
     }
 
     registerOnChange(fn: any) {
-        var context = this;
+        const context = this;
         context.propagateChange = fn;
     }
 
     registerOnTouched(fn: any) {
-        var context = this;
+        const context = this;
         context.propagateTouch = fn;
     }
 
     render() {
-        var context = this;
-
+        const context = this;
         if (typeof context.$input !== 'undefined') {
             context.$input.triggerHandler('update', context.m_model);
         }
     }
 
     onInput($event: Event) {
-        var context = this;
-
-        var eventObject: HomeWorksEventObject = {
+        const context = this;
+        const eventObject: HomeWorksEventObject = {
             value: context.$element.val(),
             element: context.$element
         };
@@ -202,8 +200,7 @@ export class WorksInput extends Homeworks implements ControlValueAccessor {
     }
 
     setBlock(block: boolean) {
-        let context = this;
-
+        const context = this;
         if (block === true) {
             if (typeof context.$input !== 'undefined') {
                 context.$input.addClass('input-block');
@@ -213,17 +210,14 @@ export class WorksInput extends Homeworks implements ControlValueAccessor {
     }
 
     ngOnInit() {
-        var context = this;
-
+        const context = this;
         context.$element = jQuery(context.elementRef.nativeElement);
-        context.$input = jQuery(context.inputChild.nativeElement);
-        
+        context.$input = jQuery(context.inputChild.nativeElement);        
         context.setBlock(context.block);
-
-        this.$input
+        context.$input
             .input()
             .bind('input', event => {
-                var value: HomeWorksEventObject = {
+                const value: HomeWorksEventObject = {
                     value: context.$input.val(),
                     element: context.$input
                 }
@@ -232,7 +226,7 @@ export class WorksInput extends Homeworks implements ControlValueAccessor {
     }
 
     ngAfterViewInit() {
-        var context = this;
+        const context = this;
 
         context.render();
     }

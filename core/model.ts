@@ -1,4 +1,4 @@
-﻿export const Colors: Array<string> = [
+﻿export const Colors: string[] = [
     'normal',
     'default',
     'force',
@@ -10,7 +10,7 @@
     'success'
 ];
 
-export const Sizes: Array<string> = [
+export const Sizes: string[] = [
     'extra large',
     'large',
     'normal',

@@ -139,31 +139,29 @@ export class WorksSpinner extends Homeworks implements ControlValueAccessor {
     }
 
     writeValue(value: any) {
-        var context = this;
+        const context = this;
         context.model = value;
     }
 
     registerOnChange(fn: any) {
-        var context = this;
+        const context = this;
         context.propagateChange = fn;
     }
 
     registerOnTouched(fn: any) {
-        var context = this;
+        const context = this;
         context.propagateTouch = fn;
     }
 
     render() {
-        var context = this;
-
+        const context = this;
         if (typeof context.$select !== 'undefined') {
             context.$select.triggerHandler('update', context.m_model);
         }
     }
 
     setBlock(block: boolean) {
-        let context = this;
-
+        const context = this;
         if (block === true) {
             if (typeof context.$element !== 'undefined') {
                 context.$element.find('.spinner').addClass('spinner-block');
@@ -173,16 +171,14 @@ export class WorksSpinner extends Homeworks implements ControlValueAccessor {
     }
 
     ngOnInit() {
-        var context = this;
-
+        const context = this;
         context.$element = jQuery(context.elementRef.nativeElement);
         context.$select = jQuery(context.selectChild.nativeElement);
-
         context.$select
             .spinner({
             })
             .bind('change', event => {
-                var value: HomeWorksEventObject = {
+                const value: HomeWorksEventObject = {
                     value: context.$select.val(),
                     element: context.$select
                 };
@@ -195,8 +191,7 @@ export class WorksSpinner extends Homeworks implements ControlValueAccessor {
     }
 
     ngAfterViewInit() {
-        var context = this;
-
+        const context = this;
         context.render();
     }
 }

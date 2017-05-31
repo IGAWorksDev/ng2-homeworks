@@ -1,4 +1,4 @@
-﻿import { Component, Directive, ElementRef, Renderer, Input, Output, EventEmitter, forwardRef, ViewChild, ChangeDetectionStrategy } from '@angular/core';
+﻿import { Component, Directive, ElementRef, Renderer, Input, Output, EventEmitter, forwardRef, ViewChild, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { Homeworks } from '../../core/homeworks';
 
@@ -51,6 +51,10 @@ export class WorksCheckbox extends Homeworks implements ControlValueAccessor {
     set model(value: any) {
         this.m_model = value;
         this.propagateChange(value);
+        if (value === true) {
+            this.checked = true;
+            this.changeDetectorRef.detectChanges();
+        }
         this.render();
     }
 
@@ -130,7 +134,8 @@ export class WorksCheckbox extends Homeworks implements ControlValueAccessor {
 
     constructor(
         protected renderer: Renderer,
-        private elementRef: ElementRef
+        private elementRef: ElementRef,
+        private changeDetectorRef: ChangeDetectorRef
     ) {
         super(
             renderer,
@@ -140,30 +145,29 @@ export class WorksCheckbox extends Homeworks implements ControlValueAccessor {
     }
 
     writeValue(value: any) {
-        var context = this;
+        const context = this;
         context.model = value;
     }
 
     registerOnChange(fn: any) {
-        var context = this;
+        const context = this;
         context.propagateChange = fn;
     }
 
     registerOnTouched(fn: any) {
-        var context = this;
+        const context = this;
         context.propagateTouch = fn;
     }
 
     render() {
-        var context = this;
-
+        const context = this;
         if (typeof context.$checkbox !== 'undefined') {
             context.$checkbox.triggerHandler('update');
         }
     }
 
     ngOnInit() {
-        var context = this;
+        const context = this;
 
         context.$element = jQuery(context.elementRef.nativeElement);
         context.$checkbox = jQuery(context.checkboxChild.nativeElement);
@@ -171,37 +175,38 @@ export class WorksCheckbox extends Homeworks implements ControlValueAccessor {
         context.$checkbox
             .checkbox()
             .bind('change', event => {
-                var value: HomeWorksEventObject = {
+                console.log('event', event);
+                const value: HomeWorksEventObject = {
                     checked: context.$checkbox.prop('checked'),
                     value: context.$checkbox.val(),
                     element: context.$checkbox
                 }
-
-                var formValue: any = context.$checkbox.val();
-                var formChecked: boolean = context.$checkbox.prop('checked');
-                var formValueExists: boolean = typeof formValue !== 'undefined' && formValue !== null && formValue !== '';
+                const formValue: any = context.$checkbox.val();
+                const formChecked: boolean = context.$checkbox.prop('checked');
+                const formValueExists: boolean = typeof formValue !== 'undefined' && formValue !== null && formValue !== '';
 
                 if (formChecked === true) {
                     if (formValueExists === true) {
                         context.model = context.$checkbox.val();
-                    } else {
+                    }
+                    else {
                         context.model = formChecked;                        
                     }
-                } else {
+                }
+                else {
                     if (formValueExists === true) {
                         context.model = '';
-                    } else {
+                    }
+                    else {
                         context.model = formChecked;
                     }
                 }
-
                 context.onUpdate.emit(value);
             });
     }
 
     ngAfterViewInit() {
-        var context = this;
-
+        const context = this;
         context.render();
     }
 }

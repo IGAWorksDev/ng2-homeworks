@@ -6,9 +6,8 @@ export class Homeworks {
     private m_class: Array<string> = [];
 
     protected setRootElementClass(el: Element, className: string, isAdd: boolean = true): void {
-        var context = this;
-
-        var index: number = context.m_class.indexOf(className);
+        const context = this;
+        const index: number = context.m_class.indexOf(className);
         if (index === -1) {
             if (isAdd === true) {
                 context.m_class.push(className.replace(/\s/g, '-'));
@@ -24,19 +23,16 @@ export class Homeworks {
     }
 
     protected updateRootElementClass(el: Element) {
-        var context = this;
-
+        const context = this;
         context.renderer.setElementAttribute(el, 'class', '');
-
         for (let idx in context.m_class) {
             context.renderer.setElementClass(el, context.m_class[idx], true);
         }
     }
 
     protected setElementClass(el: Element, className: string, isAdd: boolean = true): void {
-        var context = this;
-
-        var classFullName: string = `${context.m_component}-${className}`;
+        const context = this;
+        const classFullName: string = `${context.m_component}-${className}`;
         context.renderer.setElementClass(el, classFullName, isAdd);
     }
 
@@ -55,9 +51,8 @@ export class Homeworks {
     }
 
     protected setColor(el: Element, color: string): void {
-        var context = this;
-
-        var index: number = Colors.indexOf(color);
+        const context = this;
+        const index: number = Colors.indexOf(color);
         if (index !== -1) {
             Colors.filter((e, i) => {
                 return i !== index;
@@ -69,13 +64,12 @@ export class Homeworks {
     }
 
     protected setSize(el: Element, size: string): void {
-        var context = this;
-
-        var sizeClassName: string = context.getSizeClassName(size);
+        const context = this;
+        const sizeClassName: string = context.getSizeClassName(size);
         Sizes.filter((e, i) => {
             return e !== size;
         }).map((e, i) => {
-            var removeSizeName: string = context.getSizeClassName(e);
+            const removeSizeName: string = context.getSizeClassName(e);
             context.setElementClass(el, removeSizeName, false);
         });
         context.setElementClass(el, sizeClassName);
