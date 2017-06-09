@@ -21,9 +21,6 @@ var main_8 = require("./components/ripple/main");
 var forms_1 = require("@angular/forms");
 var Homeworks = (function () {
     function Homeworks() {
-        var context = this;
-        var homeworks = (window['homeworks'] || {});
-        homeworks.hook = false;
     }
     return Homeworks;
 }());

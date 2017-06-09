@@ -49,8 +49,5 @@ import { FormsModule } from '@angular/forms';
 export class Homeworks {
     constructor(
     ) {
-        var context = this;
-        var homeworks = (window['homeworks'] || {});
-        homeworks.hook = false;
     }
 }
