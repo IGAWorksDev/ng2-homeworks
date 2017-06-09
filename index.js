@@ -21,6 +21,14 @@ var main_8 = require("./components/ripple/main");
 var forms_1 = require("@angular/forms");
 var Homeworks = (function () {
     function Homeworks() {
+        var context = this;
+        var homeworks = window['homeworks'];
+        if (!homeworks) {
+            throw new Error('`homeworks` library is must declared.\nType npm install homeworks --save.');
+        }
+        else {
+            homeworks.hook = false;
+        }
     }
     return Homeworks;
 }());

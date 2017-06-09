@@ -49,5 +49,14 @@ import { FormsModule } from '@angular/forms';
 export class Homeworks {
     constructor(
     ) {
+        const context = this;
+        const homeworks = window['homeworks'];
+
+        if (!homeworks) {
+            throw new Error('`homeworks` library is must declared.\nType npm install homeworks --save.');
+        }
+        else {
+            homeworks.hook = false;
+        }
     }
 }
