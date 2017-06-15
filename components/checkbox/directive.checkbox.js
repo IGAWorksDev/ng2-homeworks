@@ -39,8 +39,8 @@ var WorksCheckbox = WorksCheckbox_1 = (function (_super) {
         set: function (value) {
             this.m_model = value;
             this.propagateChange(value);
-            if (value === true) {
-                this.checked = true;
+            if (value === true || value === false) {
+                this.checked = value;
                 this.changeDetectorRef.detectChanges();
             }
             this.render();

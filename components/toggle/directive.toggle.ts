@@ -1,4 +1,4 @@
-﻿import { Component, Directive, ElementRef, Renderer, Input, Output, EventEmitter, forwardRef, ViewChild, ChangeDetectionStrategy } from '@angular/core';
+﻿import { Component, Directive, ElementRef, Renderer, Input, Output, EventEmitter, forwardRef, ViewChild, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { Homeworks } from '../../core/homeworks';
 
@@ -53,6 +53,10 @@ export class WorksToggle extends Homeworks implements ControlValueAccessor {
     set model(value: any) {
         this.m_model = value;
         this.propagateChange(value);
+        if (value === true || value === false) {
+            this.checked = value;
+            this.changeDetectorRef.detectChanges();
+        }
         this.render();
     }
 
@@ -157,7 +161,8 @@ export class WorksToggle extends Homeworks implements ControlValueAccessor {
 
     constructor(
         protected renderer: Renderer,
-        private elementRef: ElementRef
+        private elementRef: ElementRef,
+        private changeDetectorRef: ChangeDetectorRef
     ) {
         super(
             renderer,
