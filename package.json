@@ -1,6 +1,6 @@
 {
   "name": "ng2-homeworks",
-  "version": "1.0.34",
+  "version": "1.0.35",
   "description": "Front End framework that supported view binding.",
   "main": "index.js",
   "module": "index.js",
@@ -25,7 +25,7 @@
   "homepage": "https://github.com/IGAWorksDev/ng2-homeworks#readme",
   "readme": "README.md",
   "dependencies": {
-    "homeworks": "^1.0.34"
+    "homeworks": "^1.0.35"
   },
   "devDependencies": {
     "@types/jquery": "^2.0.41"
