@@ -79,8 +79,8 @@ declare interface HomeWorksEventObject {
     placeholder="This is an example element."
     (update)="changesOccured($event);"
 >
-    <option value="apple">Apple</option>
-    <option value="banana">Banana</option>
+    <works-option value="apple">Apple</works-option>
+    <works-option value="banana">Banana</works-option>
 </works-spinner>
 ```
 
