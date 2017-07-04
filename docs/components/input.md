@@ -1,6 +1,6 @@
 # Input Component
 
-[Back to main page](../../README.md)
+[:arrow_backward: Back to main page](../../README.md)
 
 ## Usage
 
@@ -8,7 +8,7 @@
 
 ```html
 <!--
-You only need to use the HTML tag to use the feature.
+This simple HTML tag at below is all you need to use this feature.
 -->
 <works-input
     color="{normal | default | force | primary | cobalt | notice | alert | danger | success}"
@@ -40,15 +40,15 @@ You only need to use the HTML tag to use the feature.
 
 - **update**
  
-  This event will called when an input element change occurs.
+  This event will be called when the spinner element's change occurs.
 
 ## EventObject
 
 - **HomeWorksEventObject**
 
-  This object is the global event model of all HomeWorks component.
+  This object is the global event model used for everything in homeworks.
 
-  All update events pass this model as a parameter.
+  All update events will be passed this object as a parameter.
 
 *Typescript Definition*
 
