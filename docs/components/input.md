@@ -23,7 +23,7 @@ This simple HTML tag at below is all you need to use this feature.
     required="{required | true | false}"
     validation="useValidate: boolean [=true]"
     placeholder="{placeholder: string}"
-    value="value: string"
+    value="{value: string}"
     ngModel="ngModel"
 >
 </works-input>
