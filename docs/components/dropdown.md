@@ -8,7 +8,7 @@
 
 ```html
 <!--
-You only need to use the HTML tag to use the feature.
+This simple HTML tag at below is all you need to use this feature.
 -->
 <works-dropdown
     direction="{left | right | center | top | bottom }"
