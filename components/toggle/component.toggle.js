@@ -269,4 +269,4 @@ WorksToggle = WorksToggle_1 = __decorate([
 ], WorksToggle);
 exports.WorksToggle = WorksToggle;
 var WorksToggle_1;
-//# sourceMappingURL=directive.toggle.js.map
+//# sourceMappingURL=component.toggle.js.map

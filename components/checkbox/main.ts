@@ -1,1 +1,1 @@
-﻿export { WorksCheckbox } from './directive.checkbox';
+﻿export { WorksCheckbox } from './component.checkbox';

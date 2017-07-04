@@ -114,4 +114,4 @@ WorksStepItem = __decorate([
         core_1.ElementRef])
 ], WorksStepItem);
 exports.WorksStepItem = WorksStepItem;
-//# sourceMappingURL=directive.step.js.map
+//# sourceMappingURL=component.step.js.map

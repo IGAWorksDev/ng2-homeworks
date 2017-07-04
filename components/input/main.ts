@@ -1,1 +1,1 @@
-﻿export { WorksInput } from './directive.input';
+﻿export { WorksInput } from './component.input';

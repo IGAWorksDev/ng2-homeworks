@@ -1,1 +1,1 @@
-﻿export { WorksRipple } from './directive.ripple';
+﻿export { WorksRipple } from './component.ripple';

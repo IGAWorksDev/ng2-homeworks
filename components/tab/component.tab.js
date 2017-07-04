@@ -115,4 +115,4 @@ WorksTabItem = __decorate([
         core_1.ElementRef])
 ], WorksTabItem);
 exports.WorksTabItem = WorksTabItem;
-//# sourceMappingURL=directive.tab.js.map
+//# sourceMappingURL=component.tab.js.map

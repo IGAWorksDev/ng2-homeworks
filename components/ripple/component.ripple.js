@@ -45,4 +45,4 @@ WorksRipple = __decorate([
         core_1.ElementRef])
 ], WorksRipple);
 exports.WorksRipple = WorksRipple;
-//# sourceMappingURL=directive.ripple.js.map
+//# sourceMappingURL=component.ripple.js.map

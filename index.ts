@@ -2,7 +2,7 @@
 
 import { NgModule } from '@angular/core';
 
-import { WorksSpinner } from './components/spinner/main';
+import { WorksSpinner, WorksOption } from './components/spinner/main';
 import { WorksDropdown } from './components/dropdown/main';
 import { WorksCheckbox } from './components/checkbox/main';
 import { WorksTab, WorksTabItem } from './components/tab/main';
@@ -21,6 +21,7 @@ import { FormsModule } from '@angular/forms';
         FormsModule,
 
         WorksSpinner,
+        WorksOption,
         WorksDropdown,
         WorksCheckbox,
         WorksToggle,
@@ -35,6 +36,7 @@ import { FormsModule } from '@angular/forms';
     ],
     declarations: [
         WorksSpinner,
+        WorksOption,
         WorksDropdown,
         WorksCheckbox,
         WorksToggle,

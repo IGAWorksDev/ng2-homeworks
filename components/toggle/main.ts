@@ -1,1 +1,1 @@
-﻿export { WorksToggle } from './directive.toggle';
+﻿export { WorksToggle } from './component.toggle';

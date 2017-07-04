@@ -65,7 +65,7 @@ export class WorksToggle extends Homeworks implements ControlValueAccessor {
         return this.m_placeholder;
     }
     set placeholder(value: any) {
-        var context = this;
+        const context = this;
 
         if (value !== '') {
             try {

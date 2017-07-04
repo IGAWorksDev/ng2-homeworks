@@ -156,7 +156,7 @@ export class WorksSpinner extends Homeworks implements ControlValueAccessor {
     render() {
         const context = this;
         if (typeof context.$select !== 'undefined') {
-            context.$select.triggerHandler('update', context.m_model);
+            context.$select.triggerHandler('update', this.model);
         }
     }
 

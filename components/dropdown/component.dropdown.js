@@ -72,4 +72,4 @@ WorksDropdown = __decorate([
         core_1.ElementRef])
 ], WorksDropdown);
 exports.WorksDropdown = WorksDropdown;
-//# sourceMappingURL=directive.dropdown.js.map
+//# sourceMappingURL=component.dropdown.js.map

@@ -1,1 +1,1 @@
-﻿export { WorksStep, WorksStepItem } from './directive.step';
+﻿export { WorksStep, WorksStepItem } from './component.step';

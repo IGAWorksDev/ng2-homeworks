@@ -40,6 +40,7 @@ Homeworks = __decorate([
         exports: [
             forms_1.FormsModule,
             main_1.WorksSpinner,
+            main_1.WorksOption,
             main_2.WorksDropdown,
             main_3.WorksCheckbox,
             main_5.WorksToggle,
@@ -53,6 +54,7 @@ Homeworks = __decorate([
         providers: [],
         declarations: [
             main_1.WorksSpinner,
+            main_1.WorksOption,
             main_2.WorksDropdown,
             main_3.WorksCheckbox,
             main_5.WorksToggle,

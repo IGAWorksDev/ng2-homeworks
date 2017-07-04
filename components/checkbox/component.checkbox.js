@@ -258,4 +258,4 @@ WorksCheckbox = WorksCheckbox_1 = __decorate([
 ], WorksCheckbox);
 exports.WorksCheckbox = WorksCheckbox;
 var WorksCheckbox_1;
-//# sourceMappingURL=directive.checkbox.js.map
+//# sourceMappingURL=component.checkbox.js.map

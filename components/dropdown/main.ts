@@ -1,1 +1,1 @@
-﻿export { WorksDropdown } from './directive.dropdown';
+﻿export { WorksDropdown } from './component.dropdown';
