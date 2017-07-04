@@ -1,6 +1,6 @@
 # Dropdown Component
  
-[Back to main page](../../README.md)
+[:arrow_backward: Back to main page](../../README.md)
 
 ## Usage
 
