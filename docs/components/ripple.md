@@ -31,6 +31,6 @@ You can set ripple effect very easily.
 <a href="#" class="btn btn-default"
     ripple
 >
-Anchor tag also works!
+Yay! Anchor tag is also works! :)
 </a>
 ```
