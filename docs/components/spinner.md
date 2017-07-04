@@ -22,9 +22,16 @@ You only need to use the HTML tag to use the feature.
     placeholder="{placeholder: string}"
     ngModel="ngModel"
 >
-    <option value="value1">Option1</option>
-    <option value="value2">Option2</option>
-    <option value="value3">Option3</option>
+    <works-option
+        label="{label: string}"
+        selected="selected | true | false"
+        disabled="disabled | true | false"
+        value="value1"        
+        >
+        Option1
+    </works-option>
+    <works-option value="value2">Option2</works-option>
+    <works-option value="value3">Option3</works-option>
 </works-spinner>
 ```
 
