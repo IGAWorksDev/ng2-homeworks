@@ -1,6 +1,6 @@
 # Ripple Component
 
-[Back to main page](../../README.md)
+[:arrow_backward: Back to main page](../../README.md)
 
 ## Usage
 
@@ -8,7 +8,7 @@
 
 ```html
 <!--
-You only need to use the HTML tag to use the feature.
+This simple HTML tag at below is all you need to use this feature.
 -->
 <button
     ripple="{theme: light | dark [=light]}"
