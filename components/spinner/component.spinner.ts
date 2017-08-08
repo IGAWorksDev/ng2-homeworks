@@ -155,7 +155,7 @@ export class WorksSpinner extends Homeworks implements ControlValueAccessor {
 
     render() {
         const context = this;
-        if (typeof context.$select !== 'undefined') {
+        if (context.$select) {
             context.$select.triggerHandler('update', this.model);
         }
     }
@@ -163,7 +163,7 @@ export class WorksSpinner extends Homeworks implements ControlValueAccessor {
     setBlock(block: boolean) {
         const context = this;
         if (block === true) {
-            if (typeof context.$element !== 'undefined') {
+            if (context.$element) {
                 context.$element.find('.spinner').addClass('spinner-block');
                 context.renderer.setElementClass(context.elementRef.nativeElement, 'block', true);
             }

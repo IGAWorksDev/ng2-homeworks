@@ -75,7 +75,7 @@ var WorksInput = WorksInput_1 = (function (_super) {
             return this.m_block;
         },
         set: function (value) {
-            if (typeof value !== 'undefined') {
+            if (value) {
                 this.m_block = true;
             }
             else {
@@ -145,7 +145,7 @@ var WorksInput = WorksInput_1 = (function (_super) {
     };
     WorksInput.prototype.render = function () {
         var context = this;
-        if (typeof context.$input !== 'undefined') {
+        if (context.$input) {
             context.$input.triggerHandler('update', context.m_model);
         }
     };
@@ -160,7 +160,7 @@ var WorksInput = WorksInput_1 = (function (_super) {
     WorksInput.prototype.setBlock = function (block) {
         var context = this;
         if (block === true) {
-            if (typeof context.$input !== 'undefined') {
+            if (context.$input) {
                 context.$input.addClass('input-block');
                 context.setRootElementClass(context.elementRef.nativeElement, 'block', true);
             }

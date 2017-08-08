@@ -20,11 +20,11 @@ var COMPONENT = 'checkbox';
 var ALIAS = 'input';
 var WorksToggle = WorksToggle_1 = (function (_super) {
     __extends(WorksToggle, _super);
-    function WorksToggle(renderer, elementRef, changeDetectorRef) {
+    function WorksToggle(renderer, changeDetectorRef, elementRef) {
         var _this = _super.call(this, renderer, COMPONENT, ALIAS) || this;
         _this.renderer = renderer;
-        _this.elementRef = elementRef;
         _this.changeDetectorRef = changeDetectorRef;
+        _this.elementRef = elementRef;
         _this.propagateChange = Function.prototype;
         _this.propagateTouch = Function.prototype;
         _this.type = 'radio';
@@ -40,7 +40,6 @@ var WorksToggle = WorksToggle_1 = (function (_super) {
             this.propagateChange(value);
             if (value === true || value === false) {
                 this.checked = value;
-                this.changeDetectorRef.detectChanges();
             }
             this.render();
         },
@@ -103,6 +102,7 @@ var WorksToggle = WorksToggle_1 = (function (_super) {
         },
         set: function (value) {
             this.m_checked = value;
+            this.changeDetectorRef.detectChanges();
             this.render();
         },
         enumerable: true,
@@ -155,7 +155,7 @@ var WorksToggle = WorksToggle_1 = (function (_super) {
     };
     WorksToggle.prototype.render = function () {
         var context = this;
-        if (typeof context.$toggle !== 'undefined') {
+        if (context.$toggle) {
             context.$toggle.triggerHandler('update');
         }
     };
@@ -264,8 +264,8 @@ WorksToggle = WorksToggle_1 = __decorate([
         changeDetection: core_1.ChangeDetectionStrategy.Default
     }),
     __metadata("design:paramtypes", [core_1.Renderer,
-        core_1.ElementRef,
-        core_1.ChangeDetectorRef])
+        core_1.ChangeDetectorRef,
+        core_1.ElementRef])
 ], WorksToggle);
 exports.WorksToggle = WorksToggle;
 var WorksToggle_1;

@@ -55,7 +55,6 @@ export class WorksToggle extends Homeworks implements ControlValueAccessor {
         this.propagateChange(value);
         if (value === true || value === false) {
             this.checked = value;
-            this.changeDetectorRef.detectChanges();
         }
         this.render();
     }
@@ -121,6 +120,7 @@ export class WorksToggle extends Homeworks implements ControlValueAccessor {
 
     set checked(value: any) {
         this.m_checked = value;
+        this.changeDetectorRef.detectChanges();
         this.render();
     }
 
@@ -161,8 +161,8 @@ export class WorksToggle extends Homeworks implements ControlValueAccessor {
 
     constructor(
         protected renderer: Renderer,
-        private elementRef: ElementRef,
-        private changeDetectorRef: ChangeDetectorRef
+        private changeDetectorRef: ChangeDetectorRef,
+        private elementRef: ElementRef
     ) {
         super(
             renderer,
@@ -188,7 +188,7 @@ export class WorksToggle extends Homeworks implements ControlValueAccessor {
 
     render() {
         const context = this;
-        if (typeof context.$toggle !== 'undefined') {
+        if (context.$toggle) {
             context.$toggle.triggerHandler('update');
         }
     }

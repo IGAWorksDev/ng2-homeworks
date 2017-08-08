@@ -97,7 +97,7 @@ export class WorksInput extends Homeworks implements ControlValueAccessor {
         return this.m_block;
     }
     set block(value: any) {
-        if (typeof value !== 'undefined') {
+        if (value) {
             this.m_block = true;
         } else {
             this.m_block = false;
@@ -185,7 +185,7 @@ export class WorksInput extends Homeworks implements ControlValueAccessor {
 
     render() {
         const context = this;
-        if (typeof context.$input !== 'undefined') {
+        if (context.$input) {
             context.$input.triggerHandler('update', context.m_model);
         }
     }
@@ -202,7 +202,7 @@ export class WorksInput extends Homeworks implements ControlValueAccessor {
     setBlock(block: boolean) {
         const context = this;
         if (block === true) {
-            if (typeof context.$input !== 'undefined') {
+            if (context.$input) {
                 context.$input.addClass('input-block');
                 context.setRootElementClass(context.elementRef.nativeElement, 'block', true);
             }

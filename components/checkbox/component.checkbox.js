@@ -20,11 +20,11 @@ var COMPONENT = 'checkbox';
 var ALIAS = 'input';
 var WorksCheckbox = WorksCheckbox_1 = (function (_super) {
     __extends(WorksCheckbox, _super);
-    function WorksCheckbox(renderer, elementRef, changeDetectorRef) {
+    function WorksCheckbox(renderer, changeDetectorRef, elementRef) {
         var _this = _super.call(this, renderer, COMPONENT, ALIAS) || this;
         _this.renderer = renderer;
-        _this.elementRef = elementRef;
         _this.changeDetectorRef = changeDetectorRef;
+        _this.elementRef = elementRef;
         _this.propagateChange = Function.prototype;
         _this.propagateTouch = Function.prototype;
         _this.m_value = '';
@@ -32,6 +32,18 @@ var WorksCheckbox = WorksCheckbox_1 = (function (_super) {
         _this.onUpdate = new core_1.EventEmitter();
         return _this;
     }
+    WorksCheckbox.prototype.writeValue = function (value) {
+        var context = this;
+        context.model = value;
+    };
+    WorksCheckbox.prototype.registerOnChange = function (fn) {
+        var context = this;
+        context.propagateChange = fn;
+    };
+    WorksCheckbox.prototype.registerOnTouched = function (fn) {
+        var context = this;
+        context.propagateTouch = fn;
+    };
     Object.defineProperty(WorksCheckbox.prototype, "model", {
         get: function () {
             return this.m_model;
@@ -41,7 +53,6 @@ var WorksCheckbox = WorksCheckbox_1 = (function (_super) {
             this.propagateChange(value);
             if (value === true || value === false) {
                 this.checked = value;
-                this.changeDetectorRef.detectChanges();
             }
             this.render();
         },
@@ -83,6 +94,7 @@ var WorksCheckbox = WorksCheckbox_1 = (function (_super) {
         },
         set: function (value) {
             this.m_checked = value;
+            this.changeDetectorRef.detectChanges();
             this.render();
         },
         enumerable: true,
@@ -121,21 +133,9 @@ var WorksCheckbox = WorksCheckbox_1 = (function (_super) {
         enumerable: true,
         configurable: true
     });
-    WorksCheckbox.prototype.writeValue = function (value) {
-        var context = this;
-        context.model = value;
-    };
-    WorksCheckbox.prototype.registerOnChange = function (fn) {
-        var context = this;
-        context.propagateChange = fn;
-    };
-    WorksCheckbox.prototype.registerOnTouched = function (fn) {
-        var context = this;
-        context.propagateTouch = fn;
-    };
     WorksCheckbox.prototype.render = function () {
         var context = this;
-        if (typeof context.$checkbox !== 'undefined') {
+        if (context.$checkbox) {
             context.$checkbox.triggerHandler('update');
         }
     };
@@ -146,7 +146,6 @@ var WorksCheckbox = WorksCheckbox_1 = (function (_super) {
         context.$checkbox
             .checkbox()
             .bind('change', function (event) {
-            console.log('event', event);
             var value = {
                 checked: context.$checkbox.prop('checked'),
                 value: context.$checkbox.val(),
@@ -253,8 +252,8 @@ WorksCheckbox = WorksCheckbox_1 = __decorate([
         changeDetection: core_1.ChangeDetectionStrategy.Default
     }),
     __metadata("design:paramtypes", [core_1.Renderer,
-        core_1.ElementRef,
-        core_1.ChangeDetectorRef])
+        core_1.ChangeDetectorRef,
+        core_1.ElementRef])
 ], WorksCheckbox);
 exports.WorksCheckbox = WorksCheckbox;
 var WorksCheckbox_1;

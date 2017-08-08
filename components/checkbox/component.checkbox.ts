@@ -45,6 +45,21 @@ export class WorksCheckbox extends Homeworks implements ControlValueAccessor {
 
     @ViewChild('worksCheckbox') checkboxChild: ElementRef;
 
+    writeValue(value: any) {
+        const context = this;
+        context.model = value;
+    }
+
+    registerOnChange(fn: any) {
+        const context = this;
+        context.propagateChange = fn;
+    }
+
+    registerOnTouched(fn: any) {
+        const context = this;
+        context.propagateTouch = fn;
+    }
+
     get model(): any {
         return this.m_model;
     }
@@ -53,7 +68,6 @@ export class WorksCheckbox extends Homeworks implements ControlValueAccessor {
         this.propagateChange(value);
         if (value === true || value === false) {
             this.checked = value;
-            this.changeDetectorRef.detectChanges();
         }
         this.render();
     }
@@ -97,6 +111,7 @@ export class WorksCheckbox extends Homeworks implements ControlValueAccessor {
 
     set checked(value: any) {
         this.m_checked = value;
+        this.changeDetectorRef.detectChanges();
         this.render();
     }
 
@@ -134,8 +149,8 @@ export class WorksCheckbox extends Homeworks implements ControlValueAccessor {
 
     constructor(
         protected renderer: Renderer,
-        private elementRef: ElementRef,
-        private changeDetectorRef: ChangeDetectorRef
+        private changeDetectorRef: ChangeDetectorRef,
+        private elementRef: ElementRef
     ) {
         super(
             renderer,
@@ -144,24 +159,9 @@ export class WorksCheckbox extends Homeworks implements ControlValueAccessor {
         );
     }
 
-    writeValue(value: any) {
-        const context = this;
-        context.model = value;
-    }
-
-    registerOnChange(fn: any) {
-        const context = this;
-        context.propagateChange = fn;
-    }
-
-    registerOnTouched(fn: any) {
-        const context = this;
-        context.propagateTouch = fn;
-    }
-
     render() {
         const context = this;
-        if (typeof context.$checkbox !== 'undefined') {
+        if (context.$checkbox) {
             context.$checkbox.triggerHandler('update');
         }
     }
@@ -175,7 +175,6 @@ export class WorksCheckbox extends Homeworks implements ControlValueAccessor {
         context.$checkbox
             .checkbox()
             .bind('change', event => {
-                console.log('event', event);
                 const value: HomeWorksEventObject = {
                     checked: context.$checkbox.prop('checked'),
                     value: context.$checkbox.val(),

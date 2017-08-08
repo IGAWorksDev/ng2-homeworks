@@ -120,14 +120,14 @@ var WorksSpinner = WorksSpinner_1 = (function (_super) {
     };
     WorksSpinner.prototype.render = function () {
         var context = this;
-        if (typeof context.$select !== 'undefined') {
+        if (context.$select) {
             context.$select.triggerHandler('update', this.model);
         }
     };
     WorksSpinner.prototype.setBlock = function (block) {
         var context = this;
         if (block === true) {
-            if (typeof context.$element !== 'undefined') {
+            if (context.$element) {
                 context.$element.find('.spinner').addClass('spinner-block');
                 context.renderer.setElementClass(context.elementRef.nativeElement, 'block', true);
             }
