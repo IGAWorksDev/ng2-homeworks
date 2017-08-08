@@ -1,6 +1,6 @@
 # Step Component
 
-[Back to main page](../../README.md)
+[:arrow_backward: Back to main page](../../README.md)
 
 ## Usage
 
@@ -8,7 +8,7 @@
 
 ```html
 <!--
-You only need to use the HTML tag to use the feature.
+This simple HTML tag at below is all you need to use this feature.
 -->
 <works-step
     active="activeIndex: number [=1] <Start from 1.>"
@@ -32,13 +32,13 @@ You only need to use the HTML tag to use the feature.
 
 - **move**
  
-  This event will called when a change to the step content occurs.
+  This event will be called when the spinner element's change occurs.
 
 ## EventObject
 
 - **HomeWorksStepEventObject**
 
-  The event model is used only the step component.
+  This event model is used only the step component.
 
 *Typescript Definition*
 

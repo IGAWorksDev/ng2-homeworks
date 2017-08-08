@@ -20,7 +20,7 @@ You can take part in editing this document using GitHub fork feature.
 
 This project is part of [Homeworks](https://github.com/IGAWorksDev/homeworks) project,
 
-So you would be better to install the core of Homeworks before you're following this instrduction.
+So you would be better to install the core of Homeworks before you're following this instroduction.
 
 - [**See live demo site** (http://homeworks.igaworks.com)](http://homeworks.igaworks.com).
 - [See Github of this project](https://www.github.com/IGAWorksDev/ng2-homeworks).
