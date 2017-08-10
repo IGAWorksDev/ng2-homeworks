@@ -7,8 +7,6 @@
 [![Dev Dependencies Status](https://david-dm.org/IGAWorksDev/ng2-homeworks/dev-status.svg)](https://david-dm.org/IGAWorksDev/ng2-homeworks?type=dev)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-The HomeWorks framework fully supports angular components.
-
 ![HomeWorks Framework](https://s3.ap-northeast-2.amazonaws.com/homeworks.igaworks.com/main/src/images/homeworks_cover_angular2_v1.png?v=1)
 
 ```plaintext
