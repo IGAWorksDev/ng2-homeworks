@@ -16,13 +16,13 @@ You can take part in editing this document using GitHub fork feature.
 
 ## Overview
 
-This project is part of [Homeworks](https://github.com/IGAWorksDev/homeworks) project,
+This project is part of [homeworks](https://github.com/IGAWorksDev/homeworks) project,
 
-So you would be better to install the core of Homeworks before you're following this instroduction.
+So you would be better to install the core of homeworks before you're following this instroduction.
 
 - [**See live demo site** (http://homeworks.igaworks.com)](http://homeworks.igaworks.com).
 - [See Github of this project](https://www.github.com/IGAWorksDev/ng2-homeworks).
-- [See Homeworks project on GitHub](https://github.com/IGAWorksDev/homeworks)
+- [See homeworks project on the GitHub](https://github.com/IGAWorksDev/homeworks)
 
 ## Installation
 
@@ -39,7 +39,7 @@ So you would be better to install the core of Homeworks before you're following 
 - [Tab](docs/components/tab.md)
 - [Toggle](docs/components/toggle.md)
 
-## Contribution
+## Contribution Documentation
 
 - Core
 - Model
