@@ -66,11 +66,10 @@ export class Homeworks {
     protected setSize(el: Element, size: string): void {
         const context = this;
         const sizeClassName: string = context.getSizeClassName(size);
-        Sizes.filter((e, i) => {
-            return e !== size;
-        }).map((e, i) => {
-            const removeSizeName: string = context.getSizeClassName(e);
-            context.setElementClass(el, removeSizeName, false);
+        Sizes.filter((element: string, index: number) => {
+            return element !== size;
+        }).map((element: string, index: number) => {
+            const removeSizeName: string = context.getSizeClassName(element);
         });
         context.setElementClass(el, sizeClassName);
     }

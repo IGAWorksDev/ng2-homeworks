@@ -51,8 +51,31 @@ export class WorksSpinner extends Homeworks implements ControlValueAccessor {
     private m_required: any;
     private m_placeholder: string;
     private m_block: boolean;
+    private m_size: string;
 
     @ViewChild('worksSelect') selectChild: ElementRef;
+
+    writeValue(value: any) {
+        const context = this;
+        context.model = value;
+    }
+
+    registerOnChange(fn: any) {
+        const context = this;
+        context.propagateChange = fn;
+    }
+
+    registerOnTouched(fn: any) {
+        const context = this;
+        context.propagateTouch = fn;
+    }
+
+    render() {
+        const context = this;
+        if (context.$select) {
+            context.$select.triggerHandler('update', this.model);
+        }
+    }
 
     @Input()
     set class(value: string) {
@@ -116,6 +139,27 @@ export class WorksSpinner extends Homeworks implements ControlValueAccessor {
         this.render();
     }
 
+    @Input()
+    get size(): string {
+        return this.m_size;
+    }
+    set size(value: string) {
+        this.m_size = value;
+        if (this.$select && this.$select.find('.spinner').length > 0) {
+            this.setSize(this.$select.find('.spinner')[0], value);
+        }
+    }
+
+    setBlock(block: boolean) {
+        const context = this;
+        if (block === true) {
+            if (context.$element) {
+                context.$element.find('.spinner').addClass('spinner-block');
+                context.renderer.setElementClass(context.elementRef.nativeElement, 'block', true);
+            }
+        }
+    }
+
     @Output('update')
     onUpdate: EventEmitter<HomeWorksEventObject> = new EventEmitter<HomeWorksEventObject>();
 
@@ -136,38 +180,6 @@ export class WorksSpinner extends Homeworks implements ControlValueAccessor {
             renderer,
             COMPONENT
         );
-    }
-
-    writeValue(value: any) {
-        const context = this;
-        context.model = value;
-    }
-
-    registerOnChange(fn: any) {
-        const context = this;
-        context.propagateChange = fn;
-    }
-
-    registerOnTouched(fn: any) {
-        const context = this;
-        context.propagateTouch = fn;
-    }
-
-    render() {
-        const context = this;
-        if (context.$select) {
-            context.$select.triggerHandler('update', this.model);
-        }
-    }
-
-    setBlock(block: boolean) {
-        const context = this;
-        if (block === true) {
-            if (context.$element) {
-                context.$element.find('.spinner').addClass('spinner-block');
-                context.renderer.setElementClass(context.elementRef.nativeElement, 'block', true);
-            }
-        }
     }
 
     ngOnInit() {

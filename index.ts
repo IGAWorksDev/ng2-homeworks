@@ -5,9 +5,9 @@ import { NgModule } from '@angular/core';
 import { WorksSpinner, WorksOption } from './components/spinner/main';
 import { WorksDropdown } from './components/dropdown/main';
 import { WorksCheckbox } from './components/checkbox/main';
-import { WorksTab, WorksTabItem } from './components/tab/main';
 import { WorksToggle } from './components/toggle/main';
-import { WorksStep, WorksStepItem } from './components/step/main';
+import { WorksTab, WorksTabItem, WorksTabTitle } from './components/tab/main';
+import { WorksStep, WorksStepItem, WorksStepTitle } from './components/step/main';
 import { WorksInput } from './components/input/main';
 import { WorksRipple } from './components/ripple/main';
 
@@ -27,8 +27,10 @@ import { FormsModule } from '@angular/forms';
         WorksToggle,
         WorksTab,
         WorksTabItem,
+        WorksTabTitle,
         WorksStep,
         WorksStepItem,
+        WorksStepTitle,
         WorksInput,
         WorksRipple
     ],
@@ -40,10 +42,12 @@ import { FormsModule } from '@angular/forms';
         WorksDropdown,
         WorksCheckbox,
         WorksToggle,
-        WorksStep,
-        WorksStepItem,
         WorksTab,
         WorksTabItem,
+        WorksTabTitle,
+        WorksStep,
+        WorksStepItem,
+        WorksStepTitle,
         WorksInput,
         WorksRipple
     ]

@@ -1,1 +1,1 @@
-﻿export { WorksStep, WorksStepItem } from './component.step';
+﻿export { WorksStep, WorksStepItem, WorksStepTitle } from './component.step';

@@ -85,7 +85,7 @@ export class WorksOption extends Homeworks {
 
     render() {
         const context = this;
-        if (typeof context.$option !== 'undefined') {
+        if (context.$option) {
             context.$option.closest('select').triggerHandler('update');
         }
     }
@@ -101,5 +101,12 @@ export class WorksOption extends Homeworks {
     ngAfterViewInit() {
         const context = this;
         context.render();
+    }
+
+    ngOnDestroy() {
+        const context = this;
+        if (context.$option) {
+            context.$option.remove();
+        }
     }
 }

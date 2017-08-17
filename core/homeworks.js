@@ -1,5 +1,5 @@
 "use strict";
-var model_1 = require("./model");
+var model_1 = require('./model');
 var Homeworks = (function () {
     function Homeworks(renderer, component, alias) {
         if (alias === void 0) { alias = null; }
@@ -70,11 +70,10 @@ var Homeworks = (function () {
     Homeworks.prototype.setSize = function (el, size) {
         var context = this;
         var sizeClassName = context.getSizeClassName(size);
-        model_1.Sizes.filter(function (e, i) {
-            return e !== size;
-        }).map(function (e, i) {
-            var removeSizeName = context.getSizeClassName(e);
-            context.setElementClass(el, removeSizeName, false);
+        model_1.Sizes.filter(function (element, index) {
+            return element !== size;
+        }).map(function (element, index) {
+            var removeSizeName = context.getSizeClassName(element);
         });
         context.setElementClass(el, sizeClassName);
     };

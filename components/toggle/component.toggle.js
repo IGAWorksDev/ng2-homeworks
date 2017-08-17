@@ -13,23 +13,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require("@angular/core");
-var forms_1 = require("@angular/forms");
-var homeworks_1 = require("../../core/homeworks");
+var core_1 = require('@angular/core');
+var forms_1 = require('@angular/forms');
+var homeworks_1 = require('../../core/homeworks');
 var COMPONENT = 'checkbox';
 var ALIAS = 'input';
-var WorksToggle = WorksToggle_1 = (function (_super) {
+var WorksToggle = (function (_super) {
     __extends(WorksToggle, _super);
     function WorksToggle(renderer, changeDetectorRef, elementRef) {
-        var _this = _super.call(this, renderer, COMPONENT, ALIAS) || this;
-        _this.renderer = renderer;
-        _this.changeDetectorRef = changeDetectorRef;
-        _this.elementRef = elementRef;
-        _this.propagateChange = Function.prototype;
-        _this.propagateTouch = Function.prototype;
-        _this.type = 'radio';
-        _this.onUpdate = new core_1.EventEmitter();
-        return _this;
+        _super.call(this, renderer, COMPONENT, ALIAS);
+        this.renderer = renderer;
+        this.changeDetectorRef = changeDetectorRef;
+        this.elementRef = elementRef;
+        this.propagateChange = Function.prototype;
+        this.propagateTouch = Function.prototype;
+        this.type = 'radio';
+        this.onUpdate = new core_1.EventEmitter();
     }
     Object.defineProperty(WorksToggle.prototype, "model", {
         get: function () {
@@ -180,93 +179,83 @@ var WorksToggle = WorksToggle_1 = (function (_super) {
         var context = this;
         context.render();
     };
+    __decorate([
+        core_1.ViewChild('worksToggle'), 
+        __metadata('design:type', core_1.ElementRef)
+    ], WorksToggle.prototype, "toggleChild", void 0);
+    __decorate([
+        core_1.Input('ngModel'), 
+        __metadata('design:type', Object)
+    ], WorksToggle.prototype, "model", null);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Object)
+    ], WorksToggle.prototype, "placeholder", null);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', String)
+    ], WorksToggle.prototype, "color", null);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', String), 
+        __metadata('design:paramtypes', [String])
+    ], WorksToggle.prototype, "class", null);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', String)
+    ], WorksToggle.prototype, "type", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', String)
+    ], WorksToggle.prototype, "id", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', String)
+    ], WorksToggle.prototype, "name", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', String)
+    ], WorksToggle.prototype, "title", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Object)
+    ], WorksToggle.prototype, "checked", null);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Object)
+    ], WorksToggle.prototype, "disabled", null);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Object)
+    ], WorksToggle.prototype, "readonly", null);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Object)
+    ], WorksToggle.prototype, "required", null);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Object)
+    ], WorksToggle.prototype, "value", void 0);
+    __decorate([
+        core_1.Output('update'), 
+        __metadata('design:type', core_1.EventEmitter)
+    ], WorksToggle.prototype, "onUpdate", void 0);
+    WorksToggle = __decorate([
+        core_1.Component({
+            selector: 'works-toggle',
+            providers: [
+                {
+                    provide: forms_1.NG_VALUE_ACCESSOR,
+                    useExisting: core_1.forwardRef(function () { return WorksToggle; }),
+                    multi: true
+                }
+            ],
+            template: "\n        <input #worksToggle\n            class=\"input\"\n            [attr.type]=\"type\"\n            [attr.type]=\"type\"\n            [attr.id]=\"id\"\n            [attr.name]=\"name\"\n            [attr.title]=\"title\"\n            [disabled]=\"disabled\"\n            [checked]=\"checked\"\n            [readonly]=\"readonly\"\n            [required]=\"required\"\n            [attr.value]=\"value\" />\n    ",
+            changeDetection: core_1.ChangeDetectionStrategy.Default
+        }), 
+        __metadata('design:paramtypes', [core_1.Renderer, core_1.ChangeDetectorRef, core_1.ElementRef])
+    ], WorksToggle);
     return WorksToggle;
 }(homeworks_1.Homeworks));
-__decorate([
-    core_1.ViewChild('worksToggle'),
-    __metadata("design:type", core_1.ElementRef)
-], WorksToggle.prototype, "toggleChild", void 0);
-__decorate([
-    core_1.Input('ngModel'),
-    __metadata("design:type", Object),
-    __metadata("design:paramtypes", [Object])
-], WorksToggle.prototype, "model", null);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object),
-    __metadata("design:paramtypes", [Object])
-], WorksToggle.prototype, "placeholder", null);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String),
-    __metadata("design:paramtypes", [String])
-], WorksToggle.prototype, "color", null);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String),
-    __metadata("design:paramtypes", [String])
-], WorksToggle.prototype, "class", null);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], WorksToggle.prototype, "type", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], WorksToggle.prototype, "id", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], WorksToggle.prototype, "name", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], WorksToggle.prototype, "title", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object),
-    __metadata("design:paramtypes", [Object])
-], WorksToggle.prototype, "checked", null);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object),
-    __metadata("design:paramtypes", [Object])
-], WorksToggle.prototype, "disabled", null);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object),
-    __metadata("design:paramtypes", [Object])
-], WorksToggle.prototype, "readonly", null);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object),
-    __metadata("design:paramtypes", [Object])
-], WorksToggle.prototype, "required", null);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], WorksToggle.prototype, "value", void 0);
-__decorate([
-    core_1.Output('update'),
-    __metadata("design:type", core_1.EventEmitter)
-], WorksToggle.prototype, "onUpdate", void 0);
-WorksToggle = WorksToggle_1 = __decorate([
-    core_1.Component({
-        selector: 'works-toggle',
-        providers: [
-            {
-                provide: forms_1.NG_VALUE_ACCESSOR,
-                useExisting: core_1.forwardRef(function () { return WorksToggle_1; }),
-                multi: true
-            }
-        ],
-        template: "\n        <input #worksToggle\n            class=\"input\"\n            [attr.type]=\"type\"\n            [attr.type]=\"type\"\n            [attr.id]=\"id\"\n            [attr.name]=\"name\"\n            [attr.title]=\"title\"\n            [disabled]=\"disabled\"\n            [checked]=\"checked\"\n            [readonly]=\"readonly\"\n            [required]=\"required\"\n            [attr.value]=\"value\" />\n    ",
-        changeDetection: core_1.ChangeDetectionStrategy.Default
-    }),
-    __metadata("design:paramtypes", [core_1.Renderer,
-        core_1.ChangeDetectorRef,
-        core_1.ElementRef])
-], WorksToggle);
 exports.WorksToggle = WorksToggle;
-var WorksToggle_1;
 //# sourceMappingURL=component.toggle.js.map

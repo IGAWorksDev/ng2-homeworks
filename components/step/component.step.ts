@@ -1,4 +1,4 @@
-﻿import { Component, Directive, ElementRef, Renderer, Input, Output, EventEmitter, ViewChild, ChangeDetectionStrategy } from '@angular/core';
+﻿import { Component, Directive, ElementRef, Renderer, Input, Output, EventEmitter, AfterContentInit, ViewChild, ContentChild, ChangeDetectionStrategy, forwardRef } from '@angular/core';
 import { Homeworks } from '../../core/homeworks';
 
 const COMPONENT: string = 'step';
@@ -42,16 +42,21 @@ export class WorksStep extends Homeworks {
     }
 }
 
-@Directive({
-    selector: 'works-step-item'
+@Component({
+    selector: 'works-step-item',
+    template: `
+        <ng-content></ng-content>
+    `
 })
-export class WorksStepItem extends Homeworks {
+export class WorksStepItem extends Homeworks implements AfterContentInit {
     private $element: JQuery;
 
     private m_title: string;
 
     private titleElement: Element | null = null;
     private contentElement: Element | null = null;
+
+    @ContentChild(forwardRef(() => WorksStepTitle)) titleChild: WorksStepTitle;
 
     @Input()
     get title(): string {
@@ -60,7 +65,7 @@ export class WorksStepItem extends Homeworks {
     set title(value: string) {
         this.m_title = value;
 
-        if (this.titleElement !== null) {
+        if (this.titleElement !== null && !this.titleChild) {
             this.titleElement.textContent = this.title;
         }
     }
@@ -77,7 +82,7 @@ export class WorksStepItem extends Homeworks {
 
     ngOnInit() {
         const context = this;
-        var container: Array<Element> | Element = context.elementRef.nativeElement.parentNode.parentNode.querySelector('.step-container');
+        var container: Element[] | Element = context.elementRef.nativeElement.parentNode.parentNode.querySelector('.step-container');
         if (container === null) {
             let containerElement: Element = context.renderer.createElement(context.elementRef.nativeElement.parentNode.parentNode, 'div');
             context.renderer.setElementClass(containerElement, 'step-container', true);
@@ -94,5 +99,34 @@ export class WorksStepItem extends Homeworks {
         context.contentElement.appendChild(context.elementRef.nativeElement);
 
         (container as Element).parentElement.appendChild((container as Element));
+    }
+
+    ngAfterContentInit() {
+        const context = this;
+
+        if (context.titleChild) {
+            context.titleElement.appendChild(context.titleChild.elementRef.nativeElement);
+        }
+    }
+}
+
+@Directive({
+    selector: 'works-step-title'
+})
+export class WorksStepTitle extends Homeworks {
+    private $element: JQuery;
+
+    constructor(
+        protected renderer: Renderer,
+        public elementRef: ElementRef
+    ) {
+        super(
+            renderer,
+            COMPONENT
+        );
+    }
+
+    ngOnInit() {
+        const context = this;
     }
 }

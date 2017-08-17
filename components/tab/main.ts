@@ -1,1 +1,1 @@
-﻿export { WorksTab, WorksTabItem } from './component.tab';
+﻿export { WorksTab, WorksTabItem, WorksTabTitle } from './component.tab';

@@ -97,7 +97,7 @@ export class WorksInput extends Homeworks implements ControlValueAccessor {
         return this.m_block;
     }
     set block(value: any) {
-        if (value) {
+        if (typeof value !== 'undefined') {
             this.m_block = true;
         } else {
             this.m_block = false;
