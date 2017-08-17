@@ -113,7 +113,6 @@ export class WorksSpinner extends Homeworks implements ControlValueAccessor {
     get disabled(): any {
         return this.m_disabled;
     }
-
     set disabled(value: any) {
         this.m_disabled = value;
         this.render();
@@ -123,7 +122,6 @@ export class WorksSpinner extends Homeworks implements ControlValueAccessor {
     get readonly(): any {
         return this.m_readonly;
     }
-
     set readonly(value: any) {
         this.m_readonly = value;
         this.render();
@@ -133,7 +131,6 @@ export class WorksSpinner extends Homeworks implements ControlValueAccessor {
     get required(): any {
         return this.m_required;
     }
-
     set required(value: any) {
         this.m_required = value;
         this.render();

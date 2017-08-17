@@ -22,9 +22,40 @@ var WorksTab = (function (_super) {
         _super.call(this, renderer, COMPONENT);
         this.renderer = renderer;
         this.elementRef = elementRef;
-        this.active = null;
+        this.wrapperElement = null;
+        this.m_active = 0;
+        this.activeChange = new core_1.EventEmitter();
         this.onMove = new core_1.EventEmitter();
+        var context = this;
+        context.wrapperElement = context.renderer.createElement(context.elementRef.nativeElement.parentNode, 'div');
+        context.wrapperElement.setAttribute("class", "works-step-wrapper");
+        context.wrapperElement.appendChild(context.elementRef.nativeElement);
     }
+    Object.defineProperty(WorksTab.prototype, "active", {
+        get: function () {
+            return this.m_active;
+        },
+        set: function (value) {
+            var oldValue = this.m_active;
+            this.m_active = value;
+            if (this.$element) {
+                if (oldValue !== value) {
+                    this.$element.triggerHandler('step.set', value);
+                }
+            }
+            this.activeChange.emit(value);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    ;
+    Object.defineProperty(WorksTab.prototype, "class", {
+        set: function (value) {
+            this.setPropagateChildClass(this.elementRef.nativeElement, this.wrapperElement, value);
+        },
+        enumerable: true,
+        configurable: true
+    });
     WorksTab.prototype.ngOnInit = function () {
         var context = this;
         context.$element = jQuery(context.elementRef.nativeElement);
@@ -36,13 +67,25 @@ var WorksTab = (function (_super) {
             active: context.active
         });
         context.$element.bind('tab.move', function (event, tabInfo) {
-            context.onMove.emit(tabInfo);
+            if (context.active !== tabInfo.index) {
+                context.active = tabInfo.index;
+                context.onMove.emit(tabInfo);
+            }
         });
     };
     __decorate([
+        core_1.Output(), 
+        __metadata('design:type', core_1.EventEmitter)
+    ], WorksTab.prototype, "activeChange", void 0);
+    __decorate([
         core_1.Input(), 
         __metadata('design:type', Number)
-    ], WorksTab.prototype, "active", void 0);
+    ], WorksTab.prototype, "active", null);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', String), 
+        __metadata('design:paramtypes', [String])
+    ], WorksTab.prototype, "class", null);
     __decorate([
         core_1.Output('move'), 
         __metadata('design:type', core_1.EventEmitter)
@@ -66,6 +109,7 @@ var WorksTabItem = (function (_super) {
         this.elementRef = elementRef;
         this.titleElement = null;
         this.contentElement = null;
+        var context = this;
     }
     Object.defineProperty(WorksTabItem.prototype, "title", {
         get: function () {

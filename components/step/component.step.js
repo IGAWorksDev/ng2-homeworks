@@ -22,8 +22,40 @@ var WorksStep = (function (_super) {
         _super.call(this, renderer, COMPONENT);
         this.renderer = renderer;
         this.elementRef = elementRef;
+        this.wrapperElement = null;
+        this.m_active = 0;
+        this.activeChange = new core_1.EventEmitter();
         this.onMove = new core_1.EventEmitter();
+        var context = this;
+        context.wrapperElement = context.renderer.createElement(context.elementRef.nativeElement.parentNode, 'div');
+        context.wrapperElement.setAttribute("class", "works-step-wrapper");
+        context.wrapperElement.appendChild(context.elementRef.nativeElement);
     }
+    Object.defineProperty(WorksStep.prototype, "active", {
+        get: function () {
+            return this.m_active;
+        },
+        set: function (value) {
+            var oldValue = this.m_active;
+            this.m_active = value;
+            if (this.$element) {
+                if (oldValue !== value) {
+                    this.$element.triggerHandler('step.set', value);
+                }
+            }
+            this.activeChange.emit(value);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    ;
+    Object.defineProperty(WorksStep.prototype, "class", {
+        set: function (value) {
+            this.setPropagateChildClass(this.elementRef.nativeElement, this.wrapperElement, value);
+        },
+        enumerable: true,
+        configurable: true
+    });
     WorksStep.prototype.ngOnInit = function () {
         var context = this;
         context.$element = jQuery(context.elementRef.nativeElement);
@@ -35,13 +67,25 @@ var WorksStep = (function (_super) {
             active: context.active
         });
         context.$element.bind('step.move', function (event, stepInfo) {
-            context.onMove.emit(stepInfo);
+            if (context.active !== stepInfo.index) {
+                context.active = stepInfo.index;
+                context.onMove.emit(stepInfo);
+            }
         });
     };
     __decorate([
+        core_1.Output(), 
+        __metadata('design:type', core_1.EventEmitter)
+    ], WorksStep.prototype, "activeChange", void 0);
+    __decorate([
         core_1.Input(), 
         __metadata('design:type', Number)
-    ], WorksStep.prototype, "active", void 0);
+    ], WorksStep.prototype, "active", null);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', String), 
+        __metadata('design:paramtypes', [String])
+    ], WorksStep.prototype, "class", null);
     __decorate([
         core_1.Output('move'), 
         __metadata('design:type', core_1.EventEmitter)
@@ -83,9 +127,9 @@ var WorksStepItem = (function (_super) {
         var context = this;
         var container = context.elementRef.nativeElement.parentNode.parentNode.querySelector('.step-container');
         if (container === null) {
-            var containerElement = context.renderer.createElement(context.elementRef.nativeElement.parentNode.parentNode, 'div');
-            context.renderer.setElementClass(containerElement, 'step-container', true);
-            container = containerElement;
+            var wrapperElement = context.renderer.createElement(context.elementRef.nativeElement.parentNode.parentNode, 'div');
+            context.renderer.setElementClass(wrapperElement, 'step-container', true);
+            container = wrapperElement;
         }
         context.titleElement = context.renderer.createElement(context.elementRef.nativeElement.parentNode, 'a');
         context.titleElement.setAttribute('href', '#');

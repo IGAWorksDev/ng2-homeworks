@@ -10,8 +10,31 @@ const COMPONENT: string = 'step';
 })
 export class WorksStep extends Homeworks {
     private $element: JQuery;
+    private wrapperElement?: Element = null;
+    private m_active: number = 0;
 
-    @Input() active: number;
+    @Output()
+    activeChange: EventEmitter<number> = new EventEmitter<number>();
+
+    @Input()
+    get active(): number {
+        return this.m_active;
+    }
+    set active(value: number) {
+        const oldValue: number = this.m_active;
+        this.m_active = value;
+        if (this.$element) {
+            if (oldValue !== value) {
+                this.$element.triggerHandler('step.set', value);
+            }
+        }
+        this.activeChange.emit(value);
+    };
+
+    @Input()
+    set class(value: string) {
+        this.setPropagateChildClass(this.elementRef.nativeElement, this.wrapperElement, value);
+    }
 
     @Output('move')
     onMove: EventEmitter<HomeWorksStepEventObject> = new EventEmitter <HomeWorksStepEventObject>();
@@ -24,6 +47,10 @@ export class WorksStep extends Homeworks {
             renderer,
             COMPONENT
         );
+        const context = this;
+        context.wrapperElement = context.renderer.createElement(context.elementRef.nativeElement.parentNode, 'div');
+        context.wrapperElement.setAttribute("class", "works-step-wrapper");
+        context.wrapperElement.appendChild(context.elementRef.nativeElement);
     }
 
     ngOnInit() {
@@ -37,7 +64,10 @@ export class WorksStep extends Homeworks {
             active: context.active
         });
         context.$element.bind('step.move', (event: JQueryEventObject, stepInfo: HomeWorksStepEventObject) => {
-            context.onMove.emit(stepInfo);
+            if (context.active !== stepInfo.index) {
+                context.active = stepInfo.index;
+                context.onMove.emit(stepInfo);
+            }
         });
     }
 }
@@ -53,8 +83,8 @@ export class WorksStepItem extends Homeworks implements AfterContentInit {
 
     private m_title: string;
 
-    private titleElement: Element | null = null;
-    private contentElement: Element | null = null;
+    private titleElement?: Element = null;
+    private contentElement?: Element = null;
 
     @ContentChild(forwardRef(() => WorksStepTitle)) titleChild: WorksStepTitle;
 
@@ -84,9 +114,9 @@ export class WorksStepItem extends Homeworks implements AfterContentInit {
         const context = this;
         var container: Element[] | Element = context.elementRef.nativeElement.parentNode.parentNode.querySelector('.step-container');
         if (container === null) {
-            let containerElement: Element = context.renderer.createElement(context.elementRef.nativeElement.parentNode.parentNode, 'div');
-            context.renderer.setElementClass(containerElement, 'step-container', true);
-            container = containerElement;
+            const wrapperElement: Element = context.renderer.createElement(context.elementRef.nativeElement.parentNode.parentNode, 'div');
+            context.renderer.setElementClass(wrapperElement, 'step-container', true);
+            container = wrapperElement;
         }
 
         context.titleElement = context.renderer.createElement(context.elementRef.nativeElement.parentNode, 'a');
