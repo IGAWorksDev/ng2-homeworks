@@ -12,6 +12,7 @@ This simple HTML tag at below is all you need to use this feature.
 -->
 <works-spinner
     color="{normal | default | force | primary | cobalt | notice | alert | danger | success}"
+    size="{extra large | large | medium | normal | small | extra small}"
     block
     id="{id: string}"
     name="{name: string}"

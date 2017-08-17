@@ -7,8 +7,6 @@
 [![Dev Dependencies Status](https://david-dm.org/IGAWorksDev/ng2-homeworks/dev-status.svg)](https://david-dm.org/IGAWorksDev/ng2-homeworks?type=dev)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-The HomeWorks framework fully supports angular components.
-
 ![HomeWorks Framework](https://s3.ap-northeast-2.amazonaws.com/homeworks.igaworks.com/main/src/images/homeworks_cover_angular2_v1.png?v=1)
 
 ```plaintext
@@ -18,13 +16,13 @@ You can take part in editing this document using GitHub fork feature.
 
 ## Overview
 
-This project is part of [Homeworks](https://github.com/IGAWorksDev/homeworks) project,
+This project is part of [homeworks](https://github.com/IGAWorksDev/homeworks) project,
 
-So you would be better to install the core of Homeworks before you're following this instroduction.
+So you would be better to install the core of homeworks before you're following this instroduction.
 
 - [**See live demo site** (http://homeworks.igaworks.com)](http://homeworks.igaworks.com).
 - [See Github of this project](https://www.github.com/IGAWorksDev/ng2-homeworks).
-- [See Homeworks project on GitHub](https://github.com/IGAWorksDev/homeworks)
+- [See homeworks project on the GitHub](https://github.com/IGAWorksDev/homeworks)
 
 ## Installation
 
@@ -41,7 +39,7 @@ So you would be better to install the core of Homeworks before you're following 
 - [Tab](docs/components/tab.md)
 - [Toggle](docs/components/toggle.md)
 
-## Contribution
+## Contribution Documentation
 
 - Core
 - Model
