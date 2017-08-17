@@ -16,7 +16,17 @@ This simple HTML tag at below is all you need to use this feature.
     <works-tab-item
         title="{titleName: string}"
     >
-    <!-- This area is the tab content area. -->
+        <!-- This area is the tab content area. -->
+    </works-tab-item>
+    <works-tab-item
+        title="{titleName: string}"
+    >
+        <works-tab-title>
+        <!--
+        If you want to display the title as HTML, This could be help.
+        The content inside in this tag will be displayed instead title attribute value of works-tab-item
+        -->
+        </works-tab-title>
     </works-tab-item>
 </works-tab>
 ```
