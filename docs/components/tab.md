@@ -24,7 +24,7 @@ This simple HTML tag at below is all you need to use this feature.
         <works-tab-title>
         <!--
         If you want to display the title as HTML, This could be help.
-        The content inside in this tag will be displayed instead title attribute value of works-tab-item
+        The content inside in this tag will be displayed instead title attribute value of works-tab-item.
         -->
         </works-tab-title>
     </works-tab-item>
