@@ -1,5 +1,5 @@
 "use strict";
-var model_1 = require('./model');
+var model_1 = require("./model");
 var Homeworks = (function () {
     function Homeworks(renderer, component, alias) {
         if (alias === void 0) { alias = null; }

@@ -13,17 +13,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var homeworks_1 = require('../../core/homeworks');
+var core_1 = require("@angular/core");
+var homeworks_1 = require("../../core/homeworks");
 var COMPONENT = 'option';
 var WorksOption = (function (_super) {
     __extends(WorksOption, _super);
     function WorksOption(renderer, elementRef) {
-        _super.call(this, renderer, COMPONENT);
-        this.renderer = renderer;
-        this.elementRef = elementRef;
-        this.propagateChange = Function.prototype;
-        this.propagateTouch = Function.prototype;
+        var _this = _super.call(this, renderer, COMPONENT) || this;
+        _this.renderer = renderer;
+        _this.elementRef = elementRef;
+        _this.propagateChange = Function.prototype;
+        _this.propagateTouch = Function.prototype;
+        return _this;
     }
     Object.defineProperty(WorksOption.prototype, "label", {
         get: function () {
@@ -91,37 +92,42 @@ var WorksOption = (function (_super) {
             context.$option.remove();
         }
     };
-    __decorate([
-        core_1.ViewChild('worksOption'), 
-        __metadata('design:type', core_1.ElementRef)
-    ], WorksOption.prototype, "optionChild", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', String)
-    ], WorksOption.prototype, "label", null);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], WorksOption.prototype, "disabled", null);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], WorksOption.prototype, "selected", null);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', String)
-    ], WorksOption.prototype, "value", null);
-    WorksOption = __decorate([
-        core_1.Component({
-            selector: 'works-option',
-            providers: [],
-            template: "\n        <option #worksOption \n            [attr.label]=\"label\"\n            [disabled]=\"disabled\"\n            [selected]=\"selected\"\n            [attr.value]=\"value\"\n            >\n            <ng-content></ng-content>\n        </option>\n    ",
-            styles: [],
-            changeDetection: core_1.ChangeDetectionStrategy.Default
-        }), 
-        __metadata('design:paramtypes', [core_1.Renderer, core_1.ElementRef])
-    ], WorksOption);
     return WorksOption;
 }(homeworks_1.Homeworks));
+__decorate([
+    core_1.ViewChild('worksOption'),
+    __metadata("design:type", core_1.ElementRef)
+], WorksOption.prototype, "optionChild", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String),
+    __metadata("design:paramtypes", [String])
+], WorksOption.prototype, "label", null);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object),
+    __metadata("design:paramtypes", [Object])
+], WorksOption.prototype, "disabled", null);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object),
+    __metadata("design:paramtypes", [Object])
+], WorksOption.prototype, "selected", null);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String),
+    __metadata("design:paramtypes", [String])
+], WorksOption.prototype, "value", null);
+WorksOption = __decorate([
+    core_1.Component({
+        selector: 'works-option',
+        providers: [],
+        template: "\n        <option #worksOption \n            [attr.label]=\"label\"\n            [disabled]=\"disabled\"\n            [selected]=\"selected\"\n            [attr.value]=\"value\"\n            >\n            <ng-content></ng-content>\n        </option>\n    ",
+        styles: [],
+        changeDetection: core_1.ChangeDetectionStrategy.Default
+    }),
+    __metadata("design:paramtypes", [core_1.Renderer,
+        core_1.ElementRef])
+], WorksOption);
 exports.WorksOption = WorksOption;
 //# sourceMappingURL=component.option.js.map
