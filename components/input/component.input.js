@@ -145,9 +145,11 @@ var WorksInput = WorksInput_1 = (function (_super) {
     };
     WorksInput.prototype.render = function () {
         var context = this;
-        if (context.$input) {
-            context.$input.triggerHandler('update', context.m_model);
-        }
+        setTimeout(function () {
+            if (context.$input) {
+                context.$input.triggerHandler('update', context.m_model);
+            }
+        }, 0);
     };
     WorksInput.prototype.onInput = function ($event) {
         var context = this;

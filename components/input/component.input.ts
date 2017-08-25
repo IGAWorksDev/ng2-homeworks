@@ -185,9 +185,11 @@ export class WorksInput extends Homeworks implements ControlValueAccessor {
 
     render() {
         const context = this;
-        if (context.$input) {
-            context.$input.triggerHandler('update', context.m_model);
-        }
+        setTimeout(() => {
+            if (context.$input) {
+                context.$input.triggerHandler('update', context.m_model);
+            }
+        }, 0);
     }
 
     onInput($event: Event) {
