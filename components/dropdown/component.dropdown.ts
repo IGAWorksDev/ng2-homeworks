@@ -1,4 +1,4 @@
-﻿import { Component, Directive, ElementRef, Renderer, Input, Output, EventEmitter, ViewChild, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Directive, ElementRef, Renderer, Input, Output, EventEmitter, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { Homeworks } from '../../core/homeworks';
 
 const COMPONENT: string = 'dropdown';
@@ -50,5 +50,12 @@ export class WorksDropdown extends Homeworks {
             target: context.pen ? $(context.pen) : null,
             direction: context.direction
         });
+    }
+
+    ngOnDestory() {
+        const context = this;
+        if (context.$element) {
+            context.$element.remove();
+        }
     }
 }

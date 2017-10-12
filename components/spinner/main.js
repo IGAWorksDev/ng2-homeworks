@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var component_spinner_1 = require("./component.spinner");
 exports.WorksSpinner = component_spinner_1.WorksSpinner;
 var component_option_1 = require("./component.option");
