@@ -1,0 +1,11 @@
+import * as i0 from "@angular/core";
+import * as i1 from "@angular/forms";
+import * as i2 from "./component.checkbox";
+var styles_WorksCheckbox = [];
+var RenderType_WorksCheckbox = i0.ɵcrt({ encapsulation: 2, styles: styles_WorksCheckbox, data: {} });
+export { RenderType_WorksCheckbox as RenderType_WorksCheckbox };
+export function View_WorksCheckbox_0(_l) { return i0.ɵvid(0, [i0.ɵqud(402653184, 1, { checkboxChild: 0 }), (_l()(), i0.ɵted(-1, null, ["\n        "])), (_l()(), i0.ɵeld(2, 0, [[1, 0], ["worksCheckbox", 1]], null, 0, "input", [["class", "input"]], [[1, "type", 0], [1, "id", 0], [1, "name", 0], [1, "title", 0], [8, "disabled", 0], [8, "checked", 0], [8, "readOnly", 0], [8, "required", 0], [1, "value", 0]], null, null, null, null)), (_l()(), i0.ɵted(-1, null, ["\n    "]))], null, function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.type; var currVal_1 = _co.id; var currVal_2 = _co.name; var currVal_3 = _co.title; var currVal_4 = _co.disabled; var currVal_5 = _co.checked; var currVal_6 = _co.readonly; var currVal_7 = _co.required; var currVal_8 = _co.value; _ck(_v, 2, 0, currVal_0, currVal_1, currVal_2, currVal_3, currVal_4, currVal_5, currVal_6, currVal_7, currVal_8); }); }
+export function View_WorksCheckbox_Host_0(_l) { return i0.ɵvid(0, [(_l()(), i0.ɵeld(0, 0, null, null, 2, "works-checkbox", [], null, null, null, View_WorksCheckbox_0, RenderType_WorksCheckbox)), i0.ɵprd(5120, null, i1.NG_VALUE_ACCESSOR, function (p0_0) { return [p0_0]; }, [i2.WorksCheckbox]), i0.ɵdid(2, 4308992, null, 0, i2.WorksCheckbox, [i0.Renderer, i0.ChangeDetectorRef, i0.ElementRef], null, null)], function (_ck, _v) { _ck(_v, 2, 0); }, null); }
+var WorksCheckboxNgFactory = i0.ɵccf("works-checkbox", i2.WorksCheckbox, View_WorksCheckbox_Host_0, { class: "class", color: "color", type: "type", id: "id", name: "name", title: "title", disabled: "disabled", checked: "checked", readonly: "readonly", required: "required", value: "value" }, { onUpdate: "update" }, []);
+export { WorksCheckboxNgFactory as WorksCheckboxNgFactory };
+//# sourceMappingURL=component.checkbox.ngfactory.js.map

@@ -19,7 +19,7 @@ var main_6 = require("./components/step/main");
 var main_7 = require("./components/input/main");
 var main_8 = require("./components/ripple/main");
 var forms_1 = require("@angular/forms");
-var Homeworks = (function () {
+var Homeworks = /** @class */ (function () {
     function Homeworks() {
         var context = this;
         var homeworks = window['homeworks'];
@@ -30,47 +30,47 @@ var Homeworks = (function () {
             homeworks.hook = false;
         }
     }
+    Homeworks = __decorate([
+        core_1.NgModule({
+            imports: [
+                forms_1.FormsModule
+            ],
+            exports: [
+                forms_1.FormsModule,
+                main_1.WorksSpinner,
+                main_1.WorksOption,
+                main_2.WorksDropdown,
+                main_3.WorksCheckbox,
+                main_4.WorksToggle,
+                main_5.WorksTab,
+                main_5.WorksTabItem,
+                main_5.WorksTabTitle,
+                main_6.WorksStep,
+                main_6.WorksStepItem,
+                main_6.WorksStepTitle,
+                main_7.WorksInput,
+                main_8.WorksRipple
+            ],
+            providers: [],
+            declarations: [
+                main_1.WorksSpinner,
+                main_1.WorksOption,
+                main_2.WorksDropdown,
+                main_3.WorksCheckbox,
+                main_4.WorksToggle,
+                main_5.WorksTab,
+                main_5.WorksTabItem,
+                main_5.WorksTabTitle,
+                main_6.WorksStep,
+                main_6.WorksStepItem,
+                main_6.WorksStepTitle,
+                main_7.WorksInput,
+                main_8.WorksRipple
+            ]
+        }),
+        __metadata("design:paramtypes", [])
+    ], Homeworks);
     return Homeworks;
 }());
-Homeworks = __decorate([
-    core_1.NgModule({
-        imports: [
-            forms_1.FormsModule
-        ],
-        exports: [
-            forms_1.FormsModule,
-            main_1.WorksSpinner,
-            main_1.WorksOption,
-            main_2.WorksDropdown,
-            main_3.WorksCheckbox,
-            main_4.WorksToggle,
-            main_5.WorksTab,
-            main_5.WorksTabItem,
-            main_5.WorksTabTitle,
-            main_6.WorksStep,
-            main_6.WorksStepItem,
-            main_6.WorksStepTitle,
-            main_7.WorksInput,
-            main_8.WorksRipple
-        ],
-        providers: [],
-        declarations: [
-            main_1.WorksSpinner,
-            main_1.WorksOption,
-            main_2.WorksDropdown,
-            main_3.WorksCheckbox,
-            main_4.WorksToggle,
-            main_5.WorksTab,
-            main_5.WorksTabItem,
-            main_5.WorksTabTitle,
-            main_6.WorksStep,
-            main_6.WorksStepItem,
-            main_6.WorksStepTitle,
-            main_7.WorksInput,
-            main_8.WorksRipple
-        ]
-    }),
-    __metadata("design:paramtypes", [])
-], Homeworks);
 exports.Homeworks = Homeworks;
 //# sourceMappingURL=index.js.map
