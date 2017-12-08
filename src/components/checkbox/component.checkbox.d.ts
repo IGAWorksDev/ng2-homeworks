@@ -1,0 +1,41 @@
+/// <reference types="homeworks" />
+import { ChangeDetectorRef, ElementRef, EventEmitter, Renderer2 } from '@angular/core';
+import { ControlValueAccessor } from '@angular/forms';
+import { Homeworks } from '../../core/homeworks';
+export declare class WorksCheckbox extends Homeworks implements ControlValueAccessor {
+    protected renderer: Renderer2;
+    private changeDetectorRef;
+    private elementRef;
+    private $element;
+    private $checkbox;
+    private propagateChange;
+    private propagateTouch;
+    private m_model;
+    private m_color;
+    private m_disabled;
+    private m_checked;
+    private m_readonly;
+    private m_required;
+    private m_value;
+    checkboxChild: ElementRef;
+    writeValue(value: any): void;
+    registerOnChange(fn: any): void;
+    registerOnTouched(fn: any): void;
+    model: any;
+    class: string;
+    color: string;
+    type: string;
+    id: string;
+    name: string;
+    title: string;
+    disabled: any;
+    checked: any;
+    readonly: any;
+    required: any;
+    value: any;
+    onUpdate: EventEmitter<homeworks.Event>;
+    constructor(renderer: Renderer2, changeDetectorRef: ChangeDetectorRef, elementRef: ElementRef);
+    render(): void;
+    ngOnInit(): void;
+    ngAfterViewInit(): void;
+}

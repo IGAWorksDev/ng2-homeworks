@@ -1,0 +1,40 @@
+/// <reference types="homeworks" />
+import { ElementRef, EventEmitter, Renderer2 } from '@angular/core';
+import { ControlValueAccessor } from '@angular/forms';
+import { Homeworks } from '../../core/homeworks';
+export declare class WorksSpinner extends Homeworks implements ControlValueAccessor {
+    protected renderer: Renderer2;
+    private elementRef;
+    private $element;
+    private $select;
+    private propagateChange;
+    private propagateTouch;
+    private m_model;
+    private m_disabled;
+    private m_readonly;
+    private m_required;
+    private m_placeholder;
+    private m_block;
+    private m_size;
+    selectChild: ElementRef;
+    writeValue(value: any): void;
+    registerOnChange(fn: any): void;
+    registerOnTouched(fn: any): void;
+    render(): void;
+    class: string;
+    placeholder: string;
+    block: any;
+    id: string;
+    name: string;
+    title: string;
+    disabled: any;
+    readonly: any;
+    required: any;
+    size: string;
+    setBlock(block: boolean): void;
+    onUpdate: EventEmitter<homeworks.Event>;
+    model: any;
+    constructor(renderer: Renderer2, elementRef: ElementRef);
+    ngOnInit(): void;
+    ngAfterViewInit(): void;
+}

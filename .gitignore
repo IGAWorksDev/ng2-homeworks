@@ -3,6 +3,12 @@ logs
 *.log
 npm-debug.log*
 
+# Angular files
+*.ngsummary.json
+*.ngsummary.map
+*.ngfactory.js
+*.ngfactory.map
+
 # Runtime data
 pids
 *.pid

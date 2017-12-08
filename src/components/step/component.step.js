@@ -81,35 +81,35 @@ var WorksStep = (function (_super) {
             }
         });
     };
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", core_1.EventEmitter)
-    ], WorksStep.prototype, "activeChange", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Number),
-        __metadata("design:paramtypes", [Number])
-    ], WorksStep.prototype, "active", null);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String),
-        __metadata("design:paramtypes", [String])
-    ], WorksStep.prototype, "class", null);
-    __decorate([
-        core_1.Output('move'),
-        __metadata("design:type", core_1.EventEmitter)
-    ], WorksStep.prototype, "onMove", void 0);
-    WorksStep = __decorate([
-        core_1.Component({
-            selector: 'works-step',
-            template: "<ng-content></ng-content>",
-            changeDetection: core_1.ChangeDetectionStrategy.Default
-        }),
-        __metadata("design:paramtypes", [core_1.Renderer2,
-            core_1.ElementRef])
-    ], WorksStep);
     return WorksStep;
 }(homeworks_1.Homeworks));
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", core_1.EventEmitter)
+], WorksStep.prototype, "activeChange", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Number),
+    __metadata("design:paramtypes", [Number])
+], WorksStep.prototype, "active", null);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String),
+    __metadata("design:paramtypes", [String])
+], WorksStep.prototype, "class", null);
+__decorate([
+    core_1.Output('move'),
+    __metadata("design:type", core_1.EventEmitter)
+], WorksStep.prototype, "onMove", void 0);
+WorksStep = __decorate([
+    core_1.Component({
+        selector: 'works-step',
+        template: "<ng-content></ng-content>",
+        changeDetection: core_1.ChangeDetectionStrategy.Default
+    }),
+    __metadata("design:paramtypes", [core_1.Renderer2,
+        core_1.ElementRef])
+], WorksStep);
 exports.WorksStep = WorksStep;
 var WorksStepTitle = (function (_super) {
     __extends(WorksStepTitle, _super);
@@ -122,15 +122,15 @@ var WorksStepTitle = (function (_super) {
     WorksStepTitle.prototype.ngOnInit = function () {
         var context = this;
     };
-    WorksStepTitle = __decorate([
-        core_1.Directive({
-            selector: 'works-step-title'
-        }),
-        __metadata("design:paramtypes", [core_1.Renderer2,
-            core_1.ElementRef])
-    ], WorksStepTitle);
     return WorksStepTitle;
 }(homeworks_1.Homeworks));
+WorksStepTitle = __decorate([
+    core_1.Directive({
+        selector: 'works-step-title'
+    }),
+    __metadata("design:paramtypes", [core_1.Renderer2,
+        core_1.ElementRef])
+], WorksStepTitle);
 exports.WorksStepTitle = WorksStepTitle;
 var WorksStepItem = (function (_super) {
     __extends(WorksStepItem, _super);
@@ -180,24 +180,24 @@ var WorksStepItem = (function (_super) {
             context.titleElement.appendChild(context.titleChild.elementRef.nativeElement);
         }
     };
-    __decorate([
-        core_1.ContentChild(core_1.forwardRef(function () { return WorksStepTitle; })),
-        __metadata("design:type", WorksStepTitle)
-    ], WorksStepItem.prototype, "titleChild", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String),
-        __metadata("design:paramtypes", [String])
-    ], WorksStepItem.prototype, "title", null);
-    WorksStepItem = __decorate([
-        core_1.Component({
-            selector: 'works-step-item',
-            template: "\n        <ng-content></ng-content>\n    "
-        }),
-        __metadata("design:paramtypes", [core_1.Renderer2,
-            core_1.ElementRef])
-    ], WorksStepItem);
     return WorksStepItem;
 }(homeworks_1.Homeworks));
+__decorate([
+    core_1.ContentChild(core_1.forwardRef(function () { return WorksStepTitle; })),
+    __metadata("design:type", WorksStepTitle)
+], WorksStepItem.prototype, "titleChild", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String),
+    __metadata("design:paramtypes", [String])
+], WorksStepItem.prototype, "title", null);
+WorksStepItem = __decorate([
+    core_1.Component({
+        selector: 'works-step-item',
+        template: "\n        <ng-content></ng-content>\n    "
+    }),
+    __metadata("design:paramtypes", [core_1.Renderer2,
+        core_1.ElementRef])
+], WorksStepItem);
 exports.WorksStepItem = WorksStepItem;
 //# sourceMappingURL=component.step.js.map

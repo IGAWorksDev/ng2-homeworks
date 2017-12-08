@@ -35,7 +35,7 @@ This simple HTML tag at below is all you need to use this feature.
 
 ```html
 <works-step
-    (move)="onMove(event: HomeWorksStepEventObject)"
+    (move)="onMove(event: homeworks.StepEvent)"
 >
 </works-step>
 ```
@@ -46,14 +46,14 @@ This simple HTML tag at below is all you need to use this feature.
 
 ## EventObject
 
-- **HomeWorksStepEventObject**
+- **homeworks.StepEvent**
 
   This event model is used only the step component.
 
 *Typescript Definition*
 
 ```typescript
-declare interface HomeWorksStepEventObject {
+declare interface homeworks.StepEvent {
     header: Array<JQuery>;
     index: number;
     length: number;
@@ -99,7 +99,7 @@ export class Example {
     ngOnInit() {
     }
 
-    stepMove(value: HomeWorksStepEventObject) {
+    stepMove(value: homeworks.StepEvent) {
         console.log('value', value);
     }
 }

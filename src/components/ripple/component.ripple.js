@@ -37,18 +37,18 @@ var WorksRipple = (function (_super) {
             theme: context.ripple
         });
     };
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], WorksRipple.prototype, "ripple", void 0);
-    WorksRipple = __decorate([
-        core_1.Directive({
-            selector: 'works-ripple, [ripple]'
-        }),
-        __metadata("design:paramtypes", [core_1.Renderer2,
-            core_1.ElementRef])
-    ], WorksRipple);
     return WorksRipple;
 }(homeworks_1.Homeworks));
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String)
+], WorksRipple.prototype, "ripple", void 0);
+WorksRipple = __decorate([
+    core_1.Directive({
+        selector: 'works-ripple, [ripple]'
+    }),
+    __metadata("design:paramtypes", [core_1.Renderer2,
+        core_1.ElementRef])
+], WorksRipple);
 exports.WorksRipple = WorksRipple;
 //# sourceMappingURL=component.ripple.js.map
