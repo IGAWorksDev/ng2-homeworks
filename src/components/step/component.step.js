@@ -159,7 +159,8 @@ var WorksStepItem = /** @class */ (function (_super) {
         var context = this;
         var container = context.elementRef.nativeElement.parentNode.parentNode.querySelector('.step-container');
         if (container === null) {
-            var wrapperElement = context.renderer.createElement(context.elementRef.nativeElement.parentNode.parentNode, 'div');
+            var wrapperElement = context.renderer.createElement('div');
+            context.renderer.appendChild(context.elementRef.nativeElement.parentNode.parentNode, wrapperElement);
             context.renderer.addClass(wrapperElement, 'step-container');
             container = wrapperElement;
         }
@@ -167,7 +168,8 @@ var WorksStepItem = /** @class */ (function (_super) {
         context.titleElement.setAttribute('href', '#');
         context.renderer.addClass(context.titleElement, 'step-item');
         context.titleElement.textContent = context.title;
-        context.contentElement = context.renderer.createElement(container, 'div');
+        context.contentElement = context.renderer.createElement('div');
+        context.renderer.appendChild(container, context.contentElement);
         context.renderer.addClass(context.contentElement, 'step-container-item');
         context.contentElement.appendChild(context.elementRef.nativeElement);
         container.parentElement.appendChild(container);

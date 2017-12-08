@@ -49,7 +49,7 @@ export class WorksTab extends Homeworks {
     }
 
     @Output('move')
-    onMove: EventEmitter<HomeWorksTabEventObject> = new EventEmitter<HomeWorksTabEventObject>();
+    onMove: EventEmitter<homeworks.TabEvent> = new EventEmitter<homeworks.TabEvent>();
 
     constructor(
         protected renderer: Renderer2,
@@ -76,7 +76,7 @@ export class WorksTab extends Homeworks {
             active: context.active
         });
         context.$element
-            .on('tab.move', (event: JQuery.Event, tabInfo: HomeWorksTabEventObject) => {
+            .on('tab.move', (event: JQuery.Event, tabInfo: homeworks.TabEvent) => {
             if (context.active !== tabInfo.index) {
                 context.active = tabInfo.index;
                 context.onMove.emit(tabInfo);
@@ -92,7 +92,7 @@ export class WorksTabTitle extends Homeworks {
     private $element: JQuery;
 
     constructor(
-        protected renderer: Renderer,
+        protected renderer: Renderer2,
         public elementRef: ElementRef
     ) {
         super(
@@ -131,7 +131,7 @@ export class WorksTabItem extends Homeworks implements AfterContentInit {
     }
 
     constructor(
-        protected renderer: Renderer,
+        protected renderer: Renderer2,
         private elementRef: ElementRef
     ) {
         super(
@@ -143,20 +143,22 @@ export class WorksTabItem extends Homeworks implements AfterContentInit {
 
     ngOnInit() {
         const context = this;
-        var container: Element[] | Element = context.elementRef.nativeElement.parentNode.parentNode.querySelector('.tab-container');
+        let container: Element[] | Element = context.elementRef.nativeElement.parentNode.parentNode.querySelector('.tab-container');
         if (container === null) {
-            let containerElement: Element = context.renderer.createElement(context.elementRef.nativeElement.parentNode.parentNode, 'div');
-            context.renderer.setElementClass(containerElement, 'tab-container', true);
+            const containerElement: Element = context.renderer.createElement('div');
+            context.renderer.appendChild(context.elementRef.nativeElement.parentNode.parentNode, containerElement);
+            context.renderer.addClass(containerElement, 'tab-container');
             container = containerElement;
         }
 
         context.titleElement = context.renderer.createElement(context.elementRef.nativeElement.parentNode, 'a');
         context.titleElement.setAttribute('href', '#');
-        context.renderer.setElementClass(context.titleElement, 'tab-item', true);
+        context.renderer.addClass(context.titleElement, 'tab-item');
         context.titleElement.textContent = context.title;
 
-        context.contentElement = context.renderer.createElement(container, 'div');
-        context.renderer.setElementClass(context.contentElement, 'tab-container-item', true);
+        context.contentElement = context.renderer.createElement('div');
+        context.renderer.appendChild(container, context.contentElement);
+        context.renderer.addClass(context.contentElement, 'tab-container-item');
         context.contentElement.appendChild(context.elementRef.nativeElement);
 
         (container as Element).parentElement.appendChild((container as Element));

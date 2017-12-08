@@ -3,7 +3,7 @@ import {Colors, Sizes} from './model';
 
 export class Homeworks {
     private m_component: string;
-    private m_class: Array<string> = [];
+    private m_class: string[] = [];
 
     protected setRootElementClass(el: Element, className: string, isAdd: boolean = true): void {
         const context = this;

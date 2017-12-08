@@ -123,7 +123,8 @@ var WorksTabTitle = /** @class */ (function (_super) {
         core_1.Directive({
             selector: 'works-tab-title'
         }),
-        __metadata("design:paramtypes", [Object, core_1.ElementRef])
+        __metadata("design:paramtypes", [core_1.Renderer2,
+            core_1.ElementRef])
     ], WorksTabTitle);
     return WorksTabTitle;
 }(homeworks_1.Homeworks));
@@ -156,16 +157,18 @@ var WorksTabItem = /** @class */ (function (_super) {
         var context = this;
         var container = context.elementRef.nativeElement.parentNode.parentNode.querySelector('.tab-container');
         if (container === null) {
-            var containerElement = context.renderer.createElement(context.elementRef.nativeElement.parentNode.parentNode, 'div');
-            context.renderer.setElementClass(containerElement, 'tab-container', true);
+            var containerElement = context.renderer.createElement('div');
+            context.renderer.appendChild(context.elementRef.nativeElement.parentNode.parentNode, containerElement);
+            context.renderer.addClass(containerElement, 'tab-container');
             container = containerElement;
         }
         context.titleElement = context.renderer.createElement(context.elementRef.nativeElement.parentNode, 'a');
         context.titleElement.setAttribute('href', '#');
-        context.renderer.setElementClass(context.titleElement, 'tab-item', true);
+        context.renderer.addClass(context.titleElement, 'tab-item');
         context.titleElement.textContent = context.title;
-        context.contentElement = context.renderer.createElement(container, 'div');
-        context.renderer.setElementClass(context.contentElement, 'tab-container-item', true);
+        context.contentElement = context.renderer.createElement('div');
+        context.renderer.appendChild(container, context.contentElement);
+        context.renderer.addClass(context.contentElement, 'tab-container-item');
         context.contentElement.appendChild(context.elementRef.nativeElement);
         container.parentElement.appendChild(container);
     };
@@ -189,7 +192,8 @@ var WorksTabItem = /** @class */ (function (_super) {
             selector: 'works-tab-item',
             template: "\n        <ng-content></ng-content>\n    "
         }),
-        __metadata("design:paramtypes", [Object, core_1.ElementRef])
+        __metadata("design:paramtypes", [core_1.Renderer2,
+            core_1.ElementRef])
     ], WorksTabItem);
     return WorksTabItem;
 }(homeworks_1.Homeworks));

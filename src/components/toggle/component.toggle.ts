@@ -214,7 +214,7 @@ export class WorksToggle extends Homeworks implements ControlValueAccessor {
                 placeholder: context.placeholder
             })
             .on('change', (event: JQuery.Event) => {
-                const value: HomeWorksEventObject = {
+                const value: homeworks.Event = {
                     checked: context.$toggle.prop('checked'),
                     value: context.$toggle.val(),
                     element: context.$toggle

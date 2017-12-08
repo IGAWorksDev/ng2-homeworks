@@ -30,7 +30,7 @@ This simple HTML tag at below is all you need to use this feature.
 
 ```html
 <works-checkbox
-    (update)="onUpdate(event: HomeWorksEventObject)"
+    (update)="onUpdate(event: homeworks.Event)"
 >
 </works-checkbox>
 ```
@@ -41,7 +41,7 @@ This simple HTML tag at below is all you need to use this feature.
 
 ## EventObject
 
-- **HomeWorksEventObject**
+- **homeworks.Event**
 
   This object is the global event model used for everything in homeworks.
 
@@ -50,7 +50,7 @@ This simple HTML tag at below is all you need to use this feature.
 *Typescript Definition*
 
 ```typescript
-declare interface HomeWorksEventObject {
+interface Event {
     element: JQuery;
     value: string;
     checked?: boolean;
@@ -83,7 +83,7 @@ export class Example {
     ngOnInit() {    
     }
 
-    changesOccured(value: HomeWorksEventObject) {
+    changesOccured(value: homeworks.Event) {
         console.log('value', value);
     }
 }

@@ -24,7 +24,7 @@ var forms_1 = require("@angular/forms");
 var homeworks_1 = require("../../core/homeworks");
 var COMPONENT = 'checkbox';
 var ALIAS = 'input';
-var WorksCheckbox = /** @class */ (function (_super) {
+var WorksCheckbox = (function (_super) {
     __extends(WorksCheckbox, _super);
     function WorksCheckbox(renderer, changeDetectorRef, elementRef) {
         var _this = _super.call(this, renderer, COMPONENT, ALIAS) || this;
@@ -161,8 +161,8 @@ var WorksCheckbox = /** @class */ (function (_super) {
             var formValue = context.$checkbox.val();
             var formChecked = context.$checkbox.prop('checked');
             var formValueExists = typeof formValue !== 'undefined' && formValue !== null && formValue !== '';
-            if (formChecked === true) {
-                if (formValueExists === true) {
+            if (formChecked) {
+                if (formValueExists) {
                     context.model = context.$checkbox.val();
                 }
                 else {
@@ -170,7 +170,7 @@ var WorksCheckbox = /** @class */ (function (_super) {
                 }
             }
             else {
-                if (formValueExists === true) {
+                if (formValueExists) {
                     context.model = '';
                 }
                 else {

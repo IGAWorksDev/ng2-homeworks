@@ -1,4 +1,5 @@
 "use strict";
+/// <reference types="homeworks" />
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -21,14 +22,10 @@ var main_8 = require("./components/ripple/main");
 var forms_1 = require("@angular/forms");
 var Homeworks = /** @class */ (function () {
     function Homeworks() {
-        var context = this;
-        var homeworks = window['homeworks'];
         if (!homeworks) {
             throw new Error('`homeworks` library is must declared.\nType npm install homeworks --save.');
         }
-        else {
-            homeworks.hook = false;
-        }
+        homeworks.disableHook();
     }
     Homeworks = __decorate([
         core_1.NgModule({

@@ -156,7 +156,8 @@ export class WorksCheckbox extends Homeworks implements ControlValueAccessor {
     }
 
     @Output('update')
-    onUpdate: EventEmitter<HomeWorksEventObject> = new EventEmitter<HomeWorksEventObject>();
+    onUpdate: EventEmitter<homeworks.Event> =
+        new EventEmitter<homeworks.Event>();
 
     constructor(
         protected renderer: Renderer2,
@@ -185,8 +186,8 @@ export class WorksCheckbox extends Homeworks implements ControlValueAccessor {
 
         context.$checkbox
             .checkbox()
-            .on('change', event => {
-                const value: HomeWorksEventObject = {
+            .on('change', (event: JQuery.Event) => {
+                const value: homeworks.Event = {
                     checked: context.$checkbox.prop('checked'),
                     value: context.$checkbox.val(),
                     element: context.$checkbox
@@ -195,8 +196,8 @@ export class WorksCheckbox extends Homeworks implements ControlValueAccessor {
                 const formChecked: boolean = context.$checkbox.prop('checked');
                 const formValueExists: boolean = typeof formValue !== 'undefined' && formValue !== null && formValue !== '';
 
-                if (formChecked === true) {
-                    if (formValueExists === true) {
+                if (formChecked) {
+                    if (formValueExists) {
                         context.model = context.$checkbox.val();
                     }
                     else {
@@ -204,7 +205,7 @@ export class WorksCheckbox extends Homeworks implements ControlValueAccessor {
                     }
                 }
                 else {
-                    if (formValueExists === true) {
+                    if (formValueExists) {
                         context.model = '';
                     }
                     else {

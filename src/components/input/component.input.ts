@@ -166,7 +166,7 @@ export class WorksInput extends Homeworks implements ControlValueAccessor {
     }
 
     @Output('update')
-    onUpdate: EventEmitter<HomeWorksEventObject> = new EventEmitter<HomeWorksEventObject>();
+    onUpdate: EventEmitter<homeworks.Event> = new EventEmitter<homeworks.Event>();
 
     constructor(
         protected renderer: Renderer2,
@@ -205,7 +205,7 @@ export class WorksInput extends Homeworks implements ControlValueAccessor {
 
     onInput($event: Event) {
         const context = this;
-        const eventObject: HomeWorksEventObject = {
+        const eventObject: homeworks.Event = {
             value: context.$element.val(),
             element: context.$element
         };
@@ -230,7 +230,7 @@ export class WorksInput extends Homeworks implements ControlValueAccessor {
         context.$input
             .input()
             .on('input', event => {
-                const value: HomeWorksEventObject = {
+                const value: homeworks.Event = {
                     value: context.$input.val(),
                     element: context.$input
                 }

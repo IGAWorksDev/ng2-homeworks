@@ -5,6 +5,7 @@
         "target": "es5",
         "module": "commonjs",
         "moduleResolution": "node",
+        "lib" : ["es5", "es2015", "es2015.iterable", "dom", "scripthost"],
         "sourceMap": true,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,

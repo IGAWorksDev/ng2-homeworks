@@ -168,7 +168,7 @@ export class WorksSpinner extends Homeworks implements ControlValueAccessor {
     }
 
     @Output('update')
-    onUpdate: EventEmitter<HomeWorksEventObject> = new EventEmitter<HomeWorksEventObject>();
+    onUpdate: EventEmitter<homeworks.Event> = new EventEmitter<homeworks.Event>();
 
     get model(): any {
         return this.m_model;
@@ -197,7 +197,7 @@ export class WorksSpinner extends Homeworks implements ControlValueAccessor {
             .spinner({
             })
             .on('change', event => {
-                const value: HomeWorksEventObject = {
+                const value: homeworks.Event = {
                     value: context.$select.val(),
                     element: context.$select
                 };

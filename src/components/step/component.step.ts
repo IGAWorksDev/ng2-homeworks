@@ -49,7 +49,7 @@ export class WorksStep extends Homeworks {
     }
 
     @Output('move')
-    onMove: EventEmitter<HomeWorksStepEventObject> = new EventEmitter <HomeWorksStepEventObject>();
+    onMove: EventEmitter<homeworks.StepEvent> = new EventEmitter <homeworks.StepEvent>();
 
     constructor(
         protected renderer: Renderer2,
@@ -76,7 +76,7 @@ export class WorksStep extends Homeworks {
             active: context.active
         });
         context.$element
-            .on('step.move', (event: JQuery.Event, stepInfo: HomeWorksStepEventObject) => {
+            .on('step.move', (event: JQuery.Event, stepInfo: homeworks.StepEvent) => {
                 if (context.active !== stepInfo.index) {
                     context.active = stepInfo.index;
                     context.onMove.emit(stepInfo);
@@ -146,9 +146,10 @@ export class WorksStepItem extends Homeworks implements AfterContentInit {
 
     ngOnInit() {
         const context = this;
-        var container: Element[] | Element = context.elementRef.nativeElement.parentNode.parentNode.querySelector('.step-container');
+        let container: Element[] | Element = context.elementRef.nativeElement.parentNode.parentNode.querySelector('.step-container');
         if (container === null) {
-            const wrapperElement: Element = context.renderer.createElement(context.elementRef.nativeElement.parentNode.parentNode, 'div');
+            const wrapperElement: Element = context.renderer.createElement('div');
+            context.renderer.appendChild(context.elementRef.nativeElement.parentNode.parentNode, wrapperElement);
             context.renderer.addClass(wrapperElement, 'step-container');
             container = wrapperElement;
         }
@@ -158,7 +159,8 @@ export class WorksStepItem extends Homeworks implements AfterContentInit {
         context.renderer.addClass(context.titleElement, 'step-item');
         context.titleElement.textContent = context.title;
 
-        context.contentElement = context.renderer.createElement(container, 'div');
+        context.contentElement = context.renderer.createElement('div');
+        context.renderer.appendChild(container, context.contentElement);
         context.renderer.addClass(context.contentElement, 'step-container-item');
         context.contentElement.appendChild(context.elementRef.nativeElement);
 
