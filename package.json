@@ -27,7 +27,7 @@
     "readme": "README.md",
     "dependencies": {
         "@angular/core": "^5.1.0",
-        "homeworks": "^1.0.45"
+        "homeworks": "^1.0.47"
     },
     "devDependencies": {
         "@types/jquery": "^3.2.x"
