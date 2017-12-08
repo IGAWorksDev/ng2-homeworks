@@ -5,9 +5,9 @@ npm-debug.log*
 
 # Angular files
 *.ngsummary.json
-*.ngsummary.map
+*.ngsummary.js.map
 *.ngfactory.js
-*.ngfactory.map
+*.ngfactory.js.map
 
 # Runtime data
 pids

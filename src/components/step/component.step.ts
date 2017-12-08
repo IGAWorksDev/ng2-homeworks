@@ -60,7 +60,8 @@ export class WorksStep extends Homeworks {
             COMPONENT
         );
         const context = this;
-        context.wrapperElement = context.renderer.createElement(context.elementRef.nativeElement.parentNode, 'div');
+        context.wrapperElement = context.renderer.createElement('div');
+        context.renderer.appendChild(context.elementRef.nativeElement.parentNode, context.wrapperElement);
         context.wrapperElement.setAttribute("class", "works-step-wrapper");
         context.wrapperElement.appendChild(context.elementRef.nativeElement);
     }
@@ -154,7 +155,8 @@ export class WorksStepItem extends Homeworks implements AfterContentInit {
             container = wrapperElement;
         }
 
-        context.titleElement = context.renderer.createElement(context.elementRef.nativeElement.parentNode, 'a');
+        context.titleElement = context.renderer.createElement('a');
+        context.renderer.appendChild(context.elementRef.nativeElement.parentNode, context.titleElement);
         context.titleElement.setAttribute('href', '#');
         context.renderer.addClass(context.titleElement, 'step-item');
         context.titleElement.textContent = context.title;

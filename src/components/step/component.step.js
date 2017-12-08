@@ -33,7 +33,8 @@ var WorksStep = (function (_super) {
         _this.activeChange = new core_1.EventEmitter();
         _this.onMove = new core_1.EventEmitter();
         var context = _this;
-        context.wrapperElement = context.renderer.createElement(context.elementRef.nativeElement.parentNode, 'div');
+        context.wrapperElement = context.renderer.createElement('div');
+        context.renderer.appendChild(context.elementRef.nativeElement.parentNode, context.wrapperElement);
         context.wrapperElement.setAttribute("class", "works-step-wrapper");
         context.wrapperElement.appendChild(context.elementRef.nativeElement);
         return _this;
@@ -164,7 +165,8 @@ var WorksStepItem = (function (_super) {
             context.renderer.addClass(wrapperElement, 'step-container');
             container = wrapperElement;
         }
-        context.titleElement = context.renderer.createElement(context.elementRef.nativeElement.parentNode, 'a');
+        context.titleElement = context.renderer.createElement('a');
+        context.renderer.appendChild(context.elementRef.nativeElement.parentNode, context.titleElement);
         context.titleElement.setAttribute('href', '#');
         context.renderer.addClass(context.titleElement, 'step-item');
         context.titleElement.textContent = context.title;

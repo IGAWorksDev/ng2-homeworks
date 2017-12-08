@@ -23,7 +23,7 @@ var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms");
 var homeworks_1 = require("../../core/homeworks");
 var COMPONENT = 'spinner';
-var WorksSpinner = WorksSpinner_1 = (function (_super) {
+var WorksSpinner = /** @class */ (function (_super) {
     __extends(WorksSpinner, _super);
     function WorksSpinner(renderer, elementRef) {
         var _this = _super.call(this, renderer, COMPONENT) || this;
@@ -34,6 +34,7 @@ var WorksSpinner = WorksSpinner_1 = (function (_super) {
         _this.onUpdate = new core_1.EventEmitter();
         return _this;
     }
+    WorksSpinner_1 = WorksSpinner;
     WorksSpinner.prototype.writeValue = function (value) {
         var context = this;
         context.model = value;
@@ -172,80 +173,80 @@ var WorksSpinner = WorksSpinner_1 = (function (_super) {
         var context = this;
         context.render();
     };
+    __decorate([
+        core_1.ViewChild('worksSelect'),
+        __metadata("design:type", core_1.ElementRef)
+    ], WorksSpinner.prototype, "selectChild", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String),
+        __metadata("design:paramtypes", [String])
+    ], WorksSpinner.prototype, "class", null);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String),
+        __metadata("design:paramtypes", [String])
+    ], WorksSpinner.prototype, "placeholder", null);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], WorksSpinner.prototype, "block", null);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], WorksSpinner.prototype, "id", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], WorksSpinner.prototype, "name", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], WorksSpinner.prototype, "title", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], WorksSpinner.prototype, "disabled", null);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], WorksSpinner.prototype, "readonly", null);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], WorksSpinner.prototype, "required", null);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String),
+        __metadata("design:paramtypes", [String])
+    ], WorksSpinner.prototype, "size", null);
+    __decorate([
+        core_1.Output('update'),
+        __metadata("design:type", core_1.EventEmitter)
+    ], WorksSpinner.prototype, "onUpdate", void 0);
+    WorksSpinner = WorksSpinner_1 = __decorate([
+        core_1.Component({
+            selector: 'works-spinner',
+            providers: [
+                {
+                    provide: forms_1.NG_VALUE_ACCESSOR,
+                    useExisting: core_1.forwardRef(function () { return WorksSpinner_1; }),
+                    multi: true
+                }
+            ],
+            template: "\n        <select #worksSelect \n            [(ngModel)]=\"model\"\n            [attr.id]=\"id\"\n            [attr.name]=\"name\"\n            [attr.title]=\"title\"\n            [disabled]=\"disabled\"\n            [attr.readonly]=\"readonly\"\n            [required]=\"required\"\n            [attr.placeholder]=\"placeholder\" >\n            <ng-content></ng-content>\n        </select>\n    ",
+            styles: ["\n        :host {\n            display: inline-block;\n            vertical-align: middle;\n        }\n   \n        :host.block {\n            display: block;\n            vertical-align: initial;\n        }\n    "],
+            changeDetection: core_1.ChangeDetectionStrategy.Default
+        }),
+        __metadata("design:paramtypes", [core_1.Renderer2,
+            core_1.ElementRef])
+    ], WorksSpinner);
     return WorksSpinner;
+    var WorksSpinner_1;
 }(homeworks_1.Homeworks));
-__decorate([
-    core_1.ViewChild('worksSelect'),
-    __metadata("design:type", core_1.ElementRef)
-], WorksSpinner.prototype, "selectChild", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String),
-    __metadata("design:paramtypes", [String])
-], WorksSpinner.prototype, "class", null);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String),
-    __metadata("design:paramtypes", [String])
-], WorksSpinner.prototype, "placeholder", null);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object),
-    __metadata("design:paramtypes", [Object])
-], WorksSpinner.prototype, "block", null);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], WorksSpinner.prototype, "id", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], WorksSpinner.prototype, "name", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], WorksSpinner.prototype, "title", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object),
-    __metadata("design:paramtypes", [Object])
-], WorksSpinner.prototype, "disabled", null);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object),
-    __metadata("design:paramtypes", [Object])
-], WorksSpinner.prototype, "readonly", null);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object),
-    __metadata("design:paramtypes", [Object])
-], WorksSpinner.prototype, "required", null);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String),
-    __metadata("design:paramtypes", [String])
-], WorksSpinner.prototype, "size", null);
-__decorate([
-    core_1.Output('update'),
-    __metadata("design:type", core_1.EventEmitter)
-], WorksSpinner.prototype, "onUpdate", void 0);
-WorksSpinner = WorksSpinner_1 = __decorate([
-    core_1.Component({
-        selector: 'works-spinner',
-        providers: [
-            {
-                provide: forms_1.NG_VALUE_ACCESSOR,
-                useExisting: core_1.forwardRef(function () { return WorksSpinner_1; }),
-                multi: true
-            }
-        ],
-        template: "\n        <select #worksSelect \n            [(ngModel)]=\"model\"\n            [attr.id]=\"id\"\n            [attr.name]=\"name\"\n            [attr.title]=\"title\"\n            [disabled]=\"disabled\"\n            [attr.readonly]=\"readonly\"\n            [required]=\"required\"\n            [attr.placeholder]=\"placeholder\" >\n            <ng-content></ng-content>\n        </select>\n    ",
-        styles: ["\n        :host {\n            display: inline-block;\n            vertical-align: middle;\n        }\n   \n        :host.block {\n            display: block;\n            vertical-align: initial;\n        }\n    "],
-        changeDetection: core_1.ChangeDetectionStrategy.Default
-    }),
-    __metadata("design:paramtypes", [core_1.Renderer2,
-        core_1.ElementRef])
-], WorksSpinner);
 exports.WorksSpinner = WorksSpinner;
-var WorksSpinner_1;
 //# sourceMappingURL=component.spinner.js.map
