@@ -20,7 +20,7 @@ var main_6 = require("./components/step/main");
 var main_7 = require("./components/input/main");
 var main_8 = require("./components/ripple/main");
 var forms_1 = require("@angular/forms");
-var Homeworks = /** @class */ (function () {
+var Homeworks = (function () {
     function Homeworks() {
         if (!homeworks) {
             throw new Error('`homeworks` library is must declared.\nType npm install homeworks --save.');

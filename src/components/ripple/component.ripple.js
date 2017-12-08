@@ -22,7 +22,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var homeworks_1 = require("../../core/homeworks");
 var COMPONENT = 'ripple';
-var WorksRipple = /** @class */ (function (_super) {
+var WorksRipple = (function (_super) {
     __extends(WorksRipple, _super);
     function WorksRipple(renderer, elementRef) {
         var _this = _super.call(this, renderer, COMPONENT) || this;

@@ -22,7 +22,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var homeworks_1 = require("../../core/homeworks");
 var COMPONENT = 'tab';
-var WorksTab = /** @class */ (function (_super) {
+var WorksTab = (function (_super) {
     __extends(WorksTab, _super);
     function WorksTab(renderer, elementRef) {
         var _this = _super.call(this, renderer, COMPONENT) || this;
@@ -111,7 +111,7 @@ var WorksTab = /** @class */ (function (_super) {
     return WorksTab;
 }(homeworks_1.Homeworks));
 exports.WorksTab = WorksTab;
-var WorksTabTitle = /** @class */ (function (_super) {
+var WorksTabTitle = (function (_super) {
     __extends(WorksTabTitle, _super);
     function WorksTabTitle(renderer, elementRef) {
         var _this = _super.call(this, renderer, COMPONENT) || this;
@@ -129,7 +129,7 @@ var WorksTabTitle = /** @class */ (function (_super) {
     return WorksTabTitle;
 }(homeworks_1.Homeworks));
 exports.WorksTabTitle = WorksTabTitle;
-var WorksTabItem = /** @class */ (function (_super) {
+var WorksTabItem = (function (_super) {
     __extends(WorksTabItem, _super);
     function WorksTabItem(renderer, elementRef) {
         var _this = _super.call(this, renderer, COMPONENT) || this;

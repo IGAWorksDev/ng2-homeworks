@@ -22,7 +22,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var homeworks_1 = require("../../core/homeworks");
 var COMPONENT = 'dropdown';
-var WorksDropdown = /** @class */ (function (_super) {
+var WorksDropdown = (function (_super) {
     __extends(WorksDropdown, _super);
     function WorksDropdown(renderer, elementRef) {
         var _this = _super.call(this, renderer, COMPONENT) || this;

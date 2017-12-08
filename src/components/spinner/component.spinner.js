@@ -23,7 +23,7 @@ var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms");
 var homeworks_1 = require("../../core/homeworks");
 var COMPONENT = 'spinner';
-var WorksSpinner = /** @class */ (function (_super) {
+var WorksSpinner = (function (_super) {
     __extends(WorksSpinner, _super);
     function WorksSpinner(renderer, elementRef) {
         var _this = _super.call(this, renderer, COMPONENT) || this;

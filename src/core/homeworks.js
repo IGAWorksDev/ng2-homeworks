@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var model_1 = require("./model");
-var Homeworks = /** @class */ (function () {
+var Homeworks = (function () {
     function Homeworks(renderer, component, alias) {
         if (alias === void 0) { alias = null; }
         this.renderer = renderer;

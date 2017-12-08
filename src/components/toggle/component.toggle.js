@@ -24,7 +24,7 @@ var forms_1 = require("@angular/forms");
 var homeworks_1 = require("../../core/homeworks");
 var COMPONENT = 'checkbox';
 var ALIAS = 'input';
-var WorksToggle = /** @class */ (function (_super) {
+var WorksToggle = (function (_super) {
     __extends(WorksToggle, _super);
     function WorksToggle(renderer, changeDetectorRef, elementRef) {
         var _this = _super.call(this, renderer, COMPONENT, ALIAS) || this;

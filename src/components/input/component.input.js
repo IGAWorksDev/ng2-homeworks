@@ -23,7 +23,7 @@ var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms");
 var homeworks_1 = require("../../core/homeworks");
 var COMPONENT = 'input';
-var WorksInput = /** @class */ (function (_super) {
+var WorksInput = (function (_super) {
     __extends(WorksInput, _super);
     function WorksInput(renderer, elementRef, changeDectecterRef) {
         var _this = _super.call(this, renderer, COMPONENT) || this;

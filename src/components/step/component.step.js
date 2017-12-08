@@ -22,7 +22,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var homeworks_1 = require("../../core/homeworks");
 var COMPONENT = 'step';
-var WorksStep = /** @class */ (function (_super) {
+var WorksStep = (function (_super) {
     __extends(WorksStep, _super);
     function WorksStep(renderer, elementRef) {
         var _this = _super.call(this, renderer, COMPONENT) || this;
@@ -111,7 +111,7 @@ var WorksStep = /** @class */ (function (_super) {
     return WorksStep;
 }(homeworks_1.Homeworks));
 exports.WorksStep = WorksStep;
-var WorksStepTitle = /** @class */ (function (_super) {
+var WorksStepTitle = (function (_super) {
     __extends(WorksStepTitle, _super);
     function WorksStepTitle(renderer, elementRef) {
         var _this = _super.call(this, renderer, COMPONENT) || this;
@@ -132,7 +132,7 @@ var WorksStepTitle = /** @class */ (function (_super) {
     return WorksStepTitle;
 }(homeworks_1.Homeworks));
 exports.WorksStepTitle = WorksStepTitle;
-var WorksStepItem = /** @class */ (function (_super) {
+var WorksStepItem = (function (_super) {
     __extends(WorksStepItem, _super);
     function WorksStepItem(renderer, elementRef) {
         var _this = _super.call(this, renderer, COMPONENT) || this;
