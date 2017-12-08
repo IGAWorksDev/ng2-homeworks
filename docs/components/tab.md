@@ -35,7 +35,7 @@ This simple HTML tag at below is all you need to use this feature.
 
 ```html
 <works-tab
-    (move)="onMove(event: HomeWorksTabEventObject)"
+    (move)="onMove(event: homeworks.TabEvent)"
 >
 </works-tab>
 ```
@@ -46,14 +46,14 @@ This simple HTML tag at below is all you need to use this feature.
 
 ## EventObject
 
-- **HomeWorksTabEventObject**
+- **homeworks.TabEvent**
 
   This event model is used only the tab component.
 
 *Typescript Definition*
 
 ```typescript
-declare interface HomeWorksTabEventObject {
+declare interface homeworks.TabEvent {
     header: Array<JQuery>;
     index: number;
     length: number;
@@ -99,7 +99,7 @@ export class Example {
     ngOnInit() {
     }
 
-    tabMove(value: HomeWorksTabEventObject) {
+    tabMove(value: homeworks.TabEvent) {
         console.log('value', value);
     }
 }
