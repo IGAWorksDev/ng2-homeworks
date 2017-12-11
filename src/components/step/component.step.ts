@@ -11,7 +11,7 @@ import {
     Output,
     Renderer2
 } from '@angular/core';
-import {Homeworks} from '../../core/homeworks';
+import {HomeworksManager} from "../../core/manager";
 
 const COMPONENT: string = 'step';
 
@@ -20,7 +20,7 @@ const COMPONENT: string = 'step';
     template: `<ng-content></ng-content>`,
     changeDetection: ChangeDetectionStrategy.Default
 })
-export class WorksStep extends Homeworks {
+export class WorksStep extends HomeworksManager {
     private $element: JQuery;
     private wrapperElement?: Element = null;
     private m_active: number = 0;
@@ -89,7 +89,7 @@ export class WorksStep extends Homeworks {
 @Directive({
     selector: 'works-step-title'
 })
-export class WorksStepTitle extends Homeworks {
+export class WorksStepTitle extends HomeworksManager {
     private $element: JQuery;
 
     constructor(
@@ -113,7 +113,7 @@ export class WorksStepTitle extends Homeworks {
         <ng-content></ng-content>
     `
 })
-export class WorksStepItem extends Homeworks implements AfterContentInit {
+export class WorksStepItem extends HomeworksManager implements AfterContentInit {
     private $element: JQuery;
 
     private m_title: string;

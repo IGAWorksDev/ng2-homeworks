@@ -1,17 +1,16 @@
-﻿/// <reference types="homeworks" />
+/// <reference types="homeworks" />
 
 import { NgModule } from '@angular/core';
-
-import { WorksSpinner, WorksOption } from './components/spinner/main';
-import { WorksDropdown } from './components/dropdown/main';
-import { WorksCheckbox } from './components/checkbox/main';
-import { WorksToggle } from './components/toggle/main';
-import { WorksTab, WorksTabItem, WorksTabTitle } from './components/tab/main';
-import { WorksStep, WorksStepItem, WorksStepTitle } from './components/step/main';
-import { WorksInput } from './components/input/main';
-import { WorksRipple } from './components/ripple/main';
-
 import { FormsModule } from '@angular/forms';
+
+import { WorksSpinner, WorksOption } from './src/components/spinner/main';
+import { WorksDropdown } from './src/components/dropdown/main';
+import { WorksCheckbox } from './src/components/checkbox/main';
+import { WorksToggle } from './src/components/toggle/main';
+import { WorksTab, WorksTabItem, WorksTabTitle } from './src/components/tab/main';
+import { WorksStep, WorksStepItem, WorksStepTitle } from './src/components/step/main';
+import { WorksInput } from './src/components/input/main';
+import { WorksRipple } from './src/components/ripple/main';
 
 @NgModule({
     imports: [
@@ -52,12 +51,5 @@ import { FormsModule } from '@angular/forms';
         WorksRipple
     ]
 })
-export class Homeworks {
-    constructor(
-    ) {
-        if (!homeworks) {
-            throw new Error('`homeworks` library is must declared.\nType npm install homeworks --save.');
-        }
-        homeworks.disableHook();
-    }
+export class HomeworksModule {
 }

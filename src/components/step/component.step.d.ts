@@ -1,7 +1,7 @@
 /// <reference types="homeworks" />
 import { AfterContentInit, ElementRef, EventEmitter, Renderer2 } from '@angular/core';
-import { Homeworks } from '../../core/homeworks';
-export declare class WorksStep extends Homeworks {
+import { HomeworksManager } from "../../core/manager";
+export declare class WorksStep extends HomeworksManager {
     protected renderer: Renderer2;
     private elementRef;
     private $element;
@@ -15,14 +15,14 @@ export declare class WorksStep extends Homeworks {
     ngOnInit(): void;
     ngAfterViewInit(): void;
 }
-export declare class WorksStepTitle extends Homeworks {
+export declare class WorksStepTitle extends HomeworksManager {
     protected renderer: Renderer2;
     elementRef: ElementRef;
     private $element;
     constructor(renderer: Renderer2, elementRef: ElementRef);
     ngOnInit(): void;
 }
-export declare class WorksStepItem extends Homeworks implements AfterContentInit {
+export declare class WorksStepItem extends HomeworksManager implements AfterContentInit {
     protected renderer: Renderer2;
     private elementRef;
     private $element;

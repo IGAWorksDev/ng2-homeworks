@@ -20,7 +20,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var homeworks_1 = require("../../core/homeworks");
+var manager_1 = require("../../core/manager");
 var COMPONENT = 'step';
 var WorksStep = (function (_super) {
     __extends(WorksStep, _super);
@@ -83,7 +83,7 @@ var WorksStep = (function (_super) {
         });
     };
     return WorksStep;
-}(homeworks_1.Homeworks));
+}(manager_1.HomeworksManager));
 __decorate([
     core_1.Output(),
     __metadata("design:type", core_1.EventEmitter)
@@ -124,7 +124,7 @@ var WorksStepTitle = (function (_super) {
         var context = this;
     };
     return WorksStepTitle;
-}(homeworks_1.Homeworks));
+}(manager_1.HomeworksManager));
 WorksStepTitle = __decorate([
     core_1.Directive({
         selector: 'works-step-title'
@@ -183,7 +183,7 @@ var WorksStepItem = (function (_super) {
         }
     };
     return WorksStepItem;
-}(homeworks_1.Homeworks));
+}(manager_1.HomeworksManager));
 __decorate([
     core_1.ContentChild(core_1.forwardRef(function () { return WorksStepTitle; })),
     __metadata("design:type", WorksStepTitle)

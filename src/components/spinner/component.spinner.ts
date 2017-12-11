@@ -1,4 +1,4 @@
-﻿import {
+import {
     ChangeDetectionStrategy,
     Component,
     ElementRef,
@@ -10,7 +10,7 @@
     ViewChild
 } from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
-import {Homeworks} from '../../core/homeworks';
+import {HomeworksManager} from "../../core/manager";
 
 const COMPONENT: string = 'spinner';
 
@@ -49,7 +49,7 @@ const COMPONENT: string = 'spinner';
     `],
     changeDetection: ChangeDetectionStrategy.Default
 })
-export class WorksSpinner extends Homeworks implements ControlValueAccessor {
+export class WorksSpinner extends HomeworksManager implements ControlValueAccessor {
     private $element: JQuery;
     private $select: JQuery;
     private propagateChange: any = Function.prototype;

@@ -1,5 +1,5 @@
-﻿import {ChangeDetectionStrategy, Component, Renderer2, ElementRef, Input, ViewChild} from '@angular/core';
-import {Homeworks} from '../../core/homeworks';
+import {ChangeDetectionStrategy, Component, Renderer2, ElementRef, Input, ViewChild} from '@angular/core';
+import {HomeworksManager} from "../../core/manager";
 
 const COMPONENT: string = 'option';
 
@@ -21,7 +21,7 @@ const COMPONENT: string = 'option';
     ],
     changeDetection: ChangeDetectionStrategy.Default
 })
-export class WorksOption extends Homeworks {
+export class WorksOption extends HomeworksManager {
     private $element: JQuery;
     private $option: JQuery;
     private propagateChange: any = Function.prototype;

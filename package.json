@@ -2,10 +2,11 @@
     "name": "ng2-homeworks",
     "version": "1.0.48",
     "description": "Front End framework that supported view binding.",
-    "main": "src/index.js",
-    "module": "src/index.js",
-    "typings": "src/index.d.ts",
-    "scripts": {},
+    "main": "index.js",
+    "module": "index.js",
+    "scripts": {
+        "ngc": "ngc -p tsconfig.json"
+    },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/IGAWorksDev/ng2-homeworks.git"
@@ -26,10 +27,22 @@
     "homepage": "https://github.com/IGAWorksDev/ng2-homeworks#readme",
     "readme": "README.md",
     "dependencies": {
-        "@angular/core": "^5.1.0",
+        "@angular/animations": "~5.0.2",
+        "@angular/common": "~5.0.2",
+        "@angular/compiler": "~5.0.2",
+        "@angular/compiler-cli": "~5.0.2",
+        "@angular/core": "~5.0.2",
+        "@angular/forms": "~5.0.2",
+        "@angular/http": "~5.0.2",
+        "@angular/platform-browser": "~5.0.2",
+        "@angular/platform-browser-dynamic": "~5.0.2",
+        "@angular/platform-server": "~5.0.2",
+        "@angular/router": "~5.0.2",
+        "@angular/upgrade": "~5.0.2",
         "homeworks": "^1.0.47"
     },
     "devDependencies": {
-        "@types/jquery": "^3.2.x"
+        "@types/jquery": "^3.2.x",
+        "@angular/cli": "1.6.0"
     }
 }

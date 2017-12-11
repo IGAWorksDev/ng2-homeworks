@@ -20,7 +20,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var homeworks_1 = require("../../core/homeworks");
+var manager_1 = require("../../core/manager");
 var COMPONENT = 'tab';
 var WorksTab = (function (_super) {
     __extends(WorksTab, _super);
@@ -83,7 +83,7 @@ var WorksTab = (function (_super) {
         });
     };
     return WorksTab;
-}(homeworks_1.Homeworks));
+}(manager_1.HomeworksManager));
 __decorate([
     core_1.Output(),
     __metadata("design:type", core_1.EventEmitter)
@@ -121,7 +121,7 @@ var WorksTabTitle = (function (_super) {
         return _this;
     }
     return WorksTabTitle;
-}(homeworks_1.Homeworks));
+}(manager_1.HomeworksManager));
 WorksTabTitle = __decorate([
     core_1.Directive({
         selector: 'works-tab-title'
@@ -181,7 +181,7 @@ var WorksTabItem = (function (_super) {
         }
     };
     return WorksTabItem;
-}(homeworks_1.Homeworks));
+}(manager_1.HomeworksManager));
 __decorate([
     core_1.ContentChild(core_1.forwardRef(function () { return WorksTabTitle; })),
     __metadata("design:type", WorksTabTitle)

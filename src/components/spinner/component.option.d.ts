@@ -1,6 +1,6 @@
 import { Renderer2, ElementRef } from '@angular/core';
-import { Homeworks } from '../../core/homeworks';
-export declare class WorksOption extends Homeworks {
+import { HomeworksManager } from "../../core/manager";
+export declare class WorksOption extends HomeworksManager {
     protected renderer: Renderer2;
     private elementRef;
     private $element;

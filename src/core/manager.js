@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var model_1 = require("./model");
-var Homeworks = /** @class */ (function () {
-    function Homeworks(renderer, component, alias) {
+var HomeworksManager = (function () {
+    function HomeworksManager(renderer, component, alias) {
         if (alias === void 0) { alias = null; }
         this.renderer = renderer;
         this.m_class = [];
@@ -13,7 +13,7 @@ var Homeworks = /** @class */ (function () {
             this.m_component = component;
         }
     }
-    Homeworks.prototype.setRootElementClass = function (el, className, isAdd) {
+    HomeworksManager.prototype.setRootElementClass = function (el, className, isAdd) {
         if (isAdd === void 0) { isAdd = true; }
         var context = this;
         var index = context.m_class.indexOf(className);
@@ -29,14 +29,14 @@ var Homeworks = /** @class */ (function () {
         }
         context.updateRootElementClass(el);
     };
-    Homeworks.prototype.updateRootElementClass = function (el) {
+    HomeworksManager.prototype.updateRootElementClass = function (el) {
         var context = this;
         context.renderer.setAttribute(el, 'class', '');
         for (var idx in context.m_class) {
             context.renderer.addClass(el, context.m_class[idx]);
         }
     };
-    Homeworks.prototype.setElementClass = function (el, className, isAdd) {
+    HomeworksManager.prototype.setElementClass = function (el, className, isAdd) {
         if (isAdd === void 0) { isAdd = true; }
         var context = this;
         var classFullName = context.m_component + "-" + className;
@@ -45,7 +45,7 @@ var Homeworks = /** @class */ (function () {
         else
             context.renderer.removeClass(el, classFullName);
     };
-    Homeworks.prototype.setPropagateChildClass = function (rootEl, childEl, className) {
+    HomeworksManager.prototype.setPropagateChildClass = function (rootEl, childEl, className) {
         var _this = this;
         if (className !== null && className !== '') {
             className
@@ -59,7 +59,7 @@ var Homeworks = /** @class */ (function () {
         }
         this.updateRootElementClass(rootEl);
     };
-    Homeworks.prototype.setColor = function (el, color) {
+    HomeworksManager.prototype.setColor = function (el, color) {
         var context = this;
         var index = model_1.Colors.indexOf(color);
         if (index !== -1) {
@@ -71,7 +71,7 @@ var Homeworks = /** @class */ (function () {
             context.setElementClass(el, color);
         }
     };
-    Homeworks.prototype.setSize = function (el, size) {
+    HomeworksManager.prototype.setSize = function (el, size) {
         var context = this;
         var sizeClassName = context.getSizeClassName(size);
         model_1.Sizes.filter(function (element, index) {
@@ -81,7 +81,7 @@ var Homeworks = /** @class */ (function () {
         });
         context.setElementClass(el, sizeClassName);
     };
-    Homeworks.prototype.getSizeClassName = function (size) {
+    HomeworksManager.prototype.getSizeClassName = function (size) {
         switch (size) {
             case 'extra large':
                 return 'xg';
@@ -97,7 +97,7 @@ var Homeworks = /** @class */ (function () {
         }
         return 'md';
     };
-    return Homeworks;
+    return HomeworksManager;
 }());
-exports.Homeworks = Homeworks;
-//# sourceMappingURL=homeworks.js.map
+exports.HomeworksManager = HomeworksManager;
+//# sourceMappingURL=manager.js.map

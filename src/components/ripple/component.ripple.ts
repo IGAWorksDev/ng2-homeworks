@@ -1,12 +1,12 @@
 ﻿import {Directive, ElementRef, Input, Renderer2} from '@angular/core';
-import {Homeworks} from '../../core/homeworks';
+import {HomeworksManager} from "../../core/manager";
 
 const COMPONENT: string = 'ripple';
 
 @Directive({
     selector: 'works-ripple, [ripple]'
  })
-export class WorksRipple extends Homeworks {
+export class WorksRipple extends HomeworksManager {
     private $element: JQuery;
 
     @Input() ripple: string;

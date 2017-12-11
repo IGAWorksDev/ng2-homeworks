@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, ElementRef, Input, Renderer2, ViewChild} from '@angular/core';
-import {Homeworks} from '../../core/homeworks';
+import {HomeworksManager} from "../../core/manager";
 
 const COMPONENT: string = 'dropdown';
 
@@ -13,7 +13,7 @@ const COMPONENT: string = 'dropdown';
     `,
     changeDetection: ChangeDetectionStrategy.OnPush
  })
-export class WorksDropdown extends Homeworks {
+export class WorksDropdown extends HomeworksManager {
     private $element: JQuery;
     private $dropdown: JQuery;
 

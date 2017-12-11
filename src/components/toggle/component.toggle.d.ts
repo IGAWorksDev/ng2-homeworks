@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, ElementRef, EventEmitter, Renderer2 } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
-import { Homeworks } from '../../core/homeworks';
-export declare class WorksToggle extends Homeworks implements ControlValueAccessor {
+import { HomeworksManager } from "../../core/manager";
+export declare class WorksToggle extends HomeworksManager implements ControlValueAccessor {
     protected renderer: Renderer2;
     private changeDetectorRef;
     private elementRef;

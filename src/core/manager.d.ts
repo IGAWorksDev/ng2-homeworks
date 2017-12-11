@@ -1,5 +1,5 @@
 import { Renderer2 } from '@angular/core';
-export declare class Homeworks {
+export declare class HomeworksManager {
     protected renderer: Renderer2;
     private m_component;
     private m_class;

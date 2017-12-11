@@ -20,9 +20,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var homeworks_1 = require("../../core/homeworks");
+var manager_1 = require("../../core/manager");
 var COMPONENT = 'ripple';
-var WorksRipple = /** @class */ (function (_super) {
+var WorksRipple = (function (_super) {
     __extends(WorksRipple, _super);
     function WorksRipple(renderer, elementRef) {
         var _this = _super.call(this, renderer, COMPONENT) || this;
@@ -37,18 +37,18 @@ var WorksRipple = /** @class */ (function (_super) {
             theme: context.ripple
         });
     };
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], WorksRipple.prototype, "ripple", void 0);
-    WorksRipple = __decorate([
-        core_1.Directive({
-            selector: 'works-ripple, [ripple]'
-        }),
-        __metadata("design:paramtypes", [core_1.Renderer2,
-            core_1.ElementRef])
-    ], WorksRipple);
     return WorksRipple;
-}(homeworks_1.Homeworks));
+}(manager_1.HomeworksManager));
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String)
+], WorksRipple.prototype, "ripple", void 0);
+WorksRipple = __decorate([
+    core_1.Directive({
+        selector: 'works-ripple, [ripple]'
+    }),
+    __metadata("design:paramtypes", [core_1.Renderer2,
+        core_1.ElementRef])
+], WorksRipple);
 exports.WorksRipple = WorksRipple;
 //# sourceMappingURL=component.ripple.js.map

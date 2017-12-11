@@ -1,7 +1,7 @@
-﻿import {Renderer2} from '@angular/core';
+import {Renderer2} from '@angular/core';
 import {Colors, Sizes} from './model';
 
-export class Homeworks {
+export class HomeworksManager {
     private m_component: string;
     private m_class: string[] = [];
 

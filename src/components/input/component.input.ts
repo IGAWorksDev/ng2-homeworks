@@ -11,7 +11,7 @@ import {
     ViewChild
 } from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
-import {Homeworks} from '../../core/homeworks';
+import {HomeworksManager} from "../../core/manager";
 
 const COMPONENT: string = 'input';
 
@@ -53,7 +53,7 @@ const COMPONENT: string = 'input';
     },
     changeDetection: ChangeDetectionStrategy.Default
 })
-export class WorksInput extends Homeworks implements ControlValueAccessor {
+export class WorksInput extends HomeworksManager implements ControlValueAccessor {
     private $element: JQuery;
     private $input: JQuery;
 

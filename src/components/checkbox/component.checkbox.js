@@ -21,10 +21,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms");
-var homeworks_1 = require("../../core/homeworks");
+var manager_1 = require("../../core/manager");
 var COMPONENT = 'checkbox';
 var ALIAS = 'input';
-var WorksCheckbox = /** @class */ (function (_super) {
+var WorksCheckbox = WorksCheckbox_1 = (function (_super) {
     __extends(WorksCheckbox, _super);
     function WorksCheckbox(renderer, changeDetectorRef, elementRef) {
         var _this = _super.call(this, renderer, COMPONENT, ALIAS) || this;
@@ -38,7 +38,6 @@ var WorksCheckbox = /** @class */ (function (_super) {
         _this.onUpdate = new core_1.EventEmitter();
         return _this;
     }
-    WorksCheckbox_1 = WorksCheckbox;
     WorksCheckbox.prototype.writeValue = function (value) {
         var context = this;
         context.model = value;
@@ -184,84 +183,84 @@ var WorksCheckbox = /** @class */ (function (_super) {
         var context = this;
         context.render();
     };
-    __decorate([
-        core_1.ViewChild('worksCheckbox'),
-        __metadata("design:type", core_1.ElementRef)
-    ], WorksCheckbox.prototype, "checkboxChild", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String),
-        __metadata("design:paramtypes", [String])
-    ], WorksCheckbox.prototype, "class", null);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String),
-        __metadata("design:paramtypes", [String])
-    ], WorksCheckbox.prototype, "color", null);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], WorksCheckbox.prototype, "type", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], WorksCheckbox.prototype, "id", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], WorksCheckbox.prototype, "name", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], WorksCheckbox.prototype, "title", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Object),
-        __metadata("design:paramtypes", [Object])
-    ], WorksCheckbox.prototype, "disabled", null);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Object),
-        __metadata("design:paramtypes", [Object])
-    ], WorksCheckbox.prototype, "checked", null);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Object),
-        __metadata("design:paramtypes", [Object])
-    ], WorksCheckbox.prototype, "readonly", null);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Object),
-        __metadata("design:paramtypes", [Object])
-    ], WorksCheckbox.prototype, "required", null);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Object),
-        __metadata("design:paramtypes", [Object])
-    ], WorksCheckbox.prototype, "value", null);
-    __decorate([
-        core_1.Output('update'),
-        __metadata("design:type", core_1.EventEmitter)
-    ], WorksCheckbox.prototype, "onUpdate", void 0);
-    WorksCheckbox = WorksCheckbox_1 = __decorate([
-        core_1.Component({
-            selector: 'works-checkbox',
-            providers: [
-                {
-                    provide: forms_1.NG_VALUE_ACCESSOR,
-                    useExisting: core_1.forwardRef(function () { return WorksCheckbox_1; }),
-                    multi: true
-                }
-            ],
-            template: "\n        <input #worksCheckbox\n            class=\"input\"\n            [attr.type]=\"type\"\n            [attr.id]=\"id\"\n            [attr.name]=\"name\"\n            [attr.title]=\"title\"\n            [disabled]=\"disabled\"\n            [checked]=\"checked\"\n            [readonly]=\"readonly\"\n            [required]=\"required\"\n            [attr.value]=\"value\" />\n    ",
-            changeDetection: core_1.ChangeDetectionStrategy.Default
-        }),
-        __metadata("design:paramtypes", [core_1.Renderer2,
-            core_1.ChangeDetectorRef,
-            core_1.ElementRef])
-    ], WorksCheckbox);
     return WorksCheckbox;
-    var WorksCheckbox_1;
-}(homeworks_1.Homeworks));
+}(manager_1.HomeworksManager));
+__decorate([
+    core_1.ViewChild('worksCheckbox'),
+    __metadata("design:type", core_1.ElementRef)
+], WorksCheckbox.prototype, "checkboxChild", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String),
+    __metadata("design:paramtypes", [String])
+], WorksCheckbox.prototype, "class", null);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String),
+    __metadata("design:paramtypes", [String])
+], WorksCheckbox.prototype, "color", null);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String)
+], WorksCheckbox.prototype, "type", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String)
+], WorksCheckbox.prototype, "id", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String)
+], WorksCheckbox.prototype, "name", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String)
+], WorksCheckbox.prototype, "title", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object),
+    __metadata("design:paramtypes", [Object])
+], WorksCheckbox.prototype, "disabled", null);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object),
+    __metadata("design:paramtypes", [Object])
+], WorksCheckbox.prototype, "checked", null);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object),
+    __metadata("design:paramtypes", [Object])
+], WorksCheckbox.prototype, "readonly", null);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object),
+    __metadata("design:paramtypes", [Object])
+], WorksCheckbox.prototype, "required", null);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object),
+    __metadata("design:paramtypes", [Object])
+], WorksCheckbox.prototype, "value", null);
+__decorate([
+    core_1.Output('update'),
+    __metadata("design:type", core_1.EventEmitter)
+], WorksCheckbox.prototype, "onUpdate", void 0);
+WorksCheckbox = WorksCheckbox_1 = __decorate([
+    core_1.Component({
+        selector: 'works-checkbox',
+        providers: [
+            {
+                provide: forms_1.NG_VALUE_ACCESSOR,
+                useExisting: core_1.forwardRef(function () { return WorksCheckbox_1; }),
+                multi: true
+            }
+        ],
+        template: "\n        <input #worksCheckbox\n            class=\"input\"\n            [attr.type]=\"type\"\n            [attr.id]=\"id\"\n            [attr.name]=\"name\"\n            [attr.title]=\"title\"\n            [disabled]=\"disabled\"\n            [checked]=\"checked\"\n            [readonly]=\"readonly\"\n            [required]=\"required\"\n            [attr.value]=\"value\" />\n    ",
+        changeDetection: core_1.ChangeDetectionStrategy.Default
+    }),
+    __metadata("design:paramtypes", [core_1.Renderer2,
+        core_1.ChangeDetectorRef,
+        core_1.ElementRef])
+], WorksCheckbox);
 exports.WorksCheckbox = WorksCheckbox;
+var WorksCheckbox_1;
 //# sourceMappingURL=component.checkbox.js.map

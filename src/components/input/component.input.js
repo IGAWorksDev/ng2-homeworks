@@ -21,9 +21,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms");
-var homeworks_1 = require("../../core/homeworks");
+var manager_1 = require("../../core/manager");
 var COMPONENT = 'input';
-var WorksInput = /** @class */ (function (_super) {
+var WorksInput = WorksInput_1 = (function (_super) {
     __extends(WorksInput, _super);
     function WorksInput(renderer, elementRef, changeDectecterRef) {
         var _this = _super.call(this, renderer, COMPONENT) || this;
@@ -36,7 +36,6 @@ var WorksInput = /** @class */ (function (_super) {
         _this.onUpdate = new core_1.EventEmitter();
         return _this;
     }
-    WorksInput_1 = WorksInput;
     Object.defineProperty(WorksInput.prototype, "class", {
         set: function (value) {
             this.setPropagateChildClass(this.elementRef.nativeElement, this.inputChild.nativeElement, value);
@@ -194,97 +193,97 @@ var WorksInput = /** @class */ (function (_super) {
         var context = this;
         context.render();
     };
-    __decorate([
-        core_1.ViewChild('worksInput'),
-        __metadata("design:type", core_1.ElementRef)
-    ], WorksInput.prototype, "inputChild", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String),
-        __metadata("design:paramtypes", [String])
-    ], WorksInput.prototype, "class", null);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String),
-        __metadata("design:paramtypes", [String])
-    ], WorksInput.prototype, "placeholder", null);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String),
-        __metadata("design:paramtypes", [String])
-    ], WorksInput.prototype, "color", null);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String),
-        __metadata("design:paramtypes", [String])
-    ], WorksInput.prototype, "size", null);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Object),
-        __metadata("design:paramtypes", [Object])
-    ], WorksInput.prototype, "block", null);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], WorksInput.prototype, "type", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], WorksInput.prototype, "id", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], WorksInput.prototype, "name", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], WorksInput.prototype, "title", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Object),
-        __metadata("design:paramtypes", [Object])
-    ], WorksInput.prototype, "disabled", null);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Object),
-        __metadata("design:paramtypes", [Object])
-    ], WorksInput.prototype, "readonly", null);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Object),
-        __metadata("design:paramtypes", [Object])
-    ], WorksInput.prototype, "required", null);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Boolean)
-    ], WorksInput.prototype, "validation", void 0);
-    __decorate([
-        core_1.Output('update'),
-        __metadata("design:type", core_1.EventEmitter)
-    ], WorksInput.prototype, "onUpdate", void 0);
-    WorksInput = WorksInput_1 = __decorate([
-        core_1.Component({
-            selector: 'works-input',
-            providers: [
-                {
-                    provide: forms_1.NG_VALUE_ACCESSOR,
-                    useExisting: core_1.forwardRef(function () { return WorksInput_1; }),
-                    multi: true
-                }
-            ],
-            template: "\n        <input #worksInput\n            class=\"input\"\n            [(ngModel)]=\"model\"\n            [attr.type]=\"type\"\n            [attr.id]=\"id\"\n            [attr.name]=\"name\"\n            [attr.title]=\"title\"\n            [disabled]=\"disabled\"\n            [readonly]=\"readonly\"\n            [required]=\"required\"\n            [attr.placeholder]=\"placeholder\" />\n    ",
-            styles: ["\n        :host {\n            display: inline-block;\n            vertical-align: middle;\n        }\n\n        :host.block {\n            display: block;\n            vertical-align: initial;\n        }\n    "],
-            host: {
-                input: 'onInput($event)'
-            },
-            changeDetection: core_1.ChangeDetectionStrategy.Default
-        }),
-        __metadata("design:paramtypes", [core_1.Renderer2,
-            core_1.ElementRef,
-            core_1.ChangeDetectorRef])
-    ], WorksInput);
     return WorksInput;
-    var WorksInput_1;
-}(homeworks_1.Homeworks));
+}(manager_1.HomeworksManager));
+__decorate([
+    core_1.ViewChild('worksInput'),
+    __metadata("design:type", core_1.ElementRef)
+], WorksInput.prototype, "inputChild", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String),
+    __metadata("design:paramtypes", [String])
+], WorksInput.prototype, "class", null);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String),
+    __metadata("design:paramtypes", [String])
+], WorksInput.prototype, "placeholder", null);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String),
+    __metadata("design:paramtypes", [String])
+], WorksInput.prototype, "color", null);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String),
+    __metadata("design:paramtypes", [String])
+], WorksInput.prototype, "size", null);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object),
+    __metadata("design:paramtypes", [Object])
+], WorksInput.prototype, "block", null);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String)
+], WorksInput.prototype, "type", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String)
+], WorksInput.prototype, "id", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String)
+], WorksInput.prototype, "name", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String)
+], WorksInput.prototype, "title", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object),
+    __metadata("design:paramtypes", [Object])
+], WorksInput.prototype, "disabled", null);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object),
+    __metadata("design:paramtypes", [Object])
+], WorksInput.prototype, "readonly", null);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object),
+    __metadata("design:paramtypes", [Object])
+], WorksInput.prototype, "required", null);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Boolean)
+], WorksInput.prototype, "validation", void 0);
+__decorate([
+    core_1.Output('update'),
+    __metadata("design:type", core_1.EventEmitter)
+], WorksInput.prototype, "onUpdate", void 0);
+WorksInput = WorksInput_1 = __decorate([
+    core_1.Component({
+        selector: 'works-input',
+        providers: [
+            {
+                provide: forms_1.NG_VALUE_ACCESSOR,
+                useExisting: core_1.forwardRef(function () { return WorksInput_1; }),
+                multi: true
+            }
+        ],
+        template: "\n        <input #worksInput\n            class=\"input\"\n            [(ngModel)]=\"model\"\n            [attr.type]=\"type\"\n            [attr.id]=\"id\"\n            [attr.name]=\"name\"\n            [attr.title]=\"title\"\n            [disabled]=\"disabled\"\n            [readonly]=\"readonly\"\n            [required]=\"required\"\n            [attr.placeholder]=\"placeholder\" />\n    ",
+        styles: ["\n        :host {\n            display: inline-block;\n            vertical-align: middle;\n        }\n\n        :host.block {\n            display: block;\n            vertical-align: initial;\n        }\n    "],
+        host: {
+            input: 'onInput($event)'
+        },
+        changeDetection: core_1.ChangeDetectionStrategy.Default
+    }),
+    __metadata("design:paramtypes", [core_1.Renderer2,
+        core_1.ElementRef,
+        core_1.ChangeDetectorRef])
+], WorksInput);
 exports.WorksInput = WorksInput;
+var WorksInput_1;
 //# sourceMappingURL=component.input.js.map

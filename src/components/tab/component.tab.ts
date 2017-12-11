@@ -11,7 +11,7 @@ import {
     Output,
     Renderer2
 } from '@angular/core';
-import {Homeworks} from '../../core/homeworks';
+import {HomeworksManager} from "../../core/manager";
 
 const COMPONENT: string = 'tab';
 
@@ -20,7 +20,7 @@ const COMPONENT: string = 'tab';
     template: `<ng-content></ng-content>`,
     changeDetection: ChangeDetectionStrategy.Default
 })
-export class WorksTab extends Homeworks {
+export class WorksTab extends HomeworksManager {
     private $element: JQuery;
     private wrapperElement?: Element = null;
     private m_active: number = 0;
@@ -89,7 +89,7 @@ export class WorksTab extends Homeworks {
 @Directive({
     selector: 'works-tab-title'
 })
-export class WorksTabTitle extends Homeworks {
+export class WorksTabTitle extends HomeworksManager {
     private $element: JQuery;
 
     constructor(
@@ -109,7 +109,7 @@ export class WorksTabTitle extends Homeworks {
         <ng-content></ng-content>
     `
 })
-export class WorksTabItem extends Homeworks implements AfterContentInit {
+export class WorksTabItem extends HomeworksManager implements AfterContentInit {
     private $element: JQuery;
 
     private m_title: string;

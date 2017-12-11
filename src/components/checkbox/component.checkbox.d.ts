@@ -1,8 +1,8 @@
 /// <reference types="homeworks" />
 import { ChangeDetectorRef, ElementRef, EventEmitter, Renderer2 } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
-import { Homeworks } from '../../core/homeworks';
-export declare class WorksCheckbox extends Homeworks implements ControlValueAccessor {
+import { HomeworksManager } from "../../core/manager";
+export declare class WorksCheckbox extends HomeworksManager implements ControlValueAccessor {
     protected renderer: Renderer2;
     private changeDetectorRef;
     private elementRef;

@@ -1,4 +1,4 @@
-﻿import {
+import {
     ChangeDetectionStrategy,
     ChangeDetectorRef,
     Component,
@@ -11,7 +11,7 @@
     ViewChild
 } from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
-import {Homeworks} from '../../core/homeworks';
+import {HomeworksManager} from "../../core/manager";
 
 const COMPONENT: string = 'checkbox';
 const ALIAS: string = 'input';
@@ -40,7 +40,7 @@ const ALIAS: string = 'input';
     `,
     changeDetection: ChangeDetectionStrategy.Default
 })
-export class WorksCheckbox extends Homeworks implements ControlValueAccessor {
+export class WorksCheckbox extends HomeworksManager implements ControlValueAccessor {
     private $element: JQuery;
     private $checkbox: JQuery;
     private propagateChange: any = Function.prototype;

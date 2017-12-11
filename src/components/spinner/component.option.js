@@ -20,9 +20,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var homeworks_1 = require("../../core/homeworks");
+var manager_1 = require("../../core/manager");
 var COMPONENT = 'option';
-var WorksOption = /** @class */ (function (_super) {
+var WorksOption = (function (_super) {
     __extends(WorksOption, _super);
     function WorksOption(renderer, elementRef) {
         var _this = _super.call(this, renderer, COMPONENT) || this;
@@ -98,42 +98,42 @@ var WorksOption = /** @class */ (function (_super) {
             context.$option.remove();
         }
     };
-    __decorate([
-        core_1.ViewChild('worksOption'),
-        __metadata("design:type", core_1.ElementRef)
-    ], WorksOption.prototype, "optionChild", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String),
-        __metadata("design:paramtypes", [String])
-    ], WorksOption.prototype, "label", null);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Object),
-        __metadata("design:paramtypes", [Object])
-    ], WorksOption.prototype, "disabled", null);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Object),
-        __metadata("design:paramtypes", [Object])
-    ], WorksOption.prototype, "selected", null);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String),
-        __metadata("design:paramtypes", [String])
-    ], WorksOption.prototype, "value", null);
-    WorksOption = __decorate([
-        core_1.Component({
-            selector: 'works-option',
-            providers: [],
-            template: "\n        <option #worksOption \n            [attr.label]=\"label\"\n            [disabled]=\"disabled\"\n            [selected]=\"selected\"\n            [attr.value]=\"value\"\n            >\n            <ng-content></ng-content>\n        </option>\n    ",
-            styles: [],
-            changeDetection: core_1.ChangeDetectionStrategy.Default
-        }),
-        __metadata("design:paramtypes", [core_1.Renderer2,
-            core_1.ElementRef])
-    ], WorksOption);
     return WorksOption;
-}(homeworks_1.Homeworks));
+}(manager_1.HomeworksManager));
+__decorate([
+    core_1.ViewChild('worksOption'),
+    __metadata("design:type", core_1.ElementRef)
+], WorksOption.prototype, "optionChild", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String),
+    __metadata("design:paramtypes", [String])
+], WorksOption.prototype, "label", null);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object),
+    __metadata("design:paramtypes", [Object])
+], WorksOption.prototype, "disabled", null);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object),
+    __metadata("design:paramtypes", [Object])
+], WorksOption.prototype, "selected", null);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String),
+    __metadata("design:paramtypes", [String])
+], WorksOption.prototype, "value", null);
+WorksOption = __decorate([
+    core_1.Component({
+        selector: 'works-option',
+        providers: [],
+        template: "\n        <option #worksOption \n            [attr.label]=\"label\"\n            [disabled]=\"disabled\"\n            [selected]=\"selected\"\n            [attr.value]=\"value\"\n            >\n            <ng-content></ng-content>\n        </option>\n    ",
+        styles: [],
+        changeDetection: core_1.ChangeDetectionStrategy.Default
+    }),
+    __metadata("design:paramtypes", [core_1.Renderer2,
+        core_1.ElementRef])
+], WorksOption);
 exports.WorksOption = WorksOption;
 //# sourceMappingURL=component.option.js.map

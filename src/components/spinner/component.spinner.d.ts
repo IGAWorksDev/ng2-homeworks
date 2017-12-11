@@ -1,8 +1,8 @@
 /// <reference types="homeworks" />
 import { ElementRef, EventEmitter, Renderer2 } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
-import { Homeworks } from '../../core/homeworks';
-export declare class WorksSpinner extends Homeworks implements ControlValueAccessor {
+import { HomeworksManager } from "../../core/manager";
+export declare class WorksSpinner extends HomeworksManager implements ControlValueAccessor {
     protected renderer: Renderer2;
     private elementRef;
     private $element;
