@@ -1,4 +1,4 @@
-﻿import { Component, Directive, ElementRef, Renderer, Input, Output, EventEmitter, AfterContentInit, ViewChild, ContentChild, ChangeDetectionStrategy, forwardRef } from '@angular/core';
+import { Component, Directive, ElementRef, Renderer, Input, Output, EventEmitter, AfterContentInit, ViewChild, ContentChild, ChangeDetectionStrategy, forwardRef } from '@angular/core';
 import { Homeworks } from '../../core/homeworks';
 
 const COMPONENT: string = 'step';
@@ -74,9 +74,7 @@ export class WorksStep extends Homeworks {
 
 @Component({
     selector: 'works-step-item',
-    template: `
-        <ng-content></ng-content>
-    `
+    template: `<ng-content></ng-content>`
 })
 export class WorksStepItem extends Homeworks implements AfterContentInit {
     private $element: JQuery;
@@ -108,6 +106,12 @@ export class WorksStepItem extends Homeworks implements AfterContentInit {
             renderer,
             COMPONENT
         );
+    }
+
+    ngOnDestroy() {
+        const context = this;
+        context.contentElement.remove();
+        context.titleElement.remove();
     }
 
     ngOnInit() {
