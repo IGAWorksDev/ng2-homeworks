@@ -58,7 +58,7 @@ var WorksToggle = /** @class */ (function (_super) {
             return this._placeholder;
         },
         set: function (value) {
-            var parseValue;
+            var parseValue = value;
             if (value) {
                 try {
                     if (typeof value === 'string') {

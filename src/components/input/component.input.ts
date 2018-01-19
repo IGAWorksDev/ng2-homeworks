@@ -119,7 +119,7 @@ export class WorksInput extends HomeworksManager implements ControlValueAccessor
     }
 
     set block(value: any) {
-        this._block = !!value;
+        this._block = typeof value !== 'undefined';
     }
 
     @Input()

@@ -86,15 +86,16 @@ export class WorksToggle extends HomeworksManager implements ControlValueAccesso
     }
 
     set placeholder(value: any) {
-        let parseValue: any;
+        let parseValue: any = value;
         if (value) {
             try {
                 if (typeof value === 'string') {
                     const targetString: string = value.replace(/\'/gi, '\"');
                     parseValue = JSON.parse(targetString);
                 }
+            } catch (e) {
+                ;
             }
-            catch (e) { ; }
 
             this._placeholder = parseValue;
 

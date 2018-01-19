@@ -82,7 +82,7 @@ var WorksInput = /** @class */ (function (_super) {
             return this._block;
         },
         set: function (value) {
-            this._block = !!value;
+            this._block = typeof value !== 'undefined';
         },
         enumerable: true,
         configurable: true
