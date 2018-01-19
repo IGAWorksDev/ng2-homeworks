@@ -22,7 +22,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var manager_1 = require("../../core/manager");
 var COMPONENT = 'dropdown';
-var WorksDropdown = (function (_super) {
+var WorksDropdown = /** @class */ (function (_super) {
     __extends(WorksDropdown, _super);
     function WorksDropdown(renderer, elementRef) {
         var _this = _super.call(this, renderer, COMPONENT) || this;
@@ -38,50 +38,47 @@ var WorksDropdown = (function (_super) {
         configurable: true
     });
     WorksDropdown.prototype.ngOnInit = function () {
-        var context = this;
-        context.$element = jQuery(context.elementRef.nativeElement);
-        context.$dropdown = jQuery(context.dropdownChild.nativeElement);
+        this.$element = jQuery(this.elementRef.nativeElement);
+        this.$dropdown = jQuery(this.dropdownChild.nativeElement);
     };
     WorksDropdown.prototype.ngAfterViewInit = function () {
-        var context = this;
-        context.$dropdown.dropdown({
-            target: context.pen ? $(context.pen) : null,
-            direction: context.direction
+        this.$dropdown.dropdown({
+            target: this.pen ? $(this.pen) : null,
+            direction: this.direction
         });
     };
     WorksDropdown.prototype.ngOnDestory = function () {
-        var context = this;
-        if (context.$element) {
-            context.$element.remove();
+        if (this.$element) {
+            this.$element.remove();
         }
     };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], WorksDropdown.prototype, "direction", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], WorksDropdown.prototype, "pen", void 0);
+    __decorate([
+        core_1.ViewChild('worksDropdown'),
+        __metadata("design:type", core_1.ElementRef)
+    ], WorksDropdown.prototype, "dropdownChild", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String),
+        __metadata("design:paramtypes", [String])
+    ], WorksDropdown.prototype, "class", null);
+    WorksDropdown = __decorate([
+        core_1.Component({
+            selector: 'works-dropdown',
+            template: "\n        <div #worksDropdown\n            class=\"dropdown\">\n            <ng-content></ng-content>\n        </div>\n    ",
+            changeDetection: core_1.ChangeDetectionStrategy.OnPush
+        }),
+        __metadata("design:paramtypes", [core_1.Renderer2,
+            core_1.ElementRef])
+    ], WorksDropdown);
     return WorksDropdown;
 }(manager_1.HomeworksManager));
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], WorksDropdown.prototype, "direction", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], WorksDropdown.prototype, "pen", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String),
-    __metadata("design:paramtypes", [String])
-], WorksDropdown.prototype, "class", null);
-__decorate([
-    core_1.ViewChild('worksDropdown'),
-    __metadata("design:type", core_1.ElementRef)
-], WorksDropdown.prototype, "dropdownChild", void 0);
-WorksDropdown = __decorate([
-    core_1.Component({
-        selector: 'works-dropdown',
-        template: "\n        <div #worksDropdown\n            class=\"dropdown\">\n            <ng-content></ng-content>\n        </div>\n    ",
-        changeDetection: core_1.ChangeDetectionStrategy.OnPush
-    }),
-    __metadata("design:paramtypes", [core_1.Renderer2,
-        core_1.ElementRef])
-], WorksDropdown);
 exports.WorksDropdown = WorksDropdown;
 //# sourceMappingURL=component.dropdown.js.map

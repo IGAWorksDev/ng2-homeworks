@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Colors = [
+exports.COLORS = [
     'normal',
     'default',
     'force',
@@ -11,7 +11,7 @@ exports.Colors = [
     'alert',
     'success'
 ];
-exports.Sizes = [
+exports.SIZES = [
     'extra large',
     'large',
     'normal',

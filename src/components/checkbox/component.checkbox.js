@@ -24,38 +24,27 @@ var forms_1 = require("@angular/forms");
 var manager_1 = require("../../core/manager");
 var COMPONENT = 'checkbox';
 var ALIAS = 'input';
-var WorksCheckbox = WorksCheckbox_1 = (function (_super) {
+var WorksCheckbox = /** @class */ (function (_super) {
     __extends(WorksCheckbox, _super);
     function WorksCheckbox(renderer, changeDetectorRef, elementRef) {
         var _this = _super.call(this, renderer, COMPONENT, ALIAS) || this;
         _this.renderer = renderer;
         _this.changeDetectorRef = changeDetectorRef;
         _this.elementRef = elementRef;
-        _this.propagateChange = Function.prototype;
-        _this.propagateTouch = Function.prototype;
-        _this.m_value = '';
         _this.type = 'checkbox';
         _this.onUpdate = new core_1.EventEmitter();
+        _this.propagateChange = Function.prototype;
+        _this.propagateTouch = Function.prototype;
+        _this._value = '';
         return _this;
     }
-    WorksCheckbox.prototype.writeValue = function (value) {
-        var context = this;
-        context.model = value;
-    };
-    WorksCheckbox.prototype.registerOnChange = function (fn) {
-        var context = this;
-        context.propagateChange = fn;
-    };
-    WorksCheckbox.prototype.registerOnTouched = function (fn) {
-        var context = this;
-        context.propagateTouch = fn;
-    };
+    WorksCheckbox_1 = WorksCheckbox;
     Object.defineProperty(WorksCheckbox.prototype, "model", {
         get: function () {
-            return this.m_model;
+            return this._model;
         },
         set: function (value) {
-            this.m_model = value;
+            this._model = value;
             this.propagateChange(value);
             if (value === true || value === false) {
                 this.checked = value;
@@ -74,10 +63,10 @@ var WorksCheckbox = WorksCheckbox_1 = (function (_super) {
     });
     Object.defineProperty(WorksCheckbox.prototype, "color", {
         get: function () {
-            return this.m_color;
+            return this._color;
         },
         set: function (value) {
-            this.m_color = value;
+            this._color = value;
             this.setColor(this.checkboxChild.nativeElement, value);
         },
         enumerable: true,
@@ -85,10 +74,10 @@ var WorksCheckbox = WorksCheckbox_1 = (function (_super) {
     });
     Object.defineProperty(WorksCheckbox.prototype, "disabled", {
         get: function () {
-            return this.m_disabled;
+            return this._disabled;
         },
         set: function (value) {
-            this.m_disabled = value;
+            this._disabled = value;
             this.render();
         },
         enumerable: true,
@@ -96,10 +85,10 @@ var WorksCheckbox = WorksCheckbox_1 = (function (_super) {
     });
     Object.defineProperty(WorksCheckbox.prototype, "checked", {
         get: function () {
-            return this.m_checked;
+            return this._checked;
         },
         set: function (value) {
-            this.m_checked = value;
+            this._checked = value;
             this.changeDetectorRef.detectChanges();
             this.render();
         },
@@ -108,10 +97,10 @@ var WorksCheckbox = WorksCheckbox_1 = (function (_super) {
     });
     Object.defineProperty(WorksCheckbox.prototype, "readonly", {
         get: function () {
-            return this.m_readonly;
+            return this._readonly;
         },
         set: function (value) {
-            this.m_readonly = value;
+            this._readonly = value;
             this.render();
         },
         enumerable: true,
@@ -119,10 +108,10 @@ var WorksCheckbox = WorksCheckbox_1 = (function (_super) {
     });
     Object.defineProperty(WorksCheckbox.prototype, "required", {
         get: function () {
-            return this.m_required;
+            return this._required;
         },
         set: function (value) {
-            this.m_required = value;
+            this._required = value;
             this.render();
         },
         enumerable: true,
@@ -130,137 +119,144 @@ var WorksCheckbox = WorksCheckbox_1 = (function (_super) {
     });
     Object.defineProperty(WorksCheckbox.prototype, "value", {
         get: function () {
-            return this.m_value;
+            return this._value;
         },
         set: function (value) {
-            this.m_value = value;
+            this._value = value;
             this.render();
         },
         enumerable: true,
         configurable: true
     });
+    WorksCheckbox.prototype.writeValue = function (value) {
+        this.model = value;
+    };
+    WorksCheckbox.prototype.registerOnChange = function (fn) {
+        this.propagateChange = fn;
+    };
+    WorksCheckbox.prototype.registerOnTouched = function (fn) {
+        this.propagateTouch = fn;
+    };
     WorksCheckbox.prototype.render = function () {
-        var context = this;
-        if (context.$checkbox) {
-            context.$checkbox.triggerHandler('update');
+        if (this.$checkbox) {
+            this.$checkbox.triggerHandler('update');
         }
     };
     WorksCheckbox.prototype.ngOnInit = function () {
-        var context = this;
-        context.$element = jQuery(context.elementRef.nativeElement);
-        context.$checkbox = jQuery(context.checkboxChild.nativeElement);
-        context.$checkbox
+        var _this = this;
+        this.$element = jQuery(this.elementRef.nativeElement);
+        this.$checkbox = jQuery(this.checkboxChild.nativeElement);
+        this.$checkbox
             .checkbox()
             .on('change', function (event) {
             var value = {
-                checked: context.$checkbox.prop('checked'),
-                value: context.$checkbox.val(),
-                element: context.$checkbox
+                checked: _this.$checkbox.prop('checked'),
+                value: _this.$checkbox.val(),
+                element: _this.$checkbox
             };
-            var formValue = context.$checkbox.val();
-            var formChecked = context.$checkbox.prop('checked');
-            var formValueExists = typeof formValue !== 'undefined' && formValue !== null && formValue !== '';
+            var formValue = _this.$checkbox.val();
+            var formChecked = _this.$checkbox.prop('checked');
+            var formValueExists = !!formValue;
             if (formChecked) {
                 if (formValueExists) {
-                    context.model = context.$checkbox.val();
+                    _this.model = _this.$checkbox.val();
                 }
                 else {
-                    context.model = formChecked;
+                    _this.model = formChecked;
                 }
             }
             else {
                 if (formValueExists) {
-                    context.model = '';
+                    _this.model = '';
                 }
                 else {
-                    context.model = formChecked;
+                    _this.model = formChecked;
                 }
             }
-            context.onUpdate.emit(value);
+            _this.onUpdate.emit(value);
         });
     };
     WorksCheckbox.prototype.ngAfterViewInit = function () {
-        var context = this;
-        context.render();
+        this.render();
     };
+    __decorate([
+        core_1.ViewChild('worksCheckbox'),
+        __metadata("design:type", core_1.ElementRef)
+    ], WorksCheckbox.prototype, "checkboxChild", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], WorksCheckbox.prototype, "type", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], WorksCheckbox.prototype, "id", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], WorksCheckbox.prototype, "name", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], WorksCheckbox.prototype, "title", void 0);
+    __decorate([
+        core_1.Output('update'),
+        __metadata("design:type", core_1.EventEmitter)
+    ], WorksCheckbox.prototype, "onUpdate", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String),
+        __metadata("design:paramtypes", [String])
+    ], WorksCheckbox.prototype, "class", null);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String),
+        __metadata("design:paramtypes", [String])
+    ], WorksCheckbox.prototype, "color", null);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], WorksCheckbox.prototype, "disabled", null);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], WorksCheckbox.prototype, "checked", null);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], WorksCheckbox.prototype, "readonly", null);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], WorksCheckbox.prototype, "required", null);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], WorksCheckbox.prototype, "value", null);
+    WorksCheckbox = WorksCheckbox_1 = __decorate([
+        core_1.Component({
+            selector: 'works-checkbox',
+            providers: [
+                {
+                    provide: forms_1.NG_VALUE_ACCESSOR,
+                    useExisting: core_1.forwardRef(function () { return WorksCheckbox_1; }),
+                    multi: true
+                }
+            ],
+            template: "\n        <input #worksCheckbox\n            class=\"input\"\n            [attr.type]=\"type\"\n            [attr.id]=\"id\"\n            [attr.name]=\"name\"\n            [attr.title]=\"title\"\n            [disabled]=\"disabled\"\n            [checked]=\"checked\"\n            [readonly]=\"readonly\"\n            [required]=\"required\"\n            [attr.value]=\"value\" />\n    ",
+            changeDetection: core_1.ChangeDetectionStrategy.Default
+        }),
+        __metadata("design:paramtypes", [core_1.Renderer2,
+            core_1.ChangeDetectorRef,
+            core_1.ElementRef])
+    ], WorksCheckbox);
     return WorksCheckbox;
+    var WorksCheckbox_1;
 }(manager_1.HomeworksManager));
-__decorate([
-    core_1.ViewChild('worksCheckbox'),
-    __metadata("design:type", core_1.ElementRef)
-], WorksCheckbox.prototype, "checkboxChild", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String),
-    __metadata("design:paramtypes", [String])
-], WorksCheckbox.prototype, "class", null);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String),
-    __metadata("design:paramtypes", [String])
-], WorksCheckbox.prototype, "color", null);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], WorksCheckbox.prototype, "type", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], WorksCheckbox.prototype, "id", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], WorksCheckbox.prototype, "name", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], WorksCheckbox.prototype, "title", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object),
-    __metadata("design:paramtypes", [Object])
-], WorksCheckbox.prototype, "disabled", null);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object),
-    __metadata("design:paramtypes", [Object])
-], WorksCheckbox.prototype, "checked", null);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object),
-    __metadata("design:paramtypes", [Object])
-], WorksCheckbox.prototype, "readonly", null);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object),
-    __metadata("design:paramtypes", [Object])
-], WorksCheckbox.prototype, "required", null);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object),
-    __metadata("design:paramtypes", [Object])
-], WorksCheckbox.prototype, "value", null);
-__decorate([
-    core_1.Output('update'),
-    __metadata("design:type", core_1.EventEmitter)
-], WorksCheckbox.prototype, "onUpdate", void 0);
-WorksCheckbox = WorksCheckbox_1 = __decorate([
-    core_1.Component({
-        selector: 'works-checkbox',
-        providers: [
-            {
-                provide: forms_1.NG_VALUE_ACCESSOR,
-                useExisting: core_1.forwardRef(function () { return WorksCheckbox_1; }),
-                multi: true
-            }
-        ],
-        template: "\n        <input #worksCheckbox\n            class=\"input\"\n            [attr.type]=\"type\"\n            [attr.id]=\"id\"\n            [attr.name]=\"name\"\n            [attr.title]=\"title\"\n            [disabled]=\"disabled\"\n            [checked]=\"checked\"\n            [readonly]=\"readonly\"\n            [required]=\"required\"\n            [attr.value]=\"value\" />\n    ",
-        changeDetection: core_1.ChangeDetectionStrategy.Default
-    }),
-    __metadata("design:paramtypes", [core_1.Renderer2,
-        core_1.ChangeDetectorRef,
-        core_1.ElementRef])
-], WorksCheckbox);
 exports.WorksCheckbox = WorksCheckbox;
-var WorksCheckbox_1;
 //# sourceMappingURL=component.checkbox.js.map

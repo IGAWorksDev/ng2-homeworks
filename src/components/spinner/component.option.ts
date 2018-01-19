@@ -1,5 +1,5 @@
-import {ChangeDetectionStrategy, Component, Renderer2, ElementRef, Input, ViewChild} from '@angular/core';
-import {HomeworksManager} from "../../core/manager";
+import { ChangeDetectionStrategy, Component, ElementRef, Input, Renderer2, ViewChild } from '@angular/core';
+import { HomeworksManager } from '../../core/manager';
 
 const COMPONENT: string = 'option';
 
@@ -27,49 +27,49 @@ export class WorksOption extends HomeworksManager {
     private propagateChange: any = Function.prototype;
     private propagateTouch: any = Function.prototype;
 
-    private m_label: string;
-    private m_disabled: any;
-    private m_selected: any;
-    private m_value: string;
+    private _label: string;
+    private _disabled: any;
+    private _selected: any;
+    private _value: string;
 
     @ViewChild('worksOption') optionChild: ElementRef;
 
     @Input()
     get label(): string {
-        return this.m_label;
+        return this._label;
     }
 
     set label(value: string) {
-        this.m_label = value;
+        this._label = value;
     }
 
     @Input()
     get disabled(): any {
-        return this.m_disabled;
+        return this._disabled;
     }
 
     set disabled(value: any) {
-        this.m_disabled = value;
+        this._disabled = value;
         this.render();
     }
 
     @Input()
     get selected(): any {
-        return this.m_disabled;
+        return this._disabled;
     }
 
     set selected(value: any) {
-        this.m_disabled = value;
+        this._disabled = value;
         this.render();
     }
 
     @Input()
     get value(): string {
-        return this.m_value;
+        return this._value;
     }
 
     set value(value: string) {
-        this.m_value = value;
+        this._value = value;
         this.render();
     }
 
@@ -84,29 +84,24 @@ export class WorksOption extends HomeworksManager {
     }
 
     render() {
-        const context = this;
-        if (context.$option) {
-            context.$option.closest('select').triggerHandler('update');
+        if (this.$option) {
+            this.$option.closest('select').triggerHandler('update');
         }
     }
 
     ngOnInit() {
-        const context = this;
-        context.$element = jQuery(context.elementRef.nativeElement);
-        context.$option = jQuery(context.optionChild.nativeElement);
-        context.$option.insertAfter(context.$element);
-        context.$element.appendTo(context.$element.parent()).hide();
+        this.$element = jQuery(this.elementRef.nativeElement);
+        this.$option = jQuery(this.optionChild.nativeElement);
+        this.$option.insertAfter(this.$element);
+        this.$element.appendTo(this.$element.parent()).hide();
     }
 
     ngAfterViewInit() {
-        const context = this;
-        context.render();
+        this.render();
     }
 
     ngOnDestroy() {
-        const context = this;
-        if (context.$option) {
-            context.$option.remove();
-        }
+        if (this.$option)
+            this.$option.remove();
     }
 }

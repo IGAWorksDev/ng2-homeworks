@@ -1,4 +1,4 @@
-﻿export const Colors: string[] = [
+﻿export const COLORS: string[] = [
     'normal',
     'default',
     'force',
@@ -10,7 +10,7 @@
     'success'
 ];
 
-export const Sizes: string[] = [
+export const SIZES: string[] = [
     'extra large',
     'large',
     'normal',

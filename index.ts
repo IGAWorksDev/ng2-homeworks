@@ -3,6 +3,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
+import { HomeworksManager } from './src/core/manager';
 import { WorksSpinner, WorksOption } from './src/components/spinner/main';
 import { WorksDropdown } from './src/components/dropdown/main';
 import { WorksCheckbox } from './src/components/checkbox/main';
@@ -52,4 +53,7 @@ import { WorksRipple } from './src/components/ripple/main';
     ]
 })
 export class HomeworksModule {
+    constructor() {
+        HomeworksManager.disableHook();
+    }
 }

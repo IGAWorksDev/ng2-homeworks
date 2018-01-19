@@ -1,17 +1,9 @@
 import {
-    ChangeDetectionStrategy,
-    ChangeDetectorRef,
-    Component,
-    ElementRef,
-    EventEmitter,
-    forwardRef,
-    Input,
-    Output,
-    Renderer2,
-    ViewChild
+    ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, EventEmitter, forwardRef, Input, Output,
+    Renderer2, ViewChild
 } from '@angular/core';
-import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
-import {HomeworksManager} from "../../core/manager";
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { HomeworksManager } from '../../core/manager';
 
 const COMPONENT: string = 'checkbox';
 const ALIAS: string = 'input';
@@ -42,133 +34,25 @@ const ALIAS: string = 'input';
     changeDetection: ChangeDetectionStrategy.Default
 })
 export class WorksToggle extends HomeworksManager implements ControlValueAccessor {
+    @ViewChild('worksToggle') toggleChild: ElementRef;
+    @Input() type: string = 'radio';
+    @Input() id: string;
+    @Input() name: string;
+    @Input() title: string;
+    @Input() value: any;
+    @Output('update')
+    onUpdate: EventEmitter<any> = new EventEmitter();
     private $element: JQuery;
     private $toggle: JQuery;
     private propagateChange: any = Function.prototype;
     private propagateTouch: any = Function.prototype;
-
-    private m_model: any;
-    private m_disabled: any;
-    private m_checked: any;
-    private m_readonly: any;
-    private m_required: any;
-    private m_placeholder: any;
-    private m_color: string;
-
-    @ViewChild('worksToggle') toggleChild: ElementRef;
-
-    @Input('ngModel')
-    get model() {
-        return this.m_model;
-    }
-    set model(value: any) {
-        this.m_model = value;
-        this.propagateChange(value);
-        if (value === true || value === false) {
-            this.checked = value;
-        }
-        this.render();
-    }
-
-    @Input()
-    get placeholder(): any {
-        return this.m_placeholder;
-    }
-    set placeholder(value: any) {
-        const context = this;
-
-        if (value !== '') {
-            try {
-                if (typeof value !== 'undefined' && value !== null && value !== '') {
-                    if (typeof value === 'string') {
-                        value = value.replace(/\'/gi, "\"");
-                        value = JSON.parse(value);
-                    }
-                } else {
-                    value = null;
-                }
-            }
-            catch (e) {
-                value = null;
-            }
-
-            context.m_placeholder = value;
-
-            if (typeof context.$toggle !== 'undefined') {
-                context.$toggle.triggerHandler('update', {
-                    placeholder: value
-                });
-            }
-        }
-    }
-
-    @Input()
-    get color(): string {
-        return this.m_color;
-    }
-    set color(value: string) {
-        this.m_color = value;
-        this.setColor(this.toggleChild.nativeElement, value);
-    }
-
-    @Input()
-    set class(value: string) {
-        this.setPropagateChildClass(this.elementRef.nativeElement, this.toggleChild.nativeElement, value);
-    }
-
-    @Input() type: string = 'radio';
-
-    @Input() id: string;
-
-    @Input() name: string;
-
-    @Input() title: string;
-
-    @Input()
-    get checked(): any {
-        return this.m_checked;
-    }
-
-    set checked(value: any) {
-        this.m_checked = value;
-        this.changeDetectorRef.detectChanges();
-        this.render();
-    }
-
-    @Input()
-    get disabled(): any {
-        return this.m_disabled;
-    }
-
-    set disabled(value: any) {
-        this.m_disabled = value;
-        this.render();
-    }
-
-    @Input()
-    get readonly(): any {
-        return this.m_readonly;
-    }
-
-    set readonly(value: any) {
-        this.m_readonly = value;
-        this.render();
-    }
-
-    @Input()
-    get required(): any {
-        return this.m_required;
-    }
-
-    set required(value: any) {
-        this.m_required = value;
-        this.render();
-    }
-
-    @Input() value: any;
-
-    @Output('update')
-    onUpdate: EventEmitter<any> = new EventEmitter();
+    private _model: any;
+    private _disabled: any;
+    private _checked: any;
+    private _readonly: any;
+    private _required: any;
+    private _placeholder: any;
+    private _color: string;
 
     constructor(
         protected renderer: Renderer2,
@@ -182,49 +66,138 @@ export class WorksToggle extends HomeworksManager implements ControlValueAccesso
         );
     }
 
+    @Input('ngModel')
+    get model() {
+        return this._model;
+    }
+
+    set model(value: any) {
+        this._model = value;
+        this.propagateChange(value);
+        if (value === true || value === false) {
+            this.checked = value;
+        }
+        this.render();
+    }
+
+    @Input()
+    get placeholder(): any {
+        return this._placeholder;
+    }
+
+    set placeholder(value: any) {
+        let parseValue: any;
+        if (value) {
+            try {
+                if (typeof value === 'string') {
+                    const targetString: string = value.replace(/\'/gi, '\"');
+                    parseValue = JSON.parse(targetString);
+                }
+            }
+            catch (e) { ; }
+
+            this._placeholder = parseValue;
+
+            if (this.$toggle)
+                this.$toggle.triggerHandler('update', {
+                    placeholder: value
+                });
+        }
+    }
+
+    @Input()
+    get color(): string {
+        return this._color;
+    }
+
+    set color(value: string) {
+        this._color = value;
+        this.setColor(this.toggleChild.nativeElement, value);
+    }
+
+    @Input()
+    set class(value: string) {
+        this.setPropagateChildClass(this.elementRef.nativeElement, this.toggleChild.nativeElement, value);
+    }
+
+    @Input()
+    get checked(): any {
+        return this._checked;
+    }
+
+    set checked(value: any) {
+        this._checked = value;
+        this.changeDetectorRef.detectChanges();
+        this.render();
+    }
+
+    @Input()
+    get disabled(): any {
+        return this._disabled;
+    }
+
+    set disabled(value: any) {
+        this._disabled = value;
+        this.render();
+    }
+
+    @Input()
+    get readonly(): any {
+        return this._readonly;
+    }
+
+    set readonly(value: any) {
+        this._readonly = value;
+        this.render();
+    }
+
+    @Input()
+    get required(): any {
+        return this._required;
+    }
+
+    set required(value: any) {
+        this._required = value;
+        this.render();
+    }
+
     writeValue(value: any) {
-        const context = this;
-        context.model = value;
+        this.model = value;
     }
 
     registerOnChange(fn: any) {
-        const context = this;
-        context.propagateChange = fn;
+        this.propagateChange = fn;
     }
 
     registerOnTouched(fn: any) {
-        const context = this;
-        context.propagateTouch = fn;
+        this.propagateTouch = fn;
     }
 
     render() {
-        const context = this;
-        if (context.$toggle) {
-            context.$toggle.triggerHandler('update');
+        if (this.$toggle) {
+            this.$toggle.triggerHandler('update');
         }
     }
 
     ngOnInit() {
-        const context = this;
-        context.$element = jQuery(context.elementRef.nativeElement);
-        context.$toggle = jQuery(context.toggleChild.nativeElement);
+        this.$element = jQuery(this.elementRef.nativeElement);
+        this.$toggle = jQuery(this.toggleChild.nativeElement);
 
-        context.$toggle
+        this.$toggle
             .toggle({
-                placeholder: context.placeholder
+                placeholder: this.placeholder
             })
             .on('change', (event: JQuery.Event) => {
                 const value: homeworks.Event = {
-                    checked: context.$toggle.prop('checked'),
-                    value: context.$toggle.val(),
-                    element: context.$toggle
+                    checked: this.$toggle.prop('checked'),
+                    value: this.$toggle.val(),
+                    element: this.$toggle
                 };
-                context.onUpdate.emit(value);
+                this.onUpdate.emit(value);
             });
     }
 
     ngAfterViewInit() {
-        const context = this;
-        context.render();
+        this.render();
     }
 }

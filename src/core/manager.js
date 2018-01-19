@@ -1,49 +1,40 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var model_1 = require("./model");
-var HomeworksManager = (function () {
+var HomeworksManager = /** @class */ (function () {
     function HomeworksManager(renderer, component, alias) {
         if (alias === void 0) { alias = null; }
         this.renderer = renderer;
-        this.m_class = [];
-        if (alias !== null) {
-            this.m_component = alias;
-        }
-        else {
-            this.m_component = component;
-        }
+        this._class = [];
+        this._component = alias
+            ? alias
+            : component;
     }
     HomeworksManager.prototype.setRootElementClass = function (el, className, isAdd) {
         if (isAdd === void 0) { isAdd = true; }
-        var context = this;
-        var index = context.m_class.indexOf(className);
-        if (index === -1) {
-            if (isAdd === true) {
-                context.m_class.push(className.replace(/\s/g, '-'));
+        var index = this._class.indexOf(className);
+        if (isAdd)
+            if (this._class.includes(className)) {
+                this._class.splice(index, 1);
             }
-        }
-        else {
-            if (isAdd === false) {
-                context.m_class.splice(index, 1);
+            else {
+                this._class.push(className.replace(/\s/g, '-'));
             }
-        }
-        context.updateRootElementClass(el);
+        this.updateRootElementClass(el);
     };
     HomeworksManager.prototype.updateRootElementClass = function (el) {
-        var context = this;
-        context.renderer.setAttribute(el, 'class', '');
-        for (var idx in context.m_class) {
-            context.renderer.addClass(el, context.m_class[idx]);
+        this.renderer.setAttribute(el, 'class', '');
+        for (var idx in this._class) {
+            this.renderer.addClass(el, this._class[idx]);
         }
     };
     HomeworksManager.prototype.setElementClass = function (el, className, isAdd) {
         if (isAdd === void 0) { isAdd = true; }
-        var context = this;
-        var classFullName = context.m_component + "-" + className;
+        var classFullName = this._component + "-" + className;
         if (isAdd)
-            context.renderer.addClass(el, classFullName);
+            this.renderer.addClass(el, classFullName);
         else
-            context.renderer.removeClass(el, classFullName);
+            this.renderer.removeClass(el, classFullName);
     };
     HomeworksManager.prototype.setPropagateChildClass = function (rootEl, childEl, className) {
         var _this = this;
@@ -60,28 +51,29 @@ var HomeworksManager = (function () {
         this.updateRootElementClass(rootEl);
     };
     HomeworksManager.prototype.setColor = function (el, color) {
-        var context = this;
-        var index = model_1.Colors.indexOf(color);
-        if (index !== -1) {
-            model_1.Colors.filter(function (e, i) {
-                return i !== index;
-            }).map(function (e, i) {
-                context.setElementClass(el, e, false);
+        var _this = this;
+        var targetIndex = model_1.COLORS.indexOf(color);
+        if (targetIndex !== -1) {
+            model_1.COLORS
+                .filter(function (_, index) { return targetIndex !== index; })
+                .map(function (element) {
+                _this.setElementClass(el, element, false);
             });
-            context.setElementClass(el, color);
+            this.setElementClass(el, color);
         }
     };
     HomeworksManager.prototype.setSize = function (el, size) {
-        var context = this;
-        var sizeClassName = context.getSizeClassName(size);
-        model_1.Sizes.filter(function (element, index) {
-            return element !== size;
-        }).map(function (element, index) {
-            var removeSizeName = context.getSizeClassName(element);
-        });
-        context.setElementClass(el, sizeClassName);
+        var sizeClassName = HomeworksManager.getSizeClassName(size);
+        /*
+        SIZES
+            .filter(element => element !== size)
+            .map(element => {
+                const removeSizeName: string = this.getSizeClassName(element);
+            });
+        */
+        this.setElementClass(el, sizeClassName);
     };
-    HomeworksManager.prototype.getSizeClassName = function (size) {
+    HomeworksManager.getSizeClassName = function (size) {
         switch (size) {
             case 'extra large':
                 return 'xg';
@@ -96,6 +88,12 @@ var HomeworksManager = (function () {
                 return 'xs';
         }
         return 'md';
+    };
+    HomeworksManager.disableHook = function () {
+        var homeworks = window['homeworks'];
+        if (!homeworks)
+            throw new Error('`homeworks` library is must declared.\nType npm install homeworks --save.');
+        homeworks.hook = false;
     };
     return HomeworksManager;
 }());

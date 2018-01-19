@@ -24,25 +24,26 @@ var forms_1 = require("@angular/forms");
 var manager_1 = require("../../core/manager");
 var COMPONENT = 'checkbox';
 var ALIAS = 'input';
-var WorksToggle = WorksToggle_1 = (function (_super) {
+var WorksToggle = /** @class */ (function (_super) {
     __extends(WorksToggle, _super);
     function WorksToggle(renderer, changeDetectorRef, elementRef) {
         var _this = _super.call(this, renderer, COMPONENT, ALIAS) || this;
         _this.renderer = renderer;
         _this.changeDetectorRef = changeDetectorRef;
         _this.elementRef = elementRef;
-        _this.propagateChange = Function.prototype;
-        _this.propagateTouch = Function.prototype;
         _this.type = 'radio';
         _this.onUpdate = new core_1.EventEmitter();
+        _this.propagateChange = Function.prototype;
+        _this.propagateTouch = Function.prototype;
         return _this;
     }
+    WorksToggle_1 = WorksToggle;
     Object.defineProperty(WorksToggle.prototype, "model", {
         get: function () {
-            return this.m_model;
+            return this._model;
         },
         set: function (value) {
-            this.m_model = value;
+            this._model = value;
             this.propagateChange(value);
             if (value === true || value === false) {
                 this.checked = value;
@@ -54,31 +55,25 @@ var WorksToggle = WorksToggle_1 = (function (_super) {
     });
     Object.defineProperty(WorksToggle.prototype, "placeholder", {
         get: function () {
-            return this.m_placeholder;
+            return this._placeholder;
         },
         set: function (value) {
-            var context = this;
-            if (value !== '') {
+            var parseValue;
+            if (value) {
                 try {
-                    if (typeof value !== 'undefined' && value !== null && value !== '') {
-                        if (typeof value === 'string') {
-                            value = value.replace(/\'/gi, "\"");
-                            value = JSON.parse(value);
-                        }
-                    }
-                    else {
-                        value = null;
+                    if (typeof value === 'string') {
+                        var targetString = value.replace(/\'/gi, '\"');
+                        parseValue = JSON.parse(targetString);
                     }
                 }
                 catch (e) {
-                    value = null;
+                    ;
                 }
-                context.m_placeholder = value;
-                if (typeof context.$toggle !== 'undefined') {
-                    context.$toggle.triggerHandler('update', {
+                this._placeholder = parseValue;
+                if (this.$toggle)
+                    this.$toggle.triggerHandler('update', {
                         placeholder: value
                     });
-                }
             }
         },
         enumerable: true,
@@ -86,10 +81,10 @@ var WorksToggle = WorksToggle_1 = (function (_super) {
     });
     Object.defineProperty(WorksToggle.prototype, "color", {
         get: function () {
-            return this.m_color;
+            return this._color;
         },
         set: function (value) {
-            this.m_color = value;
+            this._color = value;
             this.setColor(this.toggleChild.nativeElement, value);
         },
         enumerable: true,
@@ -104,10 +99,10 @@ var WorksToggle = WorksToggle_1 = (function (_super) {
     });
     Object.defineProperty(WorksToggle.prototype, "checked", {
         get: function () {
-            return this.m_checked;
+            return this._checked;
         },
         set: function (value) {
-            this.m_checked = value;
+            this._checked = value;
             this.changeDetectorRef.detectChanges();
             this.render();
         },
@@ -116,10 +111,10 @@ var WorksToggle = WorksToggle_1 = (function (_super) {
     });
     Object.defineProperty(WorksToggle.prototype, "disabled", {
         get: function () {
-            return this.m_disabled;
+            return this._disabled;
         },
         set: function (value) {
-            this.m_disabled = value;
+            this._disabled = value;
             this.render();
         },
         enumerable: true,
@@ -127,10 +122,10 @@ var WorksToggle = WorksToggle_1 = (function (_super) {
     });
     Object.defineProperty(WorksToggle.prototype, "readonly", {
         get: function () {
-            return this.m_readonly;
+            return this._readonly;
         },
         set: function (value) {
-            this.m_readonly = value;
+            this._readonly = value;
             this.render();
         },
         enumerable: true,
@@ -138,141 +133,136 @@ var WorksToggle = WorksToggle_1 = (function (_super) {
     });
     Object.defineProperty(WorksToggle.prototype, "required", {
         get: function () {
-            return this.m_required;
+            return this._required;
         },
         set: function (value) {
-            this.m_required = value;
+            this._required = value;
             this.render();
         },
         enumerable: true,
         configurable: true
     });
     WorksToggle.prototype.writeValue = function (value) {
-        var context = this;
-        context.model = value;
+        this.model = value;
     };
     WorksToggle.prototype.registerOnChange = function (fn) {
-        var context = this;
-        context.propagateChange = fn;
+        this.propagateChange = fn;
     };
     WorksToggle.prototype.registerOnTouched = function (fn) {
-        var context = this;
-        context.propagateTouch = fn;
+        this.propagateTouch = fn;
     };
     WorksToggle.prototype.render = function () {
-        var context = this;
-        if (context.$toggle) {
-            context.$toggle.triggerHandler('update');
+        if (this.$toggle) {
+            this.$toggle.triggerHandler('update');
         }
     };
     WorksToggle.prototype.ngOnInit = function () {
-        var context = this;
-        context.$element = jQuery(context.elementRef.nativeElement);
-        context.$toggle = jQuery(context.toggleChild.nativeElement);
-        context.$toggle
+        var _this = this;
+        this.$element = jQuery(this.elementRef.nativeElement);
+        this.$toggle = jQuery(this.toggleChild.nativeElement);
+        this.$toggle
             .toggle({
-            placeholder: context.placeholder
+            placeholder: this.placeholder
         })
             .on('change', function (event) {
             var value = {
-                checked: context.$toggle.prop('checked'),
-                value: context.$toggle.val(),
-                element: context.$toggle
+                checked: _this.$toggle.prop('checked'),
+                value: _this.$toggle.val(),
+                element: _this.$toggle
             };
-            context.onUpdate.emit(value);
+            _this.onUpdate.emit(value);
         });
     };
     WorksToggle.prototype.ngAfterViewInit = function () {
-        var context = this;
-        context.render();
+        this.render();
     };
+    __decorate([
+        core_1.ViewChild('worksToggle'),
+        __metadata("design:type", core_1.ElementRef)
+    ], WorksToggle.prototype, "toggleChild", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], WorksToggle.prototype, "type", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], WorksToggle.prototype, "id", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], WorksToggle.prototype, "name", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], WorksToggle.prototype, "title", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], WorksToggle.prototype, "value", void 0);
+    __decorate([
+        core_1.Output('update'),
+        __metadata("design:type", core_1.EventEmitter)
+    ], WorksToggle.prototype, "onUpdate", void 0);
+    __decorate([
+        core_1.Input('ngModel'),
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], WorksToggle.prototype, "model", null);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], WorksToggle.prototype, "placeholder", null);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String),
+        __metadata("design:paramtypes", [String])
+    ], WorksToggle.prototype, "color", null);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String),
+        __metadata("design:paramtypes", [String])
+    ], WorksToggle.prototype, "class", null);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], WorksToggle.prototype, "checked", null);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], WorksToggle.prototype, "disabled", null);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], WorksToggle.prototype, "readonly", null);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], WorksToggle.prototype, "required", null);
+    WorksToggle = WorksToggle_1 = __decorate([
+        core_1.Component({
+            selector: 'works-toggle',
+            providers: [
+                {
+                    provide: forms_1.NG_VALUE_ACCESSOR,
+                    useExisting: core_1.forwardRef(function () { return WorksToggle_1; }),
+                    multi: true
+                }
+            ],
+            template: "\n        <input #worksToggle\n            class=\"input\"\n            [attr.type]=\"type\"\n            [attr.type]=\"type\"\n            [attr.id]=\"id\"\n            [attr.name]=\"name\"\n            [attr.title]=\"title\"\n            [disabled]=\"disabled\"\n            [checked]=\"checked\"\n            [readonly]=\"readonly\"\n            [required]=\"required\"\n            [attr.value]=\"value\" />\n    ",
+            changeDetection: core_1.ChangeDetectionStrategy.Default
+        }),
+        __metadata("design:paramtypes", [core_1.Renderer2,
+            core_1.ChangeDetectorRef,
+            core_1.ElementRef])
+    ], WorksToggle);
     return WorksToggle;
+    var WorksToggle_1;
 }(manager_1.HomeworksManager));
-__decorate([
-    core_1.ViewChild('worksToggle'),
-    __metadata("design:type", core_1.ElementRef)
-], WorksToggle.prototype, "toggleChild", void 0);
-__decorate([
-    core_1.Input('ngModel'),
-    __metadata("design:type", Object),
-    __metadata("design:paramtypes", [Object])
-], WorksToggle.prototype, "model", null);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object),
-    __metadata("design:paramtypes", [Object])
-], WorksToggle.prototype, "placeholder", null);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String),
-    __metadata("design:paramtypes", [String])
-], WorksToggle.prototype, "color", null);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String),
-    __metadata("design:paramtypes", [String])
-], WorksToggle.prototype, "class", null);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], WorksToggle.prototype, "type", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], WorksToggle.prototype, "id", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], WorksToggle.prototype, "name", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], WorksToggle.prototype, "title", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object),
-    __metadata("design:paramtypes", [Object])
-], WorksToggle.prototype, "checked", null);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object),
-    __metadata("design:paramtypes", [Object])
-], WorksToggle.prototype, "disabled", null);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object),
-    __metadata("design:paramtypes", [Object])
-], WorksToggle.prototype, "readonly", null);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object),
-    __metadata("design:paramtypes", [Object])
-], WorksToggle.prototype, "required", null);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], WorksToggle.prototype, "value", void 0);
-__decorate([
-    core_1.Output('update'),
-    __metadata("design:type", core_1.EventEmitter)
-], WorksToggle.prototype, "onUpdate", void 0);
-WorksToggle = WorksToggle_1 = __decorate([
-    core_1.Component({
-        selector: 'works-toggle',
-        providers: [
-            {
-                provide: forms_1.NG_VALUE_ACCESSOR,
-                useExisting: core_1.forwardRef(function () { return WorksToggle_1; }),
-                multi: true
-            }
-        ],
-        template: "\n        <input #worksToggle\n            class=\"input\"\n            [attr.type]=\"type\"\n            [attr.type]=\"type\"\n            [attr.id]=\"id\"\n            [attr.name]=\"name\"\n            [attr.title]=\"title\"\n            [disabled]=\"disabled\"\n            [checked]=\"checked\"\n            [readonly]=\"readonly\"\n            [required]=\"required\"\n            [attr.value]=\"value\" />\n    ",
-        changeDetection: core_1.ChangeDetectionStrategy.Default
-    }),
-    __metadata("design:paramtypes", [core_1.Renderer2,
-        core_1.ChangeDetectorRef,
-        core_1.ElementRef])
-], WorksToggle);
 exports.WorksToggle = WorksToggle;
-var WorksToggle_1;
 //# sourceMappingURL=component.toggle.js.map

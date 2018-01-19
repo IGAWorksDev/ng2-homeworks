@@ -1,17 +1,9 @@
 import {
-    ChangeDetectionStrategy,
-    ChangeDetectorRef,
-    Component,
-    ElementRef,
-    EventEmitter,
-    forwardRef,
-    Input,
-    Output,
-    Renderer2,
-    ViewChild
+    ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, EventEmitter, forwardRef, Input, Output,
+    Renderer2, ViewChild
 } from '@angular/core';
-import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
-import {HomeworksManager} from "../../core/manager";
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { HomeworksManager } from '../../core/manager';
 
 const COMPONENT: string = 'checkbox';
 const ALIAS: string = 'input';
@@ -41,41 +33,44 @@ const ALIAS: string = 'input';
     changeDetection: ChangeDetectionStrategy.Default
 })
 export class WorksCheckbox extends HomeworksManager implements ControlValueAccessor {
+    @ViewChild('worksCheckbox') checkboxChild: ElementRef;
+    @Input() type: string = 'checkbox';
+    @Input() id: string;
+    @Input() name: string;
+    @Input() title: string;
+    @Output('update')
+    onUpdate: EventEmitter<homeworks.Event> =
+        new EventEmitter<homeworks.Event>();
     private $element: JQuery;
     private $checkbox: JQuery;
     private propagateChange: any = Function.prototype;
     private propagateTouch: any = Function.prototype;
+    private _model: any;
+    private _color: string;
+    private _disabled: any;
+    private _checked: any;
+    private _readonly: any;
+    private _required: any;
+    private _value: string = '';
 
-    private m_model: any;
-    private m_color: string;
-    private m_disabled: any;
-    private m_checked: any;
-    private m_readonly: any;
-    private m_required: any;
-    private m_value: string = '';
-
-    @ViewChild('worksCheckbox') checkboxChild: ElementRef;
-
-    writeValue(value: any) {
-        const context = this;
-        context.model = value;
-    }
-
-    registerOnChange(fn: any) {
-        const context = this;
-        context.propagateChange = fn;
-    }
-
-    registerOnTouched(fn: any) {
-        const context = this;
-        context.propagateTouch = fn;
+    constructor(
+        protected renderer: Renderer2,
+        private changeDetectorRef: ChangeDetectorRef,
+        private elementRef: ElementRef
+    ) {
+        super(
+            renderer,
+            COMPONENT,
+            ALIAS
+        );
     }
 
     get model(): any {
-        return this.m_model;
+        return this._model;
     }
+
     set model(value: any) {
-        this.m_model = value;
+        this._model = value;
         this.propagateChange(value);
         if (value === true || value === false) {
             this.checked = value;
@@ -90,134 +85,117 @@ export class WorksCheckbox extends HomeworksManager implements ControlValueAcces
 
     @Input()
     get color(): string {
-        return this.m_color;
+        return this._color;
     }
+
     set color(value: string) {
-        this.m_color = value;
+        this._color = value;
         this.setColor(this.checkboxChild.nativeElement, value);
     }
 
-    @Input() type: string = 'checkbox';
-
-    @Input() id: string;
-
-    @Input() name: string;
-
-    @Input() title: string;
-
     @Input()
     get disabled(): any {
-        return this.m_disabled;
+        return this._disabled;
     }
 
     set disabled(value: any) {
-        this.m_disabled = value;
+        this._disabled = value;
         this.render();
     }
 
     @Input()
     get checked(): any {
-        return this.m_checked;
+        return this._checked;
     }
 
     set checked(value: any) {
-        this.m_checked = value;
+        this._checked = value;
         this.changeDetectorRef.detectChanges();
         this.render();
     }
 
     @Input()
     get readonly(): any {
-        return this.m_readonly;
+        return this._readonly;
     }
 
     set readonly(value: any) {
-        this.m_readonly = value;
+        this._readonly = value;
         this.render();
     }
 
     @Input()
     get required(): any {
-        return this.m_required;
+        return this._required;
     }
 
     set required(value: any) {
-        this.m_required = value;
+        this._required = value;
         this.render();
     }
 
     @Input()
     get value(): any {
-        return this.m_value;
+        return this._value;
     }
+
     set value(value: any) {
-        this.m_value = value;
+        this._value = value;
         this.render();
     }
 
-    @Output('update')
-    onUpdate: EventEmitter<homeworks.Event> =
-        new EventEmitter<homeworks.Event>();
+    writeValue(value: any) {
+        this.model = value;
+    }
 
-    constructor(
-        protected renderer: Renderer2,
-        private changeDetectorRef: ChangeDetectorRef,
-        private elementRef: ElementRef
-    ) {
-        super(
-            renderer,
-            COMPONENT,
-            ALIAS
-        );
+    registerOnChange(fn: any) {
+        this.propagateChange = fn;
+    }
+
+    registerOnTouched(fn: any) {
+        this.propagateTouch = fn;
     }
 
     render() {
-        const context = this;
-        if (context.$checkbox) {
-            context.$checkbox.triggerHandler('update');
+        if (this.$checkbox) {
+            this.$checkbox.triggerHandler('update');
         }
     }
 
     ngOnInit() {
-        const context = this;
+        this.$element = jQuery(this.elementRef.nativeElement);
+        this.$checkbox = jQuery(this.checkboxChild.nativeElement);
 
-        context.$element = jQuery(context.elementRef.nativeElement);
-        context.$checkbox = jQuery(context.checkboxChild.nativeElement);
-
-        context.$checkbox
+        this.$checkbox
             .checkbox()
-            .on('change', (event: JQuery.Event) => {
+            .on('change', event => {
                 const value: homeworks.Event = {
-                    checked: context.$checkbox.prop('checked'),
-                    value: context.$checkbox.val(),
-                    element: context.$checkbox
+                    checked: this.$checkbox.prop('checked'),
+                    value: this.$checkbox.val(),
+                    element: this.$checkbox
                 }
-                const formValue: any = context.$checkbox.val();
-                const formChecked: boolean = context.$checkbox.prop('checked');
-                const formValueExists: boolean = typeof formValue !== 'undefined' && formValue !== null && formValue !== '';
+                const formValue: any = this.$checkbox.val();
+                const formChecked: boolean = this.$checkbox.prop('checked');
+                const formValueExists: boolean = !!formValue;
 
                 if (formChecked) {
                     if (formValueExists) {
-                        context.model = context.$checkbox.val();
+                        this.model = this.$checkbox.val();
+                    } else {
+                        this.model = formChecked;
                     }
-                    else {
-                        context.model = formChecked;
-                    }
-                }
-                else {
+                } else {
                     if (formValueExists) {
-                        context.model = '';
-                    }
-                    else {
-                        context.model = formChecked;
+                        this.model = '';
+                    } else {
+                        this.model = formChecked;
                     }
                 }
-                context.onUpdate.emit(value);
+                this.onUpdate.emit(value);
             });
     }
 
     ngAfterViewInit() {
-        const context = this;
-        context.render();
+        this.render();
     }
 }
