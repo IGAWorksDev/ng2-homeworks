@@ -171,6 +171,10 @@ var WorksStepItem = /** @class */ (function (_super) {
         this.contentElement.appendChild(this.elementRef.nativeElement);
         container.parentElement.appendChild(container);
     };
+    WorksStepItem.prototype.ngOnDestroy = function () {
+        this.contentElement.remove();
+        this.titleElement.remove();
+    };
     WorksStepItem.prototype.ngAfterContentInit = function () {
         if (this.titleChild)
             this.titleElement.appendChild(this.titleChild.elementRef.nativeElement);
@@ -187,7 +191,7 @@ var WorksStepItem = /** @class */ (function (_super) {
     WorksStepItem = __decorate([
         core_1.Component({
             selector: 'works-step-item',
-            template: "\n        <ng-content></ng-content>\n    "
+            template: "<ng-content></ng-content>"
         }),
         __metadata("design:paramtypes", [core_1.Renderer2,
             core_1.ElementRef])

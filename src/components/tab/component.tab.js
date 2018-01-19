@@ -170,6 +170,10 @@ var WorksTabItem = /** @class */ (function (_super) {
         this.contentElement.appendChild(this.elementRef.nativeElement);
         container.parentElement.appendChild(container);
     };
+    WorksTabItem.prototype.ngOnDestroy = function () {
+        this.contentElement.remove();
+        this.titleElement.remove();
+    };
     WorksTabItem.prototype.ngAfterContentInit = function () {
         if (this.titleChild)
             this.titleElement.appendChild(this.titleChild.elementRef.nativeElement);
@@ -186,7 +190,7 @@ var WorksTabItem = /** @class */ (function (_super) {
     WorksTabItem = __decorate([
         core_1.Component({
             selector: 'works-tab-item',
-            template: "\n        <ng-content></ng-content>\n    "
+            template: "<ng-content></ng-content>"
         }),
         __metadata("design:paramtypes", [core_1.Renderer2,
             core_1.ElementRef])

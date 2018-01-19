@@ -90,9 +90,7 @@ export class WorksTabTitle extends HomeworksManager {
 
 @Component({
     selector: 'works-tab-item',
-    template: `
-        <ng-content></ng-content>
-    `
+    template: `<ng-content></ng-content>`
 })
 export class WorksTabItem extends HomeworksManager implements AfterContentInit {
     @ContentChild(forwardRef(() => WorksTabTitle)) titleChild: WorksTabTitle;
@@ -146,6 +144,11 @@ export class WorksTabItem extends HomeworksManager implements AfterContentInit {
         this.contentElement.appendChild(this.elementRef.nativeElement);
 
         (container as Element).parentElement.appendChild((container as Element));
+    }
+
+    ngOnDestroy() {
+        this.contentElement.remove();
+        this.titleElement.remove();
     }
 
     ngAfterContentInit() {

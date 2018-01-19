@@ -90,9 +90,7 @@ export class WorksStepTitle extends HomeworksManager {
 
 @Component({
     selector: 'works-step-item',
-    template: `
-        <ng-content></ng-content>
-    `
+    template: `<ng-content></ng-content>`
 })
 export class WorksStepItem extends HomeworksManager implements AfterContentInit {
     @ContentChild(forwardRef(() => WorksStepTitle)) titleChild: WorksStepTitle;
@@ -147,6 +145,11 @@ export class WorksStepItem extends HomeworksManager implements AfterContentInit 
         this.contentElement.appendChild(this.elementRef.nativeElement);
 
         (container as Element).parentElement.appendChild((container as Element));
+    }
+
+    ngOnDestroy() {
+        this.contentElement.remove();
+        this.titleElement.remove();
     }
 
     ngAfterContentInit() {
